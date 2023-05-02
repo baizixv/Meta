@@ -1,0 +1,19 @@
+{
+  "name": "mywebsite",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@baizixv.github.com:baizixv/MyWebsite.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
