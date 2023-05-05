@@ -55,3 +55,7 @@ export const zip = (...arr) =>
 //   [3, 6, 9],
 //  ]
 export const transpose = matrix => matrix[0].map((col, i) => matrix.map(row => row[i]))
+
+/** 数组平均数 */
+export const average = arr => arr.reduce((acc, val) => acc + val, 0) / arr.length
+// average([1, 2, 3]) -> 2
