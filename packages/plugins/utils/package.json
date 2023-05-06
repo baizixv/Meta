@@ -1,7 +1,7 @@
 {
-  "name": "@bzx/utils",
+  "name": "@bai/utils",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "description": "javascript utility functions",
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "",
   "license": "ISC",
@@ -14,7 +14,8 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npm.taobao.org/"
+    "registry": "https://registry.npmjs.com",
+    "access": "public"
   },
   "repository": {
     "type": "git",
