@@ -23,5 +23,6 @@
   },
   "scripts": {
     "test": "node ./__tests__/@bzx/utils.test.js"
-  }
+  },
+  "gitHead": "e28e36fd278c00435e3524037c56f37b083f6c44"
 }
