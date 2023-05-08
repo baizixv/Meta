@@ -1,7 +1,7 @@
 /**
  * 字符串相关的操作
  */
-export const Regex = {
+export const String = {
   capitalizeEveryWord,
   capitalize,
 }
