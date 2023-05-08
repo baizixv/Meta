@@ -1,5 +1,5 @@
 {
-  "name": "baizixv-utils",
+  "name": "bai-utils",
   "version": "0.1.4",
   "description": "javascript utility functions",
   "author": "bai.zixv <bai.zixv@foxmail.com>",
@@ -30,5 +30,6 @@
   },
   "devDependencies": {
     "rimraf": "^5.0.0"
-  }
+  },
+  "gitHead": "01c0f2411ba77888835a7353fdbfcf744078c17f"
 }
