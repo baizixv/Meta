@@ -1,4 +1,4 @@
-# `@bzx/utils`
+# `@baizixv/utils`
 
 > TODO: description
 
