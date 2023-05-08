@@ -18,5 +18,5 @@ export const invert = obj =>
 // isEqual({ name: 'jack' }, { name: 'jack' }) // true
 // isEqual({ name: 'jack' }, { name: 'jack1' }, { name: 'jack' }) // false
 
-export const isEqual = (...objects) =>
+export const isEqualObject = (...objects) =>
   objects.every(obj => JSON.stringify(obj) === JSON.stringify(objects[0]))
