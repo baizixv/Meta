@@ -2,16 +2,6 @@
  * web 相关操作
  */
 
-export const Web = {
-  reload,
-  goToTop,
-  scrollToTop,
-  scrollToBottom,
-  isIE,
-  stripHtml,
-  goTo,
-  copyText,
-}
 
 // 重新加载当前页面
 export const reload = () => location.reload()
@@ -44,3 +34,14 @@ export const goTo = url => (location.href = url)
 // copy('你需要粘贴的文本')
 export const copyText = text =>
   navigator.clipboard?.writeText && navigator.clipboard.writeText(text)
+
+export const WebFunc = {
+  reload,
+  goToTop,
+  scrollToTop,
+  scrollToBottom,
+  isIE,
+  stripHtml,
+  goTo,
+  copyText,
+}

@@ -1,13 +1,7 @@
 /**
  * 数学和数字相关的操作
  */
-export const Math = {
-  anagrams,
-  toDecimal,
-  toFixed,
-  round,
-  replenishZero,
-}
+
 /** 字符串的排列数 */
 // anagrams('abc') -> ['abc','acb','bac','bca','cab','cba']
 export const anagrams = str => {
@@ -40,3 +34,11 @@ export const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}
 // replenishZero(8, 2)
 // 08
 export const replenishZero = (num, len, zero = 0) => num.toString().padStart(len, zero)
+
+export const MathFunc = {
+  anagrams,
+  toDecimal,
+  toFixed,
+  round,
+  replenishZero,
+}

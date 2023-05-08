@@ -6,7 +6,6 @@
   "homepage": "https://github.com/baizixv/Meta#readme",
   "license": "ISC",
   "main": "lib/bundle.js",
-  "type": "module",
   "scripts": {
     "build": "rimraf lib && rollup -c",
     "test": "node ./__tests__/@bai.zixv/utils.test.js"
@@ -30,7 +29,10 @@
     "url": "https://github.com/baizixv/Meta/issues"
   },
   "devDependencies": {
-    "rimraf": "^5.0.0"
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "rimraf": "^5.0.0",
+    "rollup-plugin-babel": "^4.4.0"
   },
   "gitHead": "01c0f2411ba77888835a7353fdbfcf744078c17f"
 }

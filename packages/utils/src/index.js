@@ -1,5 +1,5 @@
 import {
-  Array,
+  ArrayFunc,
   createArr,
   createArr2,
   randomSort,
@@ -12,16 +12,16 @@ import {
   transpose,
   average,
 } from './array'
-import { Color, getRandomColor, hexToRgb } from './color'
-import { Function, isAsyncFunction } from './function'
-import { Math, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
-import { Object, removeNullUndefined, invert, isEqualObject } from './object'
-import { Other, sleep } from './other'
-import { Random, randomIp, uuid } from './random'
-import { Regex, formatPhone, setTrimOut } from './regex'
-import { String, capitalizeEveryWord, capitalize } from './string'
+import { ColorFunc, getRandomColor, hexToRgb } from './color'
+import { FunctionFunc, isAsyncFunction } from './function'
+import { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
+import { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object'
+import { OtherFunc, sleep } from './other'
+import { RandomFunc, randomIp, uuid } from './random'
+import { RegexFunc, formatPhone, setTrimOut } from './regex'
+import { StringFunc, capitalizeEveryWord, capitalize } from './string'
 import {
-  Time,
+  TimeFunc,
   isToday,
   formatYmd,
   formatSeconds,
@@ -30,6 +30,7 @@ import {
   getDaysNum,
 } from './time'
 import {
+  WebFunc,
   reload,
   goToTop,
   scrollToTop,
@@ -38,21 +39,20 @@ import {
   stripHtml,
   goTo,
   copyText,
-  Web,
 } from './web'
 
 export default {
-  Array,
-  Color,
-  Function,
-  Math,
-  Object,
-  Other,
-  Random,
-  Regex,
-  String,
-  Time,
-  Web,
+  ArrayFunc,
+  ColorFunc,
+  FunctionFunc,
+  MathFunc,
+  ObjectFunc,
+  OtherFunc,
+  RandomFunc,
+  RegexFunc,
+  StringFunc,
+  TimeFunc,
+  WebFunc,
   createArr,
   createArr2,
   randomSort,

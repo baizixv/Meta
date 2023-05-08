@@ -1,14 +1,7 @@
 /**
  * 时间日期相关的操作
  */
-export const Time = {
-  isToday,
-  formatYmd,
-  formatSeconds,
-  getFirstDate,
-  getLastDate,
-  getDaysNum,
-}
+
 
 // 判断日期是否为今天
 export const isToday = date =>
@@ -37,3 +30,12 @@ export const getLastDate = (d = new Date()) => new Date(d.getFullYear(), d.getMo
 // const day = getDaysNum(2024, 2)
 // 29
 export const getDaysNum = (year, month) => new Date(year, month, 0).getDate()
+
+export const TimeFunc = {
+  isToday,
+  formatYmd,
+  formatSeconds,
+  getFirstDate,
+  getLastDate,
+  getDaysNum,
+}

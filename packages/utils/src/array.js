@@ -2,19 +2,7 @@
  * 数组相关的操作
  */
 
-export const Array = {
-  createArr,
-  createArr2,
-  randomSort,
-  removeDuplicates,
-  intersection,
-  indexOfMax,
-  indexOfMin,
-  closest,
-  zip,
-  transpose,
-  average,
-}
+
 
 // 生成一个0-99的数组
 // const arr = createArr(100) // 0 - 99 数组
@@ -74,3 +62,17 @@ export const transpose = matrix => matrix[0].map((col, i) => matrix.map(row => r
 /** 数组平均数 */
 export const average = arr => arr.reduce((acc, val) => acc + val, 0) / arr.length
 // average([1, 2, 3]) -> 2
+
+export const ArrayFunc = {
+  createArr,
+  createArr2,
+  randomSort,
+  removeDuplicates,
+  intersection,
+  indexOfMax,
+  indexOfMin,
+  closest,
+  zip,
+  transpose,
+  average,
+}

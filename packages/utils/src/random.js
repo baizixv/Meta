@@ -1,10 +1,7 @@
 /**
  * 随机值相关的操作
  */
-export const Random = {
-  randomIp,
-  uuid,
-}
+
 // 生成一个随机ip地址
 // randomIp() // '155.248.136.10'
 export const randomIp = () =>
@@ -19,3 +16,8 @@ export const uuid = a =>
   a
     ? (a ^ ((Math.random() * 16) >> (a / 4))).toString(16)
     : ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, uuid)
+
+export const RandomFunc = {
+  randomIp,
+  uuid,
+}

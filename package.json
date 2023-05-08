@@ -9,7 +9,8 @@
   },
   "workspaces": [
     "packages/*",
-    "web"
+    "web",
+    "Bai/Demo/"
   ],
   "repository": {
     "type": "git",
