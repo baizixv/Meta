@@ -1,11 +1,11 @@
-# `@bai.zixv/utils`
+# `bai-utils`
 
-> TODO: description
+> javascript utility functions
 
 ## Usage
 
 ```
-const utils = require('@bai.zixv/utils');
+const utils = require('bai-utils');
 
-// TODO: DEMONSTRATE API
+
 ```
