@@ -1,7 +1,10 @@
 /**
  * 随机值相关的操作
  */
-
+export const Random = {
+  randomIp,
+  uuid,
+}
 // 生成一个随机ip地址
 // randomIp() // '155.248.136.10'
 export const randomIp = () =>

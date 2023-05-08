@@ -1,5 +1,7 @@
 import {
+  Array,
   createArr,
+  createArr2,
   randomSort,
   removeDuplicates,
   intersection,
@@ -10,16 +12,23 @@ import {
   transpose,
   average,
 } from './array'
-import { getRandomColor, hexToRgb } from './color'
-import { isAsyncFunction } from './function'
-import { anagrams } from './math'
-import { toDecimal, toFixed, round, replenishZero } from './number'
-import { removeNullUndefined, invert, isEqualObject } from './object'
-import { sleep } from './other'
-import { randomIp, uuid } from './random'
-import { formatPhone, setTrimOut } from './regex'
-import { capitalizeEveryWord, capitalize } from './string'
-import { isToday, formatYmd, formatSeconds, getFirstDate, getLastDate, getDaysNum } from './time'
+import { Color, getRandomColor, hexToRgb } from './color'
+import { Function, isAsyncFunction } from './function'
+import { Math, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
+import { Object, removeNullUndefined, invert, isEqualObject } from './object'
+import { Other, sleep } from './other'
+import { Random, randomIp, uuid } from './random'
+import { Regex, formatPhone, setTrimOut } from './regex'
+import { String, capitalizeEveryWord, capitalize } from './string'
+import {
+  Time,
+  isToday,
+  formatYmd,
+  formatSeconds,
+  getFirstDate,
+  getLastDate,
+  getDaysNum,
+} from './time'
 import {
   reload,
   goToTop,
@@ -29,10 +38,23 @@ import {
   stripHtml,
   goTo,
   copyText,
+  Web,
 } from './web'
 
 export default {
+  Array,
+  Color,
+  Function,
+  Math,
+  Object,
+  Other,
+  Random,
+  Regex,
+  String,
+  Time,
+  Web,
   createArr,
+  createArr2,
   randomSort,
   removeDuplicates,
   intersection,

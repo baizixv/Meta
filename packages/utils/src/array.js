@@ -1,6 +1,21 @@
 /**
  * 数组相关的操作
  */
+
+export const Array = {
+  createArr,
+  createArr2,
+  randomSort,
+  removeDuplicates,
+  intersection,
+  indexOfMax,
+  indexOfMin,
+  closest,
+  zip,
+  transpose,
+  average,
+}
+
 // 生成一个0-99的数组
 // const arr = createArr(100) // 0 - 99 数组
 export const createArr = n => Array.from(new Array(n), (_, i) => i)

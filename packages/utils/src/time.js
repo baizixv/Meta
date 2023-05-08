@@ -1,6 +1,14 @@
 /**
  * 时间日期相关的操作
  */
+export const Time = {
+  isToday,
+  formatYmd,
+  formatSeconds,
+  getFirstDate,
+  getLastDate,
+  getDaysNum,
+}
 
 // 判断日期是否为今天
 export const isToday = date =>

@@ -1,6 +1,10 @@
 /**
  * 字符串相关的操作
  */
+export const Regex = {
+  capitalizeEveryWord,
+  capitalize,
+}
 /** 大写每个单词的首字母 */
 // capitalizeEveryWord('hello world!') -> 'Hello World!'
 export const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase())

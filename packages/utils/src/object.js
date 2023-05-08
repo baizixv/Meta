@@ -1,7 +1,11 @@
 /**
  * 对象相关的操作
  */
-
+export const Object = {
+  removeNullUndefined,
+  invert,
+  isEqualObject,
+}
 // 删除一个对象中的属性值为null或undefined的所有属性
 // removeNullUndefined({name: '', age: undefined, sex: null})
 // { name: '' }

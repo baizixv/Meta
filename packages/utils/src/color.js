@@ -1,7 +1,10 @@
 /**
  * 颜色相关的操作
  */
-
+export const Color = {
+  getRandomColor,
+  hexToRgb,
+}
 // 获取一个随机颜色
 // getRandomColor() // '#4c2fd7'
 export const getRandomColor = () => `#${Math.floor(Math.random() * 0xffffff).toString(16)}`

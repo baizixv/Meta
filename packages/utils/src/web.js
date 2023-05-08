@@ -2,6 +2,17 @@
  * web 相关操作
  */
 
+export const Web = {
+  reload,
+  goToTop,
+  scrollToTop,
+  scrollToBottom,
+  isIE,
+  stripHtml,
+  goTo,
+  copyText,
+}
+
 // 重新加载当前页面
 export const reload = () => location.reload()
 

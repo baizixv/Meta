@@ -1,12 +1,16 @@
 /**
  * 正则相关的操作
  */
+export const Regex = {
+  formatPhone,
+  setTrimOut,
+}
+
 // 将手机号码格式化成xxx-xxxx-xxxx的形式
 // formatPhone('13123456789')
 // '131-2345-6789'
 // formatPhone('13 1234 56 789', ' ')
 // '131 2345 6789'
-
 export const formatPhone = (str, sign = '-') =>
   str
     .replace(/(\W|\s)/g, '')

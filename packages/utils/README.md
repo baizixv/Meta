@@ -5,7 +5,6 @@
 ## Usage
 
 ```
-const utils = require('bai-utils');
-
+const BaiUtils = require('bai-utils');
 
 ```
