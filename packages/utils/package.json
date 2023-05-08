@@ -3,26 +3,28 @@
   "version": "0.1.2",
   "description": "javascript utility functions",
   "author": "bai.zixv <bai.zixv@foxmail.com>",
-  "homepage": "",
-  "license": "MIT",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "ISC",
   "main": "lib/utils.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
+  "files": [
+    "lib"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/baizixv/Meta.git"
+    "url": "git+https://github.com/baizixv/Meta.git"
   },
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "test": "node ./__tests__/@bzx/utils.test.js"
+    "test": "node ./__tests__/@bai.zixv/utils.test.js"
   },
-  "gitHead": "8a2defad93885589b17abc77bce18b57806301e7"
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  }
 }
