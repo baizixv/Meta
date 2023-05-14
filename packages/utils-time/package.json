@@ -1,6 +1,6 @@
 {
   "name": "@baizixv/utils-time",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "utils, time, date",
   "keywords": [
     "utils",
@@ -35,7 +35,7 @@
     "url": "https://github.com/baizixv/Meta/issues"
   },
   "dependencies": {
-    "@baizixv/polyfill-node": "^1.0.1"
+    "@baizixv/polyfill-node": "^1.0.2"
   },
   "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
 }
