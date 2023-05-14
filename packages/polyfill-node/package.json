@@ -1,0 +1,34 @@
+{
+  "name": "@baizixv/polyfill-node",
+  "version": "1.0.0",
+  "description": "polyfill node ESModules",
+  "keywords": [
+    "polyfill",
+    "node",
+    "ESModules"
+  ],
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "MIT",
+  "main": "lib/polyfills-node.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@baizixv/polyfills-node.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  }
+}
