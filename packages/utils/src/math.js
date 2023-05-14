@@ -23,8 +23,7 @@ export const toDecimal = (num, n = 10) => num.toString(n)
 // 将小数点后的某些数字截断而不取四舍五入
 // toFixed(10.255, 2)
 // 10.25
-export const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\d+(?:.\d{0,${fixed}})?`))[0]
-
+export const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\d+(?:.\\d{0,${fixed}})?`))[0]
 // 将小数点后的某些数字截断，并取四舍五入
 // round(10.255, 2)
 // 10.26
