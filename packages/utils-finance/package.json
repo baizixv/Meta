@@ -1,0 +1,42 @@
+{
+  "name": "@baizixv/utils-finance",
+  "version": "1.1.2",
+  "description": "javascript utility finance functions",
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "ISC",
+  "type": "module",
+  "main": "lib/bundle.js",
+  "scripts": {
+    "build": "rimraf lib && rollup -c",
+    "test": "node ./__tests__/@baizixv/utils.test.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "rimraf": "^5.0.0",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "dependencies": {
+    "@baizixv/utils": "^1.1.2"
+  },
+  "gitHead": "01c0f2411ba77888835a7353fdbfcf744078c17f"
+}
