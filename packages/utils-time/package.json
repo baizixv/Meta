@@ -1,16 +1,17 @@
 {
-  "name": "@baizixv/utils-finance",
-  "version": "0.0.7",
-  "description": "javascript utility finance functions",
+  "name": "@baizixv/utils-time",
+  "version": "0.0.3",
+  "description": "utils, time, date",
+  "keywords": [
+    "utils",
+    "time",
+    "date"
+  ],
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "https://github.com/baizixv/Meta#readme",
-  "license": "ISC",
+  "license": "MIT",
+  "main": "lib/utils-time.js",
   "type": "module",
-  "main": "lib/bundle.js",
-  "scripts": {
-    "build": "rimraf lib && rollup -c",
-    "test": "node ./__tests__/@baizixv/utils.test.js"
-  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -26,17 +27,15 @@
     "type": "git",
     "url": "git+https://github.com/baizixv/Meta.git"
   },
+  "scripts": {
+    "build": "rimraf lib && rollup -c",
+    "test": "node ./__tests__/@baizixv/utils-time.test.js"
+  },
   "bugs": {
     "url": "https://github.com/baizixv/Meta/issues"
   },
-  "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
-    "rimraf": "^5.0.0",
-    "rollup-plugin-babel": "^4.4.0"
-  },
   "dependencies": {
-    "@baizixv/utils": "^1.1.3"
+    "@baizixv/polyfill-node": "^1.0.2"
   },
   "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
 }

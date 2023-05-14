@@ -1,6 +1,6 @@
 // 入参：投资金额，年化收益率，投资天数
 // 出参：收益金额，本息总额
-import BaiUtils from '@baizixv/utils'
+import BaiUtils from '@baizixv/utils-js'
 
 export const getGain = (investmentAmount, annualRateOfReturn, investmentDays) => {
   const amountOfIncome = (investmentAmount * annualRateOfReturn * investmentDays) / 365
