@@ -1,5 +1,5 @@
-import { readFileAsync } from './node-fs'
-import { __filename, __dirname, transPath } from './node-path'
+export { readFileAsync } from './node-fs'
+export { __filename, __dirname, transPath } from './node-path'
 
 export default {
   readFileAsync,
