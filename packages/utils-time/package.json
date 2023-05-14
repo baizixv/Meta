@@ -1,0 +1,36 @@
+{
+  "name": "@baizixv/utils-time",
+  "version": "0.0.1",
+  "description": "utils, time, date",
+  "keywords": [
+    "utils",
+    "time",
+    "date"
+  ],
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "MIT",
+  "main": "lib/utils-time.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@baizixv/utils-time.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  },
+  "dependencies": {}
+}
