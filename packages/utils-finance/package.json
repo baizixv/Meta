@@ -37,6 +37,5 @@
   },
   "dependencies": {
     "@baizixv/utils": "^1.1.3"
-  },
-  "gitHead": "2ad86b82db00270b31e29d1b9bba9969e9cbc8e7"
+  }
 }
