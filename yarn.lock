@@ -1079,6 +1079,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@baizixv/utils@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/@baizixv/utils/-/utils-1.1.3.tgz#c61052ad52ca4085442a6c1b12537ff35109c004"
+  integrity sha512-OJwiKP7aIeSbrR8Q6MgmBe35ZphEhgYi8tnv24L9Uj2oXU/WsV/ZZ8DtobhAV1JYqM9Tq7x98dlqot3CVFRLJw==
+
 "@bcoe/v8-coverage@^0.2.3":
   version "0.2.3"
   resolved "https://registry.npmmirror.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
