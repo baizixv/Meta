@@ -1,4 +1,4 @@
-import {
+export {
   ArrayFunc,
   createArr,
   createArr2,
@@ -12,15 +12,15 @@ import {
   transpose,
   average,
 } from './array'
-import { ColorFunc, getRandomColor, hexToRgb } from './color'
-import { FunctionFunc, isAsyncFunction } from './function'
-import { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
-import { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object'
-import { OtherFunc, sleep } from './other'
-import { RandomFunc, randomIp, uuid } from './random'
-import { RegexFunc, formatPhone, setTrimOut } from './regex'
-import { StringFunc, capitalizeEveryWord, capitalize } from './string'
-import {
+export { ColorFunc, getRandomColor, hexToRgb } from './color'
+export { FunctionFunc, isAsyncFunction } from './function'
+export { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
+export { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object'
+export { OtherFunc, sleep } from './other'
+export { RandomFunc, randomIp, uuid } from './random'
+export { RegexFunc, formatPhone, setTrimOut } from './regex'
+export { StringFunc, capitalizeEveryWord, capitalize } from './string'
+export {
   TimeFunc,
   isToday,
   formatYmd,
@@ -29,7 +29,7 @@ import {
   getLastDate,
   getDaysNum,
 } from './time'
-import {
+export {
   WebFunc,
   reload,
   goToTop,
