@@ -36,6 +36,5 @@
   },
   "dependencies": {
     "@baizixv/polyfill-node": "^1.0.2"
-  },
-  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
+  }
 }
