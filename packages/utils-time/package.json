@@ -20,6 +20,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.com"
   },
   "repository": {
@@ -35,5 +36,6 @@
   },
   "dependencies": {
     "@baizixv/polyfill-node": "^1.0.1"
-  }
+  },
+  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
 }
