@@ -27,10 +27,13 @@
     "url": "git+https://github.com/baizixv/Meta.git"
   },
   "scripts": {
+    "build": "rimraf lib && rollup -c",
     "test": "node ./__tests__/@baizixv/utils-time.test.js"
   },
   "bugs": {
     "url": "https://github.com/baizixv/Meta/issues"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@baizixv/polyfill-node": "^1.0.0"
+  }
 }
