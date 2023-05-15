@@ -10,7 +10,14 @@
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "https://github.com/baizixv/Meta#readme",
   "license": "MIT",
-  "main": "lib/bundle.js",
+  "main": "dist/cjs/index.js",
+  "unpkg": "dist/umd/index.min.js",
+  "module": "dist/es/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && rollup -c",
+    "test": "node ./__tests__/@baizixv/polyfills-node.test.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,10 +32,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baizixv/Meta.git"
-  },
-  "scripts": {
-    "build": "rimraf lib && rollup -c",
-    "test": "node ./__tests__/@baizixv/polyfills-node.test.js"
   },
   "bugs": {
     "url": "https://github.com/baizixv/Meta/issues"

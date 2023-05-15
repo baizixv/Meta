@@ -3,13 +3,9 @@ import babel from '@rollup/plugin-babel'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
-import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 
 import pkg from './package.json'
-
-const extensions = ['.ts']
-// const noDeclarationFiles = { compilerOptions: { declaration: false } }
 
 const babelRuntimeVersion = pkg.dependencies['@babel/runtime'].replace(/^[^0-9]*/, '')
 
@@ -25,15 +21,10 @@ export default defineConfig([
     output: { file: 'dist/cjs/index.js', format: 'cjs', indent: false },
     external,
     plugins: [
-      nodeResolve({
-        extensions,
-      }),
+      nodeResolve(),
       babel({
         extensions,
-        plugins: [
-          ['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }],
-          ['./scripts/mangleErrors.js', { minify: false }],
-        ],
+        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
         babelHelpers: 'runtime',
       }),
     ],
@@ -41,14 +32,11 @@ export default defineConfig([
 
   // ES
   {
-    input: 'src/index.ts',
-    output: { file: 'es/hera-core.js', format: 'es', indent: false },
+    input: 'src/index.js',
+    output: { file: 'dist/es/index.js', format: 'es', indent: false },
     external,
     plugins: [
-      nodeResolve({
-        extensions,
-      }),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
+      nodeResolve(),
       babel({
         extensions,
         plugins: [
@@ -61,22 +49,18 @@ export default defineConfig([
 
   // ES for Browsers
   {
-    input: 'src/index.ts',
-    output: { file: 'es/hera-core.mjs', format: 'es', indent: false },
+    input: 'src/index.js',
+    output: { file: 'dist/es/index.mjs', format: 'es', indent: false },
     plugins: [
-      nodeResolve({
-        extensions,
-      }),
+      nodeResolve(),
       commonjs(),
       replace({
         preventAssignment: true,
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
       babel({
         extensions,
         exclude: 'node_modules/**',
-        plugins: [['./scripts/mangleErrors.js', { minify: true }]],
         skipPreflightCheck: true,
         babelHelpers: 'bundled',
       }),
@@ -92,23 +76,19 @@ export default defineConfig([
 
   // UMD Development
   {
-    input: 'src/index.ts',
+    input: 'src/index.js',
     output: {
-      file: 'dist/hera-core.js',
+      file: 'dist/umd/umd.dev.js',
       format: 'umd',
-      name: 'HeraCore',
+      name: pkg.name,
       indent: false,
     },
     plugins: [
-      nodeResolve({
-        extensions,
-      }),
+      nodeResolve(),
       commonjs(),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
       babel({
         extensions,
         exclude: 'node_modules/**',
-        plugins: [['./scripts/mangleErrors.js', { minify: false }]],
         babelHelpers: 'bundled',
       }),
       replace({
@@ -120,23 +100,19 @@ export default defineConfig([
 
   // UMD Production
   {
-    input: 'src/index.ts',
+    input: 'src/index.js',
     output: {
-      file: 'dist/hera-core.min.js',
+      file: 'dist/umd/index.min.js',
       format: 'umd',
-      name: 'HeraCore',
+      name: pkg.name,
       indent: false,
     },
     plugins: [
-      nodeResolve({
-        extensions,
-      }),
+      nodeResolve(),
       commonjs(),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
       babel({
         extensions,
         exclude: 'node_modules/**',
-        plugins: [['./scripts/mangleErrors.js', { minify: true }]],
         skipPreflightCheck: true,
         babelHelpers: 'bundled',
       }),
