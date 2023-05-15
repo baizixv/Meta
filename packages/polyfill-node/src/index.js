@@ -1,9 +1,10 @@
 export { readFileAsync } from './node-fs'
-export { __filename, __dirname, transPath } from './node-path'
+export { __filename, __dirname, joinPath, resolvePath } from './node-path'
 
 export default {
-  readFileAsync,
-  transPath,
   __filename,
   __dirname,
+  readFileAsync,
+  joinPath,
+  resolvePath,
 }

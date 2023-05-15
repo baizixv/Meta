@@ -33,5 +33,12 @@
   "bugs": {
     "url": "https://github.com/baizixv/Meta/issues"
   },
-  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
+  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.21.5"
+  }
 }

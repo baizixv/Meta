@@ -5,3 +5,6 @@ node_modules
 build
 lib
 dist
+
+# debug
+lerna-debug.log

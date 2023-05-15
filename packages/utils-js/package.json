@@ -31,9 +31,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.5",
     "rimraf": "^5.0.0",
     "rollup-plugin-babel": "^4.4.0"
   },
-  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460"
+  "gitHead": "c9b3a7fee6d76d0331df00e77cee1b2bcc1e8460",
+  "dependencies": {
+    "@babel/runtime": "^7.21.5"
+  }
 }
