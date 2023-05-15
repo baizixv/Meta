@@ -8,13 +8,14 @@
   "main": "lib/config-rollup.js",
   "type": "module",
   "directories": {
-    "lib": "lib",
+    "es": "es",
     "test": "__tests__"
   },
   "files": [
     "es"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.com"
   },
   "repository": {
