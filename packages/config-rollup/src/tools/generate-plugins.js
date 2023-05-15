@@ -9,6 +9,7 @@ export const generatePlugins = ({
   babel,
   terser,
   babelRuntimeVersion,
+  extensions,
   formatType,
 }) => {
   const plugins = []
@@ -68,7 +69,7 @@ export const generatePlugins = ({
     }
 
     // extensions
-    if (extensions) {
+    if (extensions.length > 0) {
       babelConfig.extensions = extensions
     }
     // skipPreflightCheck

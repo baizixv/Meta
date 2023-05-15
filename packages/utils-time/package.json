@@ -40,7 +40,14 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.5",
-    "@baizixv/config-rollup": "^1.0.0"
+    "@baizixv/config-rollup": "^1.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
+    "rimraf": "^5.0.0",
+    "rollup": "^3.21.7",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "sideEffects": false
 }

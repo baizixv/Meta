@@ -4,8 +4,7 @@ import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
 import { terser } from 'rollup-plugin-terser'
-
-import pkg from './package.json'
+import pkg from './package.json' assert { type: 'json' }
 
 const babelRuntimeVersion = pkg.dependencies['@babel/runtime'].replace(/^[^0-9]*/, '')
 
@@ -22,8 +21,8 @@ export default defineConfig([
     external,
     plugins: [
       nodeResolve(),
+      commonjs(),
       babel({
-        extensions,
         plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
         babelHelpers: 'runtime',
       }),
@@ -38,9 +37,11 @@ export default defineConfig([
     plugins: [
       nodeResolve(),
       babel({
-        extensions,
         plugins: [
-          ['@babel/plugin-transform-runtime', { version: babelRuntimeVersion, useESModules: true }],
+          [
+            '@babel/plugin-transform-runtime',
+            { corejs: 3, version: babelRuntimeVersion, useESModules: true },
+          ],
         ],
         babelHelpers: 'runtime',
       }),
@@ -59,7 +60,6 @@ export default defineConfig([
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
       babel({
-        extensions,
         exclude: 'node_modules/**',
         skipPreflightCheck: true,
         babelHelpers: 'bundled',
@@ -78,7 +78,7 @@ export default defineConfig([
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/umd/umd.dev.js',
+      file: 'dist/umd/index.dev.js',
       format: 'umd',
       name: pkg.name,
       indent: false,
@@ -87,7 +87,6 @@ export default defineConfig([
       nodeResolve(),
       commonjs(),
       babel({
-        extensions,
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',
       }),
@@ -111,7 +110,6 @@ export default defineConfig([
       nodeResolve(),
       commonjs(),
       babel({
-        extensions,
         exclude: 'node_modules/**',
         skipPreflightCheck: true,
         babelHelpers: 'bundled',

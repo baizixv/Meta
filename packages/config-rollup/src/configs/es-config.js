@@ -3,7 +3,17 @@ import { generatePlugins } from '../tools/generate-plugins'
 // ES
 export const esConfig = (
   config,
-  { nodeResolve, commonjs, replace, typescript, babel, terser, babelRuntimeVersion, external }
+  {
+    nodeResolve,
+    commonjs,
+    replace,
+    typescript,
+    babel,
+    terser,
+    babelRuntimeVersion,
+    external,
+    extensions,
+  }
 ) => {
   return {
     input: 'src/index.js',
@@ -17,6 +27,7 @@ export const esConfig = (
       babel,
       terser,
       babelRuntimeVersion,
+      extensions,
       formatType: 'es',
     }),
     ...config,

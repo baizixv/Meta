@@ -11,6 +11,7 @@ export const umdDevelopmentConfig = (
     terser,
     babelRuntimeVersion,
     external,
+    extensions,
     pkgName,
   }
 ) => ({
@@ -25,6 +26,7 @@ export const umdDevelopmentConfig = (
     terser,
     babelRuntimeVersion,
     external,
+    extensions,
     formatType: 'umd-dev',
   }),
   ...config,

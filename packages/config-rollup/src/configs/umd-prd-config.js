@@ -11,6 +11,7 @@ export const umdProductionConfig = (
     terser,
     babelRuntimeVersion,
     external,
+    extensions,
     pkgName,
   }
 ) => ({
@@ -25,6 +26,7 @@ export const umdProductionConfig = (
     terser,
     babelRuntimeVersion,
     external,
+    extensions,
     formatType: 'umd',
   }),
   ...config,
