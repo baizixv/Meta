@@ -1,6 +1,6 @@
 {
   "name": "@baizixv/utils-js",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "javascript utility functions",
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "https://github.com/baizixv/Meta#readme",
@@ -35,7 +35,7 @@
     "@babel/core": "^7.21.8",
     "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.5",
-    "@baizixv/config-rollup": "^1.0.0",
+    "@baizixv/config-rollup": "^1.0.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",

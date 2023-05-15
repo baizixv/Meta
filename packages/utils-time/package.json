@@ -1,6 +1,6 @@
 {
   "name": "@baizixv/utils-time",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "utils, time, date",
   "keywords": [
     "utils",
@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.5",
-    "@baizixv/polyfill-node": "^1.0.2"
+    "@baizixv/polyfill-node": "^1.0.3"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.5",
-    "@baizixv/config-rollup": "^1.0.0",
+    "@baizixv/config-rollup": "^1.0.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
