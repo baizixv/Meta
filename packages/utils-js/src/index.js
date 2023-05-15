@@ -41,31 +41,6 @@ import {
   copyText,
 } from './web'
 
-export {
-  ArrayFunc,
-  createArr,
-  createArr2,
-  randomSort,
-  removeDuplicates,
-  intersection,
-  indexOfMax,
-  indexOfMin,
-  closest,
-  zip,
-  transpose,
-  average,
-}
-export { ColorFunc, getRandomColor, hexToRgb }
-export { FunctionFunc, isAsyncFunction }
-export { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero }
-export { ObjectFunc, removeNullUndefined, invert, isEqualObject }
-export { OtherFunc, sleep }
-export { RandomFunc, randomIp, uuid }
-export { RegexFunc, formatPhone, setTrimOut }
-export { StringFunc, capitalizeEveryWord, capitalize }
-export { TimeFunc, isToday, formatYmd, formatSeconds, getFirstDate, getLastDate, getDaysNum }
-export { WebFunc, reload, goToTop, scrollToTop, scrollToBottom, isIE, stripHtml, goTo, copyText }
-
 export default {
   ArrayFunc,
   ColorFunc,
