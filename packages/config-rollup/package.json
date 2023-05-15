@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "license": "ISC",
-  "main": "lib/config-rollup.js",
+  "main": "es/config-rollup.js",
   "type": "module",
   "directories": {
     "es": "es",

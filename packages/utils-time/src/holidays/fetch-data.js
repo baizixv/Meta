@@ -1,10 +1,10 @@
-import { readFileAsync, transPath } from '@baizixv/polyfill-node'
+import { readFileAsync, joinPath } from '@baizixv/polyfill-node'
 
 const existingYears = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
 
 export const getSpecifiedYearData = async theYear => {
   if (existingYears.includes(theYear)) {
-    const thePath = transPath(`../../data/${theYear}.json`)
+    const thePath = joinPath(`../../data/${theYear}.json`)
     // 读取本地JSON文件数据
     const data = await readFileAsync(thePath, 'utf8')
     return data

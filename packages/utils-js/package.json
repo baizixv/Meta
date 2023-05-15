@@ -5,10 +5,12 @@
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "https://github.com/baizixv/Meta#readme",
   "license": "ISC",
-  "main": "lib/bundle.js",
   "type": "module",
+  "main": "dist/cjs/index.js",
+  "unpkg": "dist/umd/index.min.js",
+  "module": "dist/es/index.js",
   "scripts": {
-    "build": "rimraf lib && rollup -c",
+    "build": "rimraf dist && rollup -c",
     "test": "node ./__tests__/@baizixv/utils.test.js"
   },
   "directories": {
@@ -16,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public",

@@ -77,7 +77,7 @@ export const generatePlugins = ({
       const skipPreflightCheck = {
         umd: true,
       }
-      babelConfig.skipPreflightCheck = skipPreflightCheck(formatType)
+      babelConfig.skipPreflightCheck = skipPreflightCheck[formatType]
     }
 
     // babelHelpers
@@ -89,7 +89,7 @@ export const generatePlugins = ({
         'umd-dev': 'bundled',
         umd: 'bundled',
       }
-      babelConfig.babelHelpers = babelHelpers(formatType)
+      babelConfig.babelHelpers = babelHelpers[formatType]
     }
 
     plugins.push(babel(babelConfig))

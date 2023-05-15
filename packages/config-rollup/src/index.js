@@ -28,7 +28,7 @@ export const baseConfig = (
   ].map(name => RegExp(`^${name}($|/)`))
 
   const injectConfigFunc = (func, config) => {
-    func.call(null, config, {
+    return func.call(null, config, {
       nodeResolve,
       commonjs,
       replace,
@@ -47,7 +47,7 @@ export const baseConfig = (
   return configs.map(config => {
     switch (true) {
       // CommonJS
-      case config.formatType == 'cjs':
+      case config.formatType === 'cjs':
         return injectConfigFunc(commonjsConfig, config)
       // ES
       case config.formatType === 'es':
