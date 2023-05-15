@@ -1,6 +1,6 @@
 {
   "name": "@baizixv/utils-time",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "utils, time, date",
   "keywords": [
     "utils",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.5",
-    "@baizixv/polyfill-node": "^1.0.3"
+    "@baizixv/polyfill-node": "^2.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.21.4",
