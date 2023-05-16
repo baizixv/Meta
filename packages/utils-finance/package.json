@@ -11,7 +11,8 @@
   "module": "dist/es/index.js",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "test": "node ./__tests__/@baizixv/utils.test.js"
+    "test": "node ./__tests__/@baizixv/utils.test.js",
+    "publish": "npm publish"
   },
   "directories": {
     "lib": "lib",
