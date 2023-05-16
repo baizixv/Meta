@@ -19,7 +19,12 @@ import { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object
 import { OtherFunc, sleep } from './other'
 import { RandomFunc, randomIp, uuid } from './random'
 import { RegexFunc, formatPhone, setTrimOut } from './regex'
-import { StringFunc, capitalizeEveryWord, capitalize } from './string'
+import {
+  StringFunc,
+  capitalizeEveryWord,
+  capitalize,
+  simplifyString,
+} from './string'
 import {
   TimeFunc,
   isToday,
@@ -96,6 +101,7 @@ export {
   stripHtml,
   goTo,
   copyText,
+  simplifyString,
 }
 
 export default {
@@ -153,4 +159,5 @@ export default {
   stripHtml,
   goTo,
   copyText,
+  simplifyString,
 }
