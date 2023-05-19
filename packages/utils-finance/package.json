@@ -1,6 +1,6 @@
 {
   "name": "@baizixv/utils-finance",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "javascript utility finance functions",
   "author": "bai.zixv <bai.zixv@foxmail.com>",
   "homepage": "https://github.com/baizixv/Meta#readme",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.5",
-    "@baizixv/utils-js": "^2.1.1"
+    "@baizixv/utils-js": "^2.1.2"
   },
   "gitHead": "19ab30d379efc44eeb74bfb671847f0c5a25c168",
   "sideEffects": false
