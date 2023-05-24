@@ -45,7 +45,7 @@
     "rollup": "^3.21.7",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "gitHead": "18b3fd92e5899ec01180d8f2acef1184a0b7290d",
+  "gitHead": "38d160b40aed7797fd5e6a1b7229b51d025b6d2b",
   "dependencies": {
     "@babel/runtime": "^7.21.5"
   },
