@@ -50,6 +50,6 @@
     "@babel/runtime": "^7.21.5",
     "@baizixv/utils-js": "^2.1.2"
   },
-  "gitHead": "19ab30d379efc44eeb74bfb671847f0c5a25c168",
+  "gitHead": "18b3fd92e5899ec01180d8f2acef1184a0b7290d",
   "sideEffects": false
 }
