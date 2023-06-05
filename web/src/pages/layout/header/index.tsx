@@ -55,7 +55,7 @@ const items: MenuProps['items'] = [
   },
   {
     label: '关于本站',
-    key: 'app',
+    key: 'about',
     icon: <AppstoreOutlined />,
   },
   {
@@ -65,7 +65,11 @@ const items: MenuProps['items'] = [
   },
   {
     label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://github.com/baizixv"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         GITHUB
       </a>
     ),
