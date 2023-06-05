@@ -22,6 +22,7 @@ const items: MenuProps['items'] = [
     label: '网站书签集',
     key: 'SubMenu',
     icon: <SettingOutlined />,
+    disabled: true,
     children: [
       {
         type: 'group',
