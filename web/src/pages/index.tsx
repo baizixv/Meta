@@ -1,10 +1,8 @@
 import React from 'react'
+import Layout from './layout'
 
 const App = () => {
-  return (
-    <React.Fragment>
-      <div>Hello Meta</div>
-    </React.Fragment>
-  )
+  return <Layout />
 }
+
 export default App
