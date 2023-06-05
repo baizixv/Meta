@@ -1,10 +1,10 @@
 import React from 'react'
 
-const MyApp = () => {
+const App = () => {
   return (
     <React.Fragment>
       <div>Hello Meta</div>
     </React.Fragment>
   )
 }
-export default MyApp
+export default App

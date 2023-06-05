@@ -1,12 +1,12 @@
 import { useRoutes } from 'react-router-dom'
-import MyApp from '../pages'
+import App from '../pages'
 import React from 'react'
 
 const BaseRouter = () =>
   useRoutes([
     {
       path: '/',
-      element: <MyApp />,
+      element: <App />,
     },
   ])
 export default BaseRouter
