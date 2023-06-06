@@ -1,12 +1,13 @@
 import React from 'react'
 import { getTimeColor } from '@/utils/calculate/color'
 import { formatData } from '@/utils/format/timer'
-import { getLunarDate, getWeekDay } from '@/utils/calculate/date'
+import { getWeekDay } from '@/utils/calculate/date'
 
-// 时钟
+// 时钟组件
 export const Clock = ({ currentTime }: { currentTime: number }) => {
   const time = formatData(currentTime)
   const color = getTimeColor(currentTime)
+
   return (
     <p>
       时间: <span style={{ borderBottom: `3px solid ${color}` }}>{time}</span>
@@ -14,20 +15,23 @@ export const Clock = ({ currentTime }: { currentTime: number }) => {
   )
 }
 
-// 星期
-export const WeekDay = ({ currentTime }: { currentTime: number }) => {
-  const weekday = getWeekDay(currentTime)
-  return <p>星期: {weekday}</p>
+// 农历日期组件
+export const LunarDate = ({ lunarDate }: { lunarDate: string }) => {
+  return <p>农历: {lunarDate}</p>
 }
 
-// 农历
-const LunarDate = ({ currentTime }: { currentTime: number }) => {
-  const lunarDate = getLunarDate(currentTime)
-  return (
-    <div>
-      <p>农历: {lunarDate}</p>
-    </div>
-  )
+// 节气组件
+export const LunarTerm = ({ lunarTerm }: { lunarTerm: string }) => {
+  return <p>节气: {lunarTerm}</p>
 }
 
-export default LunarDate
+// 节日组件
+export const Festival = ({ festival }: { festival: string }) => {
+  return <p>节日: {festival}</p>
+}
+
+// 工作日
+export const WorkDay = ({ workday }: { workday: string }) => {
+  return <p>类型: {workday}</p>
+}
+
