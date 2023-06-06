@@ -10,17 +10,27 @@ import { Menu } from 'antd'
 const items: MenuProps['items'] = [
   {
     label: '主页',
-    key: 'mail',
+    key: 'home',
     icon: <MailOutlined />,
   },
   {
-    label: '常用 API',
-    key: 'app',
+    label: '免费API',
+    key: 'freeAPI',
+    icon: <AppstoreOutlined />,
+  },
+  {
+    label: '在线工具',
+    key: 'onlineTools',
+    icon: <AppstoreOutlined />,
+  },
+  {
+    label: '开发者工具',
+    key: 'devTools',
     icon: <AppstoreOutlined />,
   },
   {
     label: '网站书签集',
-    key: 'SubMenu',
+    key: 'subMenu',
     icon: <SettingOutlined />,
     disabled: true,
     children: [
