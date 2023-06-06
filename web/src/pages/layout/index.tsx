@@ -3,15 +3,18 @@ import Header from './header'
 import Home from '../home'
 import Footer from './footer'
 
-const Layout = () => {
+const Layout: React.FC = () => {
   return (
     <div
       style={{
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: 'rgba(244, 244, 244)',
-        height: 'auto',
       }}
     >
-      <Header />
+      <div style={{ position: 'sticky' }}>
+        <Header />
+      </div>
       <Home />
       <Footer />
     </div>

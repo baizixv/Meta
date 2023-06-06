@@ -4,8 +4,27 @@ import CalendarCard from './calendar'
 const Home = () => {
   return (
     <div>
-      <CalendarCard />
-      <p>HomePage</p>
+      <p
+        style={{
+          display: 'flex',
+        }}
+      >
+        <div
+          style={{
+            position: 'relative',
+            width: '80vw',
+            height: '70vw',
+          }}
+        ></div>
+        <div
+          style={{
+            position: 'relative',
+            right: '10px',
+          }}
+        >
+          <CalendarCard />
+        </div>
+      </p>
     </div>
   )
 }
