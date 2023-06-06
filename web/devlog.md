@@ -7,3 +7,4 @@
 7. 获取baizixv的图片签名作为网站图标-中期
 8. 获取baizixv.com作为域名-长期
 9. 获取云服务器-长期
+10. 农历处理日期的三个库做个取舍，  "lunar-calendar": "^0.1.4", "lunisolar": "^2.2.2", "lunar-typescript(倾向保留)"
