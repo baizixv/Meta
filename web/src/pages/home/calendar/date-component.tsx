@@ -46,5 +46,9 @@ export const WeekOrder = ({ weekOrder }: { weekOrder: string }) => {
   return <p>周次: {weekOrder}</p>
 }
 
+// 星座
+export const ZodiacSign = ({zodiacSign}: {zodiacSign: string}) => {
+  return <p>星座: {zodiacSign}</p>
+}
 
 

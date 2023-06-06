@@ -10,6 +10,7 @@ import {
   LunarTerm,
   WeekOrder,
   WorkDay,
+  ZodiacSign,
 } from './date-component'
 import {
   getAllDays,
@@ -19,6 +20,7 @@ import {
   getLunarTerm,
   getWeekOfYear,
   getWorkday,
+  getZodiacSignOfTime,
 } from '@/utils/calculate/date'
 
 const CalendarCard: React.FC = () => {
@@ -32,6 +34,7 @@ const CalendarCard: React.FC = () => {
 
   const countDay = getAllDays(currentTime)
   const leftDays = getLeftDays(currentTime)
+  const zodiacSign = getZodiacSignOfTime(currentTime)
 
   return (
     <Card
@@ -47,7 +50,7 @@ const CalendarCard: React.FC = () => {
       <Festival festival={festival} />
       <DayOrder countDay={countDay} leftDays={leftDays} />
       <WeekOrder weekOrder={weekOrder} />
-      <p>星座: 双子座</p>
+      <ZodiacSign zodiacSign={zodiacSign} />
       <LunarDate lunarDate={lunarDate} />
       <LunarTerm lunarTerm={lunarTerm} />
       <p>宜项: 订盟.纳采.出行.祈福.斋醮.安床.会亲友</p>

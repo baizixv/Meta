@@ -3,6 +3,15 @@ import LunarCalendar, { WorkTime } from 'lunar-calendar'
 // 一天的毫秒数
 const ONE_DAY_MILSEC = 24 * 60 * 60 * 1000
 
+// 计算年月日
+const getDateNumber = (timestamp: number) => {
+  const currentDate = new Date(timestamp)
+  const year = currentDate.getFullYear()
+  const month = currentDate.getMonth() + 1
+  const day = currentDate.getDate()
+  return { year, month, day }
+}
+
 // 计算星期
 export const getWeekDay = (timestamp: number): string => {
   const weekArr = ['日', '一', '二', '三', '四', '五', '六']
@@ -12,13 +21,8 @@ export const getWeekDay = (timestamp: number): string => {
 
 // 计算农历
 export const getLunarDate = (timestamp: number): any => {
-  const currentDate = new Date(timestamp)
-  const year = currentDate.getFullYear()
-  const lunar = LunarCalendar.solarToLunar(
-    year,
-    currentDate.getMonth() + 1,
-    currentDate.getDate()
-  )
+  const { year, month, day } = getDateNumber(timestamp)
+  const lunar = LunarCalendar.solarToLunar(year, month, day)
   const {
     GanZhiYear,
     zodiac,
@@ -167,4 +171,43 @@ export const getLeftDays = (timestamp: number) => {
   const leftDays = Math.floor((endYear.getTime() - timestamp) / ONE_DAY_MILSEC)
 
   return leftDays
+}
+
+// 计算星座，输入月日
+const getZodiacSign = (month: number, day: number): string => {
+  // 根据月份和日期判断星座
+  switch (true) {
+    case (month == 1 && day >= 20) || (month == 2 && day <= 18):
+      return '水瓶座' // 01/20 ~ 02/18
+    case (month == 2 && day >= 19) || (month == 3 && day <= 20):
+      return '双鱼座' // 02/19 ~ 03/20
+    case (month == 3 && day >= 21) || (month == 4 && day <= 19):
+      return '白羊座' // 03/21 ~ 04/19
+    case (month == 4 && day >= 20) || (month == 5 && day <= 20):
+      return '金牛座' // 04/20 ~ 05/20
+    case (month == 5 && day >= 21) || (month == 6 && day <= 21):
+      return '双子座' // 05/21 ~ 06/21
+    case (month == 6 && day >= 22) || (month == 7 && day <= 22):
+      return '巨蟹座' // 06/22 ~ 07/22
+    case (month == 7 && day >= 23) || (month == 8 && day <= 22):
+      return '狮子座' // 07/23 ~ 08/22
+    case (month == 8 && day >= 23) || (month == 9 && day <= 22):
+      return '处女座' // 08/23 ~ 09/22
+    case (month == 9 && day >= 23) || (month == 10 && day <= 22):
+      return '天秤座' // 09/23 ~ 10/22
+    case (month == 10 && day >= 23) || (month == 11 && day <= 21):
+      return '天蝎座' // 10/23 ~ 11/21
+    case (month == 11 && day >= 22) || (month == 12 && day <= 21):
+      return '射手座' // 11/22 ~ 12/21
+    case (month == 12 && day >= 22) || (month == 1 && day <= 19):
+      return '摩羯座' // 12/22 ~ 01/19
+    default:
+      return '日期无效'
+  }
+}
+
+// 计算当前时间的星座
+export const getZodiacSignOfTime = (timestamp: number): string => {
+  const { month, day } = getDateNumber(timestamp)
+  return getZodiacSign(month, day)
 }
