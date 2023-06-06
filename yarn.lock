@@ -8527,6 +8527,11 @@ lunar-calendar@^0.1.4:
   resolved "https://registry.npmmirror.com/lunar-calendar/-/lunar-calendar-0.1.4.tgz#4303024f889d5d706caf407c45dbdf1ced870be8"
   integrity sha512-5r87vbg5yg56z/jkf3A+Ur+ZggUTiJw1VATT9P7RELQgWcTNhfJ+OLkNYroSna6r65bMqyaAgapo9vRN40L75A==
 
+lunisolar@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npmmirror.com/lunisolar/-/lunisolar-2.2.2.tgz#40015d690c301e1cfe02eaea4b2f8a6ab878f5b8"
+  integrity sha512-R3JBd4HZI2sU3VV/S5T6t/UdvCKKbLEScMVMc4FzeETomVIOpzfic18vcqA3GDkKMynBUoYtKy1DMefImkKV3A==
+
 lz-string@^1.4.4:
   version "1.5.0"
   resolved "https://registry.npmmirror.com/lz-string/-/lz-string-1.5.0.tgz"
