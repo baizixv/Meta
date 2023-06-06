@@ -4,15 +4,20 @@ import { bodyStyle, contentStyle, headStyle } from './style'
 import { useTime } from '@/utils/hooks/time'
 import {
   Clock,
+  DayOrder,
   Festival,
   LunarDate,
   LunarTerm,
+  WeekOrder,
   WorkDay,
 } from './date-component'
 import {
+  getAllDays,
   getFestival,
+  getLeftDays,
   getLunarDate,
   getLunarTerm,
+  getWeekOfYear,
   getWorkday,
 } from '@/utils/calculate/date'
 
@@ -23,6 +28,10 @@ const CalendarCard: React.FC = () => {
   const lunarTerm = getLunarTerm(term)
   const festival = getFestival(lunarFestival, solarFestival)
   const workday = getWorkday(currentTime, worktime)
+  const weekOrder = getWeekOfYear(currentTime)
+
+  const countDay = getAllDays(currentTime)
+  const leftDays = getLeftDays(currentTime)
 
   return (
     <Card
@@ -36,8 +45,8 @@ const CalendarCard: React.FC = () => {
       <Clock currentTime={currentTime} />
       <WorkDay workday={workday} />
       <Festival festival={festival} />
-      <p>天次: 今年的第158天</p>
-      <p>周次: 今年的第23周</p>
+      <DayOrder countDay={countDay} leftDays={leftDays} />
+      <WeekOrder weekOrder={weekOrder} />
       <p>星座: 双子座</p>
       <LunarDate lunarDate={lunarDate} />
       <LunarTerm lunarTerm={lunarTerm} />

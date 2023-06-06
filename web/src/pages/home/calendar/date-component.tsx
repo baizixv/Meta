@@ -35,3 +35,16 @@ export const WorkDay = ({ workday }: { workday: string }) => {
   return <p>类型: {workday}</p>
 }
 
+// 天次
+export const DayOrder = ({ countDay, leftDays }: { countDay: number, leftDays: number }) => {
+  const orderDays = countDay - leftDays
+  return <p>天次: {`第${orderDays}天 今年共${countDay}天 还剩余${leftDays}天` }</p>
+}
+
+// 周次
+export const WeekOrder = ({ weekOrder }: { weekOrder: string }) => {
+  return <p>周次: {weekOrder}</p>
+}
+
+
+
