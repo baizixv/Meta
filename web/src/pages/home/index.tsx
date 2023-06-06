@@ -4,7 +4,7 @@ import CalendarCard from './calendar'
 const Home = () => {
   return (
     <div>
-      <p
+      <div
         style={{
           display: 'flex',
         }}
@@ -24,7 +24,7 @@ const Home = () => {
         >
           <CalendarCard />
         </div>
-      </p>
+      </div>
     </div>
   )
 }

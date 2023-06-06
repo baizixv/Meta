@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   eslint: {
     enable: true /* (default value) */,
@@ -25,19 +27,18 @@ module.exports = {
     },
   },
   webpack: {
-    alias: {},
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
     plugins: {
       add: [],
       remove: [],
     },
+    devServer: {
+      port: 80,
+      host: 'baizixv.com',
+    },
     configure: (webpackConfig: any, { env, paths }: any) => {
-      //   console.log(
-      //     '%c Line:37 🍬 webpackConfig',
-      //     'font-size:18px;color:#7f2b82;background:#33a5ff',
-      //     webpackConfig
-      //   )
-      //   throw ''
-      /* ... */
       return webpackConfig
     },
   },

@@ -14,20 +14,19 @@ const formatData = (timeStr: number): string => {
 
 const Clock = () => {
   const [currentTime, setCurrentTime] = useState(Date.now())
-  const [time, setTime] = useState('')
-  const getTime = () => {
+
+  useEffect(() => {
     const timeId = setInterval(() => {
       setCurrentTime(Date.now())
-      const result = formatData(currentTime)
-      setTime(result)
-      clearInterval(timeId)
     }, 1000)
-  }
-  useEffect(() => {
-    getTime()
-  }, [time])
+    return () => clearInterval(timeId)
+  }, [])
 
-  return <span>{time}</span>
+  const time = formatData(currentTime)
+  const seconds = new Date(time).getSeconds()
+  const color = `rgb(${seconds * 4}, ${255 - seconds * 4}, 0)`
+
+  return <span style={{ borderBottom: `3px solid ${color}` }}>{time}</span>
 }
 
 export default Clock
