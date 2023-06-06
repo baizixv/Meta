@@ -1,4 +1,9 @@
 import LunarCalendar, { WorkTime } from 'lunar-calendar'
+import lunisolar from 'lunisolar'
+import theGods from 'lunisolar/plugins/theGods'
+import { formatDate } from '../format/timer'
+// 加载插件
+lunisolar.extend(theGods)
 
 // 一天的毫秒数
 const ONE_DAY_MILSEC = 24 * 60 * 60 * 1000
@@ -210,4 +215,40 @@ const getZodiacSign = (month: number, day: number): string => {
 export const getZodiacSignOfTime = (timestamp: number): string => {
   const { month, day } = getDateNumber(timestamp)
   return getZodiacSign(month, day)
+}
+
+// 查询神煞宜忌
+export const getTheGods = (date: string) => {
+  const lsr = lunisolar(date)
+  // 取神煞
+  // const lsrMon = lsr.theGods.getGods('month') // 取得当日的月神
+  // lsr.theGods.getGods('day') // 取得当日的日神
+  // lsr.theGods.getDuty12God() // 取得当日建除十二神（建、除、满....）
+
+  // 查宜忌
+  const goodAndBad = lsr.theGods.getActs() // 取得当日宜忌 {good: string[], bad: string[]}
+
+  const { good, bad } = goodAndBad
+
+  // const good1 = lsr.theGods.getGoodActs(1) // 取得当日所宜（通书六十事）
+  // const good2 = lsr.theGods.getGoodActs(2) // 取得当日所宜（御用六十七事）
+  // const bad1 = lsr.theGods.getBadActs(1) // 取得当日所忌（通书六十事）
+  // const bad2 = lsr.theGods.getBadActs(2) // 取得当日所忌（御用六十七事）
+  // lsr.theGods.getLuckHours() // 取得当日所有时辰吉凶
+
+  // 取得当日指定吉神所在方位  (支持 '喜神' | '福神' | '財神' | '陽貴' | '陰貴' 查询)
+  // const [d24, god] = lsr.theGods.getLuckDirection('財神')
+  // d24.direction // 南
+  // d24.name // 午
+  // d24.angle // 180
+  return [
+    good
+      .filter((item: string) => item.length < 3)
+      .slice(0, 7)
+      .join('.'),
+    bad
+      .filter((item: string) => item.length < 3)
+      .slice(0, 7)
+      .join('.'),
+  ]
 }

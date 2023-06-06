@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Card } from 'antd'
 import { bodyStyle, contentStyle, headStyle } from './style'
 import { useTime } from '@/utils/hooks/time'
@@ -6,6 +6,8 @@ import {
   Clock,
   DayOrder,
   Festival,
+  GodsBad,
+  GodsGood,
   LunarDate,
   LunarTerm,
   WeekOrder,
@@ -18,10 +20,12 @@ import {
   getLeftDays,
   getLunarDate,
   getLunarTerm,
+  getTheGods,
   getWeekOfYear,
   getWorkday,
   getZodiacSignOfTime,
 } from '@/utils/calculate/date'
+import { formatDate } from '@/utils/format/timer'
 
 const CalendarCard: React.FC = () => {
   const { currentTime } = useTime()
@@ -35,6 +39,12 @@ const CalendarCard: React.FC = () => {
   const countDay = getAllDays(currentTime)
   const leftDays = getLeftDays(currentTime)
   const zodiacSign = getZodiacSignOfTime(currentTime)
+  const date = formatDate(currentTime)
+
+  const [good, bad] = useMemo(() => {
+    const result = getTheGods(date)
+    return result
+  }, [date])
 
   return (
     <Card
@@ -53,8 +63,8 @@ const CalendarCard: React.FC = () => {
       <ZodiacSign zodiacSign={zodiacSign} />
       <LunarDate lunarDate={lunarDate} />
       <LunarTerm lunarTerm={lunarTerm} />
-      <p>宜项: 订盟.纳采.出行.祈福.斋醮.安床.会亲友</p>
-      <p>禁忌: 移徙.入宅.安葬</p>
+      <GodsGood good={good} />
+      <GodsBad bad={bad} />
     </Card>
   )
 }

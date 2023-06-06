@@ -51,4 +51,13 @@ export const ZodiacSign = ({zodiacSign}: {zodiacSign: string}) => {
   return <p>星座: {zodiacSign}</p>
 }
 
+// 神煞宜项
+export const GodsGood = ({ good }: { good: string }) => {
+  return <p>宜项: {good }</p>
+}
+
+// 神煞禁忌
+export const GodsBad = ({ bad }: { bad: string }) => {
+  return <p>禁忌: {bad }</p>
+}
 
