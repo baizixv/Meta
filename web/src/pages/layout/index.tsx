@@ -5,7 +5,12 @@ import Footer from './footer'
 
 const Layout = () => {
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: 'rgba(244, 244, 244)',
+        height: 'auto',
+      }}
+    >
       <Header />
       <Home />
       <Footer />
