@@ -1809,11 +1809,6 @@
     write-pkg "4.0.0"
     yargs "16.2.0"
 
-"@lunisolar/plugin-thegods@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.npmmirror.com/@lunisolar/plugin-thegods/-/plugin-thegods-0.1.3.tgz#c379dc5e1c431ca060818e05f7b84ab3a9b44e5c"
-  integrity sha512-8MI3UvzJNt96kjPuUK33fgAY6kmg4YbN5Yjsj/x5QQE2eTNvrttwjbML6V0eJHLBq99EE0o6m4WUImiB0LKSMw==
-
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.npmmirror.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz"
@@ -8536,11 +8531,6 @@ lunar-typescript@^1.6.6:
   version "1.6.6"
   resolved "https://registry.npmmirror.com/lunar-typescript/-/lunar-typescript-1.6.6.tgz#340637a034f51244fa4f287a9b247220b54a24cb"
   integrity sha512-GaiIcaPhjEqDPFFlVW7mQoigBYxDmMpPVj1qubSg2CyFIOhxS7sPLHZod18YrjompQ3v8BXV2jsvCKpN/DXnwA==
-
-lunisolar@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.npmmirror.com/lunisolar/-/lunisolar-2.2.2.tgz#40015d690c301e1cfe02eaea4b2f8a6ab878f5b8"
-  integrity sha512-R3JBd4HZI2sU3VV/S5T6t/UdvCKKbLEScMVMc4FzeETomVIOpzfic18vcqA3GDkKMynBUoYtKy1DMefImkKV3A==
 
 lz-string@^1.4.4:
   version "1.5.0"

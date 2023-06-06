@@ -1,8 +1,5 @@
 import LunarCalendar, { WorkTime } from 'lunar-calendar'
-import lunisolar from 'lunisolar'
-import { theGods } from '@lunisolar/plugin-thegods'
-// 加载插件
-lunisolar.extend(theGods)
+import { Solar, Lunar, HolidayUtil } from 'lunar-typescript'
 
 // 一天的毫秒数
 const ONE_DAY_MILSEC = 24 * 60 * 60 * 1000
@@ -217,20 +214,11 @@ export const getZodiacSignOfTime = (timestamp: number): string => {
 }
 
 // 查询神煞宜忌
-export const getTheGods = (date: string) => {
-  const lsr = lunisolar(date)
-
-  // 查宜忌
-  const { good, bad } = lsr.theGods.getActs(0) // 取得当日宜忌 {good: string[], bad: string[]}
-
-  return [
-    good
-      .filter((item: string) => item.length < 3)
-      .slice(0, 7)
-      .join('.'),
-    bad
-      .filter((item: string) => item.length < 3)
-      .slice(0, 7)
-      .join('.'),
-  ]
+export const getTheGods = () => {
+  const date = Lunar.fromDate(new Date())
+  // 宜
+  const goodList = date.getDayYi()
+  // 忌
+  const badList = date.getDayJi()
+  return [goodList.slice(0, 7).join('.'), badList.slice(0, 7).join('.')]
 }

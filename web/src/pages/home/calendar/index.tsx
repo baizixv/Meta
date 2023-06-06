@@ -29,6 +29,7 @@ import { formatDate } from '@/utils/format/timer'
 
 const CalendarCard: React.FC = () => {
   const { currentTime } = useTime()
+  const date = formatDate(currentTime)
   const { lunarDate, term, worktime, lunarFestival, solarFestival } =
     getLunarDate(currentTime)
   const lunarTerm = getLunarTerm(term)
@@ -39,10 +40,9 @@ const CalendarCard: React.FC = () => {
   const countDay = getAllDays(currentTime)
   const leftDays = getLeftDays(currentTime)
   const zodiacSign = getZodiacSignOfTime(currentTime)
-  const date = formatDate(currentTime)
 
   const [good, bad] = useMemo(() => {
-    const result = getTheGods(date)
+    const result = getTheGods()
     return result
   }, [date])
 
