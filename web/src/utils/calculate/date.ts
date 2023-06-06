@@ -1,7 +1,6 @@
 import LunarCalendar, { WorkTime } from 'lunar-calendar'
 import lunisolar from 'lunisolar'
 import theGods from 'lunisolar/plugins/theGods'
-import { formatDate } from '../format/timer'
 // 加载插件
 lunisolar.extend(theGods)
 
