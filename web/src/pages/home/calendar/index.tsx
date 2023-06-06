@@ -1,9 +1,17 @@
 import React from 'react'
 import { Card } from 'antd'
 import { bodyStyle, contentStyle, headStyle } from './style'
-import Clock from './clock'
+import { useTime } from '@/utils/hooks/time'
+import { formatData } from '@/utils/format/timer'
+import { getTimeColor } from '@/utils/calculate/color'
+import { getWeekDay } from '@/utils/calculate/date'
 
 const CalendarCard: React.FC = () => {
+  const { currentTime } = useTime()
+  const time = formatData(currentTime)
+  const color = getTimeColor(currentTime)
+  const weekday = getWeekDay(currentTime)
+
   return (
     <Card
       title="今日日历"
@@ -14,9 +22,9 @@ const CalendarCard: React.FC = () => {
       bodyStyle={bodyStyle}
     >
       <p>
-        时间: <Clock />
+        时间: <span style={{ borderBottom: `3px solid ${color}` }}>{time}</span>
       </p>
-      <p>星期: 周二</p>
+      <p>星期: {weekday}</p>
       <p>农历: 癸卯 四月十九</p>
       <p>星座: 双子座</p>
       <p>类型: 工作日</p>
