@@ -214,8 +214,14 @@ export const getZodiacSignOfTime = (timestamp: number): string => {
 }
 
 // 查询神煞宜忌
-export const getTheGods = () => {
+export const getLunarInfo = () => {
   const date = Lunar.fromDate(new Date())
+  const jieQi = date.getJieQi()
+
+  // 节气
+  const lunarInfo = {
+    jieQi,
+  }
   // 宜
   const goodList = date.getDayYi()
   // 忌

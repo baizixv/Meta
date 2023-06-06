@@ -20,7 +20,7 @@ import {
   getLeftDays,
   getLunarDate,
   getLunarTerm,
-  getTheGods,
+  getLunarInfo,
   getWeekOfYear,
   getWorkday,
   getZodiacSignOfTime,
@@ -42,7 +42,7 @@ const CalendarCard: React.FC = () => {
   const zodiacSign = getZodiacSignOfTime(currentTime)
 
   const [good, bad] = useMemo(() => {
-    const result = getTheGods()
+    const result = getLunarInfo()
     return result
   }, [date])
 
