@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from 'antd'
 import { bodyStyle, contentStyle, headStyle } from './style'
 import { useTime } from '@/utils/hooks/time'
-import { Clock, WeekDay } from './date-component'
+import LunarDate, { Clock, WeekDay } from './date-component'
 
 const CalendarCard: React.FC = () => {
   const { currentTime } = useTime()
@@ -18,6 +18,7 @@ const CalendarCard: React.FC = () => {
     >
       <Clock currentTime={currentTime} />
       <WeekDay currentTime={currentTime} />
+      <LunarDate currentTime={currentTime} />
       <p>农历: 癸卯 四月十九</p>
       <p>星座: 双子座</p>
       <p>类型: 工作日</p>

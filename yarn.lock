@@ -8522,6 +8522,11 @@ lru-cache@^9.0.0:
   resolved "https://registry.npmmirror.com/lru-cache/-/lru-cache-9.1.1.tgz"
   integrity sha512-65/Jky17UwSb0BuB9V+MyDpsOtXKmYwzhyl+cOa9XUiI4uV2Ouy/2voFP3+al0BjZbJgMBD8FojMpAf+Z+qn4A==
 
+lunar-calendar@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npmmirror.com/lunar-calendar/-/lunar-calendar-0.1.4.tgz#4303024f889d5d706caf407c45dbdf1ced870be8"
+  integrity sha512-5r87vbg5yg56z/jkf3A+Ur+ZggUTiJw1VATT9P7RELQgWcTNhfJ+OLkNYroSna6r65bMqyaAgapo9vRN40L75A==
+
 lz-string@^1.4.4:
   version "1.5.0"
   resolved "https://registry.npmmirror.com/lz-string/-/lz-string-1.5.0.tgz"
