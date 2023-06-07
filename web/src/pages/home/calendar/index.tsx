@@ -64,10 +64,9 @@ const CalendarCard: React.FC = () => {
     dateTypeStr,
     holiday,
   } = useMemo(() => {
-    const holidayInfo = getHolidayInfo()
-    const lunarDateInfo = getLunarDateInfo()
-    const solarDateInfo = getSolarDateInfo()
-
+    const holidayInfo = getHolidayInfo(currentTime)
+    const lunarDateInfo = getLunarDateInfo(currentTime)
+    const solarDateInfo = getSolarDateInfo(currentTime)
     return { ...lunarDateInfo, ...solarDateInfo, ...holidayInfo }
   }, [date])
 

@@ -86,7 +86,7 @@ export const getWorkday = (timestamp: number, dayType: DayType): string => {
     case TypeDay.Normal:
       return week > 0 && week < 6 ? `工作日` : `休息日`
     case TypeDay.Holiday:
-      return `放假日`
+      return `法定节假日`
     case TypeDay.Work:
       return week > 0 && week < 6 ? `工作日` : `调休-工作日`
     default:

@@ -17,11 +17,9 @@ const getHolidayInfo = (timestamp: number = Date.now()) => {
   const solarDate = Solar.fromDate(stdDate)
   const solarHoliday = getSolarHoliday(solarDate)
 
-  const holiday = legalHoliday
-    ? `${legalHoliday}`
-    : `${lunarHoliday} ${solarHoliday} ${
-        lunarHoliday || solarHoliday ? '' : '无'
-      }`
+  const holiday = `${legalHoliday} ${lunarHoliday} ${solarHoliday} ${
+    legalHoliday || lunarHoliday || solarHoliday ? '' : '无'
+  }`
 
   return { dateTypeStr, holiday }
 }
@@ -53,10 +51,12 @@ const getLegalHoliday = (timestamp: number) => {
     )
     dateType = holidayDate.isWork() ? TypeDay.Work : TypeDay.Holiday
     const dateTypeStr = `${getWorkday(timestamp, dateType)}`
-    const legalHoliday = `${holidayDate.getName()}[${convertDate(
-      targetDay
-    )}] (${holidayRanges.shift()}~${holidayRanges.pop()}) ${
-      workDayRanges.length > 0 ? '调休日(' + workDayRanges.join('.') + ')' : ''
+    const legalHoliday = `${holidayDate.getName()}假期[${
+      holidayRanges.length > 1
+        ? holidayRanges.shift() + '~' + holidayRanges.pop()
+        : holidayRanges.pop()
+    }] ${
+      workDayRanges.length > 0 ? '调休日[' + workDayRanges.join(',') + ']' : ''
     }`
     return [legalHoliday, dateTypeStr]
   } else {
@@ -69,9 +69,10 @@ const getLegalHoliday = (timestamp: number) => {
 // 获取阴历节假日
 const getLunarHoliday = (date: Lunar) => {
   const lunarFestival = date.getFestivals()
+
   const lunarFestivalOther = date.getOtherFestivals()
 
-  return `${lunarFestival.join('.')}${lunarFestivalOther.join('.')}`
+  return `${[...lunarFestival, ...lunarFestivalOther].join('.')}`
 }
 
 // 获取阳历节假日
@@ -79,7 +80,7 @@ const getSolarHoliday = (date: Solar) => {
   const solarFestival = date.getFestivals()
   const solarFestivalOther = date.getOtherFestivals()
 
-  return `${solarFestival.join('.')}${solarFestivalOther.join('.')}`
+  return `${[...solarFestival, ...solarFestivalOther].join('.')}`
 }
 
 export default getHolidayInfo
