@@ -9,9 +9,10 @@ import {
   GodsBad,
   GodsGood,
   LunarDate,
-  LunarTerm,
+  LunarJieQi,
+  LunarOtherInfo,
   WeekOrder,
-  WorkDay,
+  DayType,
   ZodiacSign,
 } from './date-component'
 import {
@@ -20,18 +21,28 @@ import {
   getLeftDays,
   getLunarDate,
   getLunarTerm,
-  getLunarInfo,
   getWeekOfYear,
   getWorkday,
   getZodiacSignOfTime,
-} from '@/utils/calculate/date'
+} from '@/utils/calculate/date/date'
 import { formatDate } from '@/utils/format/timer'
+import {
+  getHolidayInfo,
+  getLunarDateInfo,
+  getSolarDateInfo,
+} from '@/utils/calculate/date/lunarJs'
 
 const CalendarCard: React.FC = () => {
   const { currentTime } = useTime()
   const date = formatDate(currentTime)
-  const { lunarDate, term, worktime, lunarFestival, solarFestival } =
-    getLunarDate(currentTime)
+  const {
+    lunarDate: temp,
+    term,
+    worktime,
+    lunarFestival,
+    solarFestival,
+  } = getLunarDate(currentTime)
+
   const lunarTerm = getLunarTerm(term)
   const festival = getFestival(lunarFestival, solarFestival)
   const workday = getWorkday(currentTime, worktime)
@@ -41,28 +52,43 @@ const CalendarCard: React.FC = () => {
   const leftDays = getLeftDays(currentTime)
   const zodiacSign = getZodiacSignOfTime(currentTime)
 
-  const [good, bad] = useMemo(() => {
-    const result = getLunarInfo()
-    return result
+  const {
+    lunarDate,
+    jieQi,
+    good,
+    bad,
+    lunarOtherInfo,
+    daysIndexStr,
+    weekIndexInYear,
+    xingZuo,
+    dateTypeStr,
+    holiday,
+  } = useMemo(() => {
+    const holidayInfo = getHolidayInfo()
+    const lunarDateInfo = getLunarDateInfo()
+    const solarDateInfo = getSolarDateInfo()
+
+    return { ...lunarDateInfo, ...solarDateInfo, ...holidayInfo }
   }, [date])
 
   return (
     <Card
       title="今日日历"
-      extra={<a href="#">日历查询</a>}
+      extra={<a href="#">详细信息</a>}
       bordered={false}
       style={contentStyle}
       headStyle={headStyle}
       bodyStyle={bodyStyle}
     >
       <Clock currentTime={currentTime} />
-      <WorkDay workday={workday} />
-      <Festival festival={festival} />
-      <DayOrder countDay={countDay} leftDays={leftDays} />
-      <WeekOrder weekOrder={weekOrder} />
-      <ZodiacSign zodiacSign={zodiacSign} />
+      <DayType dateTypeStr={dateTypeStr} />
+      <Festival festival={holiday} />
+      <DayOrder daysIndexStr={daysIndexStr} />
+      <WeekOrder weekOrder={weekIndexInYear} />
+      <ZodiacSign zodiacSign={xingZuo} />
       <LunarDate lunarDate={lunarDate} />
-      <LunarTerm lunarTerm={lunarTerm} />
+      <LunarJieQi jieQi={jieQi} />
+      <LunarOtherInfo lunarOtherInfo={lunarOtherInfo} />
       <GodsGood good={good} />
       <GodsBad bad={bad} />
     </Card>

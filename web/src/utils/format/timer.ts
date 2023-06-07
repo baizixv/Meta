@@ -1,4 +1,4 @@
-import { getWeekDay } from '../calculate/date'
+import { getWeekDay } from '../calculate/date/date'
 // 根据时间戳获取，年月日时分秒
 const getDate = (timestamp: number) => {
   const newStr = new Date(timestamp)
@@ -23,7 +23,10 @@ export const formatData = (timestamp: number): string => {
 }
 
 // 格式化时间，形如 "2023-06-06",连接符号可以指定
-export const formatDate = (timestamp: number, connectStr: string = '-'): string => {
+export const formatDate = (
+  timestamp: number,
+  connectStr: string = '-'
+): string => {
   const [y, m, d] = getDate(timestamp)
   return `${y}${connectStr}${z(m)}${connectStr}${z(d)}`
 }

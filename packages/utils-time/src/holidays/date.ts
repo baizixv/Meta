@@ -1,5 +1,4 @@
-import LunarCalendar, { WorkTime } from 'lunar-calendar'
-import { Solar, Lunar, HolidayUtil } from 'lunar-typescript'
+import LunarCalendar from 'lunar-calendar'
 
 // 一天的毫秒数
 const ONE_DAY_MILSEC = 24 * 60 * 60 * 1000
@@ -75,7 +74,7 @@ export const getFestival = (
 }
 
 // 计算工作日
-export const getWorkday = (timestamp: number, worktime: WorkTime): string => {
+export const getWorkday = (timestamp: number, worktime: any): string => {
   const week = new Date(timestamp).getDay() // 0-6 日-六
   const TypeDay = {
     Normal: 0,
@@ -208,23 +207,7 @@ const getZodiacSign = (month: number, day: number): string => {
 }
 
 // 计算当前时间的星座
-export const getZodiacSignOfTime = (timestamp: number): string => {
+export const getZodiacSignOfTime = timestamp => {
   const { month, day } = getDateNumber(timestamp)
   return getZodiacSign(month, day)
-}
-
-// 查询神煞宜忌
-export const getLunarInfo = () => {
-  const date = Lunar.fromDate(new Date())
-  const jieQi = date.getJieQi()
-
-  // 节气
-  const lunarInfo = {
-    jieQi,
-  }
-  // 宜
-  const goodList = date.getDayYi()
-  // 忌
-  const badList = date.getDayJi()
-  return [goodList.slice(0, 7).join('.'), badList.slice(0, 7).join('.')]
 }
