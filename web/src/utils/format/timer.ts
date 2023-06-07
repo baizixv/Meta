@@ -14,7 +14,7 @@ const getDate = (timestamp: number) => {
 const z = (n: number): string => (n < 10 ? `0${n}` : `${n}`)
 
 // 格式化时间，形如 "2023/06/06 周二 19:47:04"
-export const formatData = (timestamp: number): string => {
+export const formatTimeData = (timestamp: number): string => {
   const [y, m, d, h, min, s] = getDate(timestamp)
 
   const weekday = getWeekDay(timestamp)

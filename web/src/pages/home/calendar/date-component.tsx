@@ -1,13 +1,11 @@
 import React from 'react'
 import { getTimeColor } from '@/utils/calculate/color'
-import { formatData } from '@/utils/format/timer'
-import { getWeekDay } from '@/utils/calculate/date/date'
+import { formatTimeData } from '@/utils/format/timer'
 
 // 时钟组件
 export const Clock = ({ currentTime }: { currentTime: number }) => {
-  const time = formatData(currentTime)
+  const time = formatTimeData(currentTime)
   const color = getTimeColor(currentTime)
-
   return (
     <p>
       时间: <span style={{ borderBottom: `3px solid ${color}` }}>{time}</span>

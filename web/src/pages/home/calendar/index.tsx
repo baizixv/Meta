@@ -15,16 +15,6 @@ import {
   DayType,
   ZodiacSign,
 } from './date-component'
-import {
-  getAllDays,
-  getFestival,
-  getLeftDays,
-  getLunarDate,
-  getLunarTerm,
-  getWeekOfYear,
-  getWorkday,
-  getZodiacSignOfTime,
-} from '@/utils/calculate/date/date'
 import { formatDate } from '@/utils/format/timer'
 import {
   getHolidayInfo,
@@ -33,25 +23,8 @@ import {
 } from '@/utils/calculate/date/lunarJs'
 
 const CalendarCard: React.FC = () => {
-  const { currentTime } = useTime()
-  const date = formatDate(currentTime)
-  const {
-    lunarDate: temp,
-    term,
-    worktime,
-    lunarFestival,
-    solarFestival,
-  } = getLunarDate(currentTime)
-
-  const lunarTerm = getLunarTerm(term)
-  const festival = getFestival(lunarFestival, solarFestival)
-  const workday = getWorkday(currentTime, worktime)
-  const weekOrder = getWeekOfYear(currentTime)
-
-  const countDay = getAllDays(currentTime)
-  const leftDays = getLeftDays(currentTime)
-  const zodiacSign = getZodiacSignOfTime(currentTime)
-
+  const { currentTimestamp } = useTime()
+  const date = formatDate(currentTimestamp)
   const {
     lunarDate,
     jieQi,
@@ -64,9 +37,9 @@ const CalendarCard: React.FC = () => {
     dateTypeStr,
     holiday,
   } = useMemo(() => {
-    const holidayInfo = getHolidayInfo(currentTime)
-    const lunarDateInfo = getLunarDateInfo(currentTime)
-    const solarDateInfo = getSolarDateInfo(currentTime)
+    const holidayInfo = getHolidayInfo(currentTimestamp)
+    const lunarDateInfo = getLunarDateInfo(currentTimestamp)
+    const solarDateInfo = getSolarDateInfo(currentTimestamp)
     return { ...lunarDateInfo, ...solarDateInfo, ...holidayInfo }
   }, [date])
 
@@ -79,7 +52,7 @@ const CalendarCard: React.FC = () => {
       headStyle={headStyle}
       bodyStyle={bodyStyle}
     >
-      <Clock currentTime={currentTime} />
+      <Clock currentTime={currentTimestamp} />
       <DayType dateTypeStr={dateTypeStr} />
       <Festival festival={holiday} />
       <DayOrder daysIndexStr={daysIndexStr} />
