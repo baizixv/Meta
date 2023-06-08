@@ -16,7 +16,7 @@ const createEmptyGrid = () => {
 const createRandomGrid = () => {
   const grid = []
   for (let i = 0; i < numRows; i++) {
-    grid[i] = new Array(numCols).fill(false).map(() => Math.random() < 0.3)
+    grid[i] = new Array(numCols).fill(false).map(() => Math.random() < 0.029)
   }
   return grid
 }
@@ -95,7 +95,7 @@ const GameOfLife = () => {
   useEffect(() => {
     let timer
     if (running) {
-      timer = setInterval(evolveGrid, 1000)
+      timer = setInterval(evolveGrid, 100)
     }
     return () => {
       clearInterval(timer)
