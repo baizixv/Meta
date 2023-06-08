@@ -41,6 +41,8 @@ const CalendarCard: React.FC = () => {
     const lunarDateInfo = getLunarDateInfo(currentTimestamp)
     const solarDateInfo = getSolarDateInfo(currentTimestamp)
     return { ...lunarDateInfo, ...solarDateInfo, ...holidayInfo }
+    // 这里特殊处理，添加依赖date，只有当跨过一天时，才更新这些只随日期变化的信息
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date])
 
   return (
