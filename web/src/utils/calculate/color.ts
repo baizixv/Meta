@@ -1,3 +1,4 @@
+// 根据当前时间戳，计算相应的固定颜色
 export const getTimeColor = (timestamp: number): string => {
   const seconds = new Date(timestamp).getSeconds()
   const color = `rgb(${seconds * 4}, ${255 - seconds * 4}, 0)`
