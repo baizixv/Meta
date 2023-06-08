@@ -43,6 +43,12 @@ export const commonLinks: LinkItem[] = [
     linkAddress: 'https://github.com/',
     linkType: TypeLink.Common,
   },
+  {
+    key: 'MDN',
+    linkName: 'MDN',
+    linkAddress: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript',
+    linkType: TypeLink.Common,
+  },
 ]
 
 export const blogLinks: LinkItem[] = [
