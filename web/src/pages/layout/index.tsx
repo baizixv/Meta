@@ -12,7 +12,7 @@ const Layout: React.FC = () => {
         backgroundColor: 'rgba(244, 244, 244)',
       }}
     >
-      <div style={{ position: 'sticky' }}>
+      <div style={{ position: 'sticky', marginBottom: 10 }}>
         <Header />
       </div>
       <Home />

@@ -1,5 +1,6 @@
 import React from 'react'
 import CalendarCard from './calendar'
+import LinkCard from './link-card'
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
           }}
         >
           <CalendarCard />
+          <LinkCard />
         </div>
       </div>
     </div>
