@@ -78,17 +78,17 @@ const getGoodAndBad = (date: Lunar) => {
 // 查询其他阴历信息
 const getLunarOtherInfo = (date: Lunar): string => {
   let lunarOtherInfo = ''
-  // 四宫 四神兽
-  lunarOtherInfo += `${date.getGong()}${date.getShou()} `
-  // 六曜
-  lunarOtherInfo += `${date.getLiuYao()} `
-  // 二十八星宿
-  lunarOtherInfo += `${date.getXiu()}${date.getAnimal()}${date.getXiuLuck()} `
   // 七政
   lunarOtherInfo += `${date.getZheng()} `
+  // 六曜
+  lunarOtherInfo += `${date.getLiuYao()} `
+  // 四宫 四神兽
+  lunarOtherInfo += `${date.getGong()}${date.getShou()} `
+  // 二十八星宿
+  lunarOtherInfo += `${date.getXiu()}${date.getAnimal()}${date.getXiuLuck()} `
 
   // 十二天神
-  lunarOtherInfo += `${date.getDayTianShen()}${date.getDayTianShenType()}${date.getDayTianShenLuck()} `
+  lunarOtherInfo += `${date.getDayTianShenType()}${date.getDayTianShen()}${date.getDayTianShenLuck()} `
 
   return lunarOtherInfo
 }
