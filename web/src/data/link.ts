@@ -2,12 +2,12 @@ import { LinkItem } from '@/typings/data/link'
 
 // 外部链接数据
 const TypeLink = {
-  Common: 1,
-  Friend: 2,
-  Blog: 3,
-  GlobalEarth: 4,
-  GovernmentChina: 5,
-  TraditionalChina: 6,
+  Common: 1, // 普通
+  Friend: 2, // 友情链接
+  Blog: 3, // 博客链接
+  GlobalEarth: 4, // 国际
+  GovernmentChina: 5, // 中国政府
+  TraditionalChina: 6, // 传统文化
 }
 export const friendLinks: LinkItem[] = [
   {
