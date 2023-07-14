@@ -13,3 +13,7 @@
 13. 在线工具第一个，base64加密解密 // ✅
 14. 整理正确的前端路由
 15. 给devtools添加报错提示
+16. onlinetools-生成二维码
+17. onlinetools-json格式化
+18. onlinetools-B站视频解析
+19. onlinetools-抖音视频解析
