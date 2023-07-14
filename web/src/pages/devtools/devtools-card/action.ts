@@ -51,6 +51,8 @@ export const useButton = ({
         break
       case InputType.RandomColorType:
         result = handleEncode()
+        const rgbaColor = `rgba(${handleDecode(result)})`
+        setInputValue(rgbaColor)
         break
       default:
         if (inputValue) {
@@ -84,9 +86,17 @@ export const useButton = ({
     }
   }
 
+  const getRandomButtonColor = () => {
+    return inputType === InputType.RandomColorType &&
+      typeof inputValue === 'string'
+      ? inputValue
+      : '#1677ff'
+  }
+
   return {
     handleEncry,
     handleDecry,
+    getRandomButtonColor,
   }
 }
 

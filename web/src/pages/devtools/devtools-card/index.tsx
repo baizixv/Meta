@@ -76,7 +76,7 @@ const ExtraButton = ({
   handleEncode: Function
   handleDecode: Function
 }) => {
-  const { handleEncry, handleDecry } = useButton({
+  const { handleEncry, handleDecry, getRandomButtonColor } = useButton({
     inputValue,
     inputType,
     changeOutput,
@@ -90,7 +90,13 @@ const ExtraButton = ({
         <Button type="primary" onClick={handleEncry}>
           {encodeTitle}
         </Button>
-        <Button type="primary" onClick={handleDecry}>
+        <Button
+          type="primary"
+          style={{
+            backgroundColor: getRandomButtonColor(),
+          }}
+          onClick={handleDecry}
+        >
           {decodeTitle}
         </Button>
       </Space>

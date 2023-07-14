@@ -5,9 +5,19 @@ export const getTimeColor = (timestamp: number): string => {
   return color
 }
 
-// 获取随机颜色 16进制
-export const getRandomColor = () =>
-  `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+// 获取16进制随机颜色 
+export const getRandomColor = () => {
+  const randomNum = Math.floor(Math.random() * 0xffffff)
+  let randomColor = '#000000'
+  if (randomNum < 2 ** 20) {
+    const randomNum10 = Math.floor(Math.random() * 10)
+    randomColor = `#0${randomNum10}0000`
+  } else {
+    randomColor = `#${randomNum.toString(16)}`
+  }
+  return randomColor
+}
+  
 
 // RGBA转16进制
 export const rgbaToHex = (rgbaString: string = '255,255,255,255') => {
