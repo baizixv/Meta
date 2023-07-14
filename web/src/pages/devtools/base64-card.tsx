@@ -1,5 +1,5 @@
 import React from 'react'
-import DevtoolsCard from '@/components/card/devtools-card'
+import DevtoolsCard from '@/pages/devtools/devtools-card'
 import { getBase64, decodeBase64 } from '@/utils/crypto/base64'
 
 const Base64Card: React.FC = () => {

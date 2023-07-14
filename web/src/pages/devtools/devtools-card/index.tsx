@@ -1,8 +1,8 @@
 import React from 'react'
 import ToolCard from './components/tool-card'
 import { Col, Row, Input, Button, Space } from 'antd'
-import useAction, { useButton } from './action'
-import { InputValueType } from '@/typings/common'
+import useAction, { InputType, useButton } from './action'
+import { DevToolsInputType, InputValueType } from '@/typings/common'
 
 const DevtoolsCard = ({
   title,
@@ -10,6 +10,7 @@ const DevtoolsCard = ({
   decodeTitle,
   handleEncode,
   handleDecode,
+  inputType = InputType.StringType,
   encodePlaceholder = '输入值',
   decodePlaceholder = '输出值',
 }: {
@@ -18,10 +19,12 @@ const DevtoolsCard = ({
   decodeTitle: string
   handleEncode: Function
   handleDecode: Function
+  inputType?: DevToolsInputType
   encodePlaceholder?: string
   decodePlaceholder?: string
 }) => {
-  const { inputValue, outputValue, changeInput, changeOutput } = useAction()
+  const { inputValue, outputValue, changeInput, changeOutput, setInputValue } =
+    useAction()
   return (
     <ToolCard
       title={title}
@@ -30,6 +33,8 @@ const DevtoolsCard = ({
           encodeTitle={encodeTitle}
           decodeTitle={decodeTitle}
           inputValue={inputValue}
+          inputType={inputType}
+          setInputValue={setInputValue}
           changeOutput={changeOutput}
           handleEncode={handleEncode}
           handleDecode={handleDecode}
@@ -56,20 +61,26 @@ const ExtraButton = ({
   inputValue,
   encodeTitle,
   decodeTitle,
+  inputType,
   changeOutput,
+  setInputValue,
   handleEncode,
   handleDecode,
 }: {
   inputValue: InputValueType
+  inputType: DevToolsInputType
   encodeTitle: string
   decodeTitle: string
   changeOutput: (str: string) => void
+  setInputValue: Function
   handleEncode: Function
   handleDecode: Function
 }) => {
   const { handleEncry, handleDecry } = useButton({
     inputValue,
+    inputType,
     changeOutput,
+    setInputValue,
     handleEncode,
     handleDecode,
   })

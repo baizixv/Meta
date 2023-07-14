@@ -1,5 +1,5 @@
 import React from 'react'
-import DevtoolsCard from '@/components/card/devtools-card'
+import DevtoolsCard from '@/pages/devtools/devtools-card'
 import { getMd5, getMd5_16 } from '@/utils/crypto/md5'
 
 const MD5Card = () => {

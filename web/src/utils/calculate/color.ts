@@ -8,3 +8,45 @@ export const getTimeColor = (timestamp: number): string => {
 // 获取随机颜色 16进制
 export const getRandomColor = () =>
   `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+
+// RGBA转16进制
+export const rgbaToHex = (rgbaString: string = '255,255,255,255') => {
+  const rgbaArray = rgbaString.split(/,|，/)
+  if (Array.isArray(rgbaArray) && rgbaArray?.length >= 3) {
+    const [hexR, hexG, hexB] = rgbaArray.map(itemStr => {
+      if (isNaN(Number(itemStr))) {
+        return ''
+      } else {
+        return parseInt(itemStr).toString(16).padStart(2, '0')
+      }
+    })
+    let hexA = ''
+    if (rgbaArray[3]) {
+      const a = Math.round(parseFloat(rgbaArray[3]) * 255)
+      if (!isNaN(a)) {
+        hexA = a.toString(16).padStart(2, '0')
+      }
+    }
+
+    if (hexR && hexG && hexB) {
+      return `#${hexR}${hexG}${hexB}${hexA}`
+    } else {
+      return ''
+    }
+  }
+}
+// 16进制转RGBA
+export const hexToRgba = (hexString: string) => {
+  const regex = /^#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6})$/
+  if (regex.test(hexString)) {
+    const hex = hexString.replace('#', '')
+    const r = parseInt(hex.substring(0, 2), 16)
+    const g = parseInt(hex.substring(2, 4), 16)
+    const b = parseInt(hex.substring(4, 6), 16)
+    let a = '1.00'
+    if (hex.length > 6) {
+      a = (parseInt(hex.substring(6, 8), 16) / 255).toFixed(2)
+    }
+    return `${r}, ${g}, ${b}, ${a}`
+  }
+}
