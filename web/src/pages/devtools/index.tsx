@@ -4,6 +4,7 @@ import { Space } from 'antd'
 import MD5Card from './md5-card'
 import ColorConvertCard from './color-convert-card'
 import ColorGetCard from './color-get-card'
+import TimestampCard from './timestamp-card'
 
 const Devtools: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Devtools: React.FC = () => {
       <MD5Card />
       <ColorConvertCard />
       <ColorGetCard />
+      <TimestampCard />
     </Space>
   )
 }

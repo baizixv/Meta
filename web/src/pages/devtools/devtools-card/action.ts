@@ -2,10 +2,20 @@ import { useState } from 'react'
 import { DevToolsInputType, InputValueType } from '@/typings/common'
 import { removeStrSpace } from '@/utils/format/common'
 
-const useAction = () => {
-  const [inputValue, setInputValue] = useState()
+const useAction = ({
+  inputType = InputType.StringType,
+  handleDecode,
+}: {
+  inputType?: DevToolsInputType
+  handleDecode: Function
+}) => {
+  const [inputValue, setInputValue] = useState(
+    inputType === InputType.TimestampType ? handleDecode(Date.now()) : ''
+  )
 
-  const [outputValue, setOutputValue] = useState('')
+  const [outputValue, setOutputValue] = useState(
+    inputType === InputType.TimestampType ? Date.now() : ''
+  )
 
   const changeInput = (e: any) => {
     const value = e.target.value
@@ -54,14 +64,18 @@ export const useButton = ({
         const rgbaColor = `rgba(${handleDecode(result)})`
         setInputValue(rgbaColor)
         break
+      case InputType.TimestampType:
+        result = handleEncode(removeStrSpace(`${inputValue}`))
+        if (!result) {
+          result = '请输入正确的格式时间，形如：2023/07/15 11:23:21'
+        }
+        break
       default:
         if (inputValue) {
-          result = handleEncode(`${inputValue}`)
+          result = `${handleEncode(`${inputValue}`)}`
         }
     }
-    if (typeof result === 'string') {
-      changeOutput(result)
-    }
+    changeOutput(result)
   }
   const handleDecry = () => {
     let result = ''
@@ -74,6 +88,12 @@ export const useButton = ({
         break
       case InputType.RandomColorType:
         result = handleDecode()
+        break
+      case InputType.TimestampType:
+        result = handleDecode(removeStrSpace(`${inputValue}`))
+        if (!result) {
+          result = '请输入正确的格式时间戳，13位长度的数字'
+        }
         break
       default:
         if (inputValue) {
@@ -104,6 +124,7 @@ export const InputType = {
   StringType: 'string' as DevToolsInputType,
   RandomColorType: 'random-color' as DevToolsInputType,
   ConvertColorType: 'convert-color' as DevToolsInputType,
+  TimestampType: 'convert-timestamp' as DevToolsInputType,
 }
 
 export default useAction

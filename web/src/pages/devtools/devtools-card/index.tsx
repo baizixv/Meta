@@ -24,7 +24,7 @@ const DevtoolsCard = ({
   decodePlaceholder?: string
 }) => {
   const { inputValue, outputValue, changeInput, changeOutput, setInputValue } =
-    useAction()
+    useAction({ inputType, handleDecode })
   return (
     <ToolCard
       title={title}

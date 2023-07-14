@@ -30,3 +30,26 @@ export const formatDate = (
   const [y, m, d] = getDate(timestamp)
   return `${y}${connectStr}${z(m)}${connectStr}${z(d)}`
 }
+
+// 格式化时间，形如 "2023/07/15 01:08:53",连接符号可以指定
+export const formatDateTime = (
+  timestamp: number,
+  connectStr: string = '/'
+): string => {
+  if (!isNaN(Number(timestamp))) {
+    const [y, m, d, h, min, s] = getDate(+timestamp)
+    return `${y}${connectStr}${z(m)}${connectStr}${z(d)} ${z(h)}:${z(min)}:${z(s)}`
+  } else {
+    return ''
+  }
+}
+
+// 根据日期时间，得到时间戳
+export const formatTimestamp = (dateTime:string) => {
+  const regex = /^[1-9]\d{3}\/(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/
+  if (regex.test(dateTime)) {
+    return new Date(dateTime).getTime()
+  } else {
+    return ''
+  }
+}
