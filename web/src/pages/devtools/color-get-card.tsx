@@ -8,7 +8,7 @@ const ColorGetCard: React.FC = () => {
     <DevtoolsCard
       title="随机颜色生成"
       encodeTitle="颜色生成"
-      decodeTitle="颜色示例"
+      decodeTitle="颜色色块"
       encodePlaceholder="显示RGBA色值，形如：rgba(255,255,255,1.0)"
       decodePlaceholder="显示16进制色值，形如：#f1f2f3f4"
       inputType={InputType.RandomColorType}
