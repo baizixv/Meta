@@ -1,7 +1,7 @@
 import React from 'react'
 import CalendarCard from './calendar'
 import LinkCard from './link-card'
-import Base64Card from './base64-card'
+import Devtools from '../devtools'
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
             height: '70vw',
           }}
         >
-          <Base64Card />
+          <Devtools />
         </div>
         <div
           style={{

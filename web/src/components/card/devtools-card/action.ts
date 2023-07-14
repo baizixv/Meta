@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { InputValueType } from '@/typings/common'
-import { decodeBase64, getBase64 } from '@/utils/crypto/base64'
 
 const useAction = () => {
   const [inputValue, setInputValue] = useState()
@@ -27,13 +26,17 @@ const useAction = () => {
 export const useButton = ({
   inputValue,
   changeOutput,
+  handleEncode,
+  handleDecode,
 }: {
   inputValue: InputValueType
   changeOutput: (str: string) => void
+  handleEncode: Function
+  handleDecode: Function
 }) => {
   const handleEncry = () => {
     if (inputValue) {
-      const result = getBase64(`${inputValue}`)
+      const result = handleEncode(`${inputValue}`)
       if (typeof result === 'string') {
         changeOutput(result)
       }
@@ -41,7 +44,7 @@ export const useButton = ({
   }
   const handleDecry = () => {
     if (inputValue) {
-      const result = decodeBase64(`${inputValue}`)
+      const result = handleDecode(`${inputValue}`)
       if (typeof result === 'string') {
         changeOutput(result)
       }
