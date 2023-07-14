@@ -1,6 +1,7 @@
 import React from 'react'
 import CalendarCard from './calendar'
 import LinkCard from './link-card'
+import Base64Card from './base64-card'
 
 const Home = () => {
   return (
@@ -16,7 +17,9 @@ const Home = () => {
             width: '80vw',
             height: '70vw',
           }}
-        ></div>
+        >
+          <Base64Card />
+        </div>
         <div
           style={{
             position: 'relative',
