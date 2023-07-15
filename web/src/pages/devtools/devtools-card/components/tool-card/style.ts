@@ -1,7 +1,7 @@
 const contentStyle = {
   width: '30vw',
   height: 'auto',
-  borderRadius: '5px',
+  borderRadius: '8px',
   marginBottom: 10,
 }
 

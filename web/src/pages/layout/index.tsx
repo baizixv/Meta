@@ -7,19 +7,26 @@ const Layout = (props: any) => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
+        height: '100%',
         backgroundColor: 'rgba(244, 244, 244)',
       }}
     >
-      <div style={{ position: 'sticky', marginBottom: 10 }}>
-        <Header />
-      </div>
-      {children}
-      {/* <div style={{ position: 'sticky', bottom: 10 }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '90%',
+          height: '100%',
+        }}
+      >
+        <div style={{ position: 'sticky', marginBottom: 10 }}>
+          <Header />
+        </div>
+        <div style={{ height: '100%' }}>{children}</div>
+        {/* <div style={{ position: 'sticky', bottom: 10 }}>
         <Footer />
       </div> */}
+      </div>
     </div>
   )
 }

@@ -15,7 +15,7 @@ const LinkCard: React.FC = () => {
   return (
     <Card
       title="外部链接"
-      extra={<a href="#">详细信息</a>}
+      // extra={<a href="#">详细信息</a>}
       bordered={false}
       style={contentStyle}
       headStyle={headStyle}
