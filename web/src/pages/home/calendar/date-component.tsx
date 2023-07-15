@@ -1,6 +1,7 @@
 import React from 'react'
 import { getTimeColor } from '@/utils/calculate/color'
 import { formatTimeData } from '@/utils/format/timer'
+import './style.css'
 
 // 时钟组件
 export const Clock = ({ currentTime }: { currentTime: number }) => {

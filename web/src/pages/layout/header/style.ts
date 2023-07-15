@@ -1,6 +1,6 @@
 export const menuStyle = {
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-start',
   margin: '0 auto',
   width: '95%',
 }
