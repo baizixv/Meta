@@ -17,3 +17,4 @@
 17. onlinetools-json格式化
 18. onlinetools-B站视频解析
 19. onlinetools-抖音视频解析
+20. 二维码，下载，icon，刷新，类型，颜色，尺寸，纠错等级
