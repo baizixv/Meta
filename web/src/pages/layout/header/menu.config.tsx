@@ -15,6 +15,7 @@ const initialMenuConfigs = [
     label: '免费API',
     key: '/apilist',
     icon: <AppstoreOutlined />,
+    disabled: true,
   },
   {
     label: '在线工具',
@@ -25,6 +26,45 @@ const initialMenuConfigs = [
     label: '开发者工具',
     key: '/devtools',
     icon: <AppstoreOutlined />,
+  },
+  {
+    label: '工具包',
+    key: '/tools',
+    icon: <AppstoreOutlined />,
+    children: [
+      {
+        label: '工具列表',
+        key: '/toollist',
+      },
+      {
+        type: 'group',
+        label: '财务工具',
+        children: [
+          {
+            label: '汇率计算',
+            key: '/setting:1',
+          },
+          {
+            label: '利息计算',
+            key: 'setting:2',
+          },
+        ],
+      },
+      {
+        type: 'group',
+        label: '日期工具',
+        children: [
+          {
+            label: '节假日获取',
+            key: '/setting:3',
+          },
+          {
+            label: '日期推算',
+            key: '/setting:4',
+          },
+        ],
+      },
+    ],
   },
   {
     label: '网站合集',
@@ -66,11 +106,13 @@ const initialMenuConfigs = [
     label: '关于本站',
     key: '/about',
     icon: <AppstoreOutlined />,
+    disabled: true,
   },
   {
     label: '给我留言',
     key: '/comment',
     icon: <AppstoreOutlined />,
+    disabled: true,
   },
   {
     label: (
