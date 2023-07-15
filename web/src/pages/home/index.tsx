@@ -1,8 +1,6 @@
 import React from 'react'
 import CalendarCard from './calendar'
 import LinkCard from './link-card'
-import Devtools from '../devtools'
-import WebTools from '../webtools'
 
 const Home = () => {
   return (
@@ -19,8 +17,7 @@ const Home = () => {
             height: '70vw',
           }}
         >
-          <WebTools />
-          <Devtools />
+          Home Content
         </div>
         <div
           style={{

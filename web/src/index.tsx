@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import reportWebVitals from './reportWebVitals'
-import Routes from './routes'
+import MyRoutes from './routes'
 import './index.css'
 
 const container = document.getElementById('root') as HTMLElement
 const root = ReactDOM.createRoot(container)
 root.render(
   <React.StrictMode>
-    <Routes />
+    <MyRoutes />
   </React.StrictMode>
 )
 
