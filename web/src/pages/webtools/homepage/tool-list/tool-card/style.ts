@@ -2,6 +2,7 @@ const contentStyle = {
   width: 300,
   borderRadius: '5px',
   marginBottom: 10,
+  cursor: 'pointer',
 }
 
 const headStyle = {
@@ -15,4 +16,9 @@ const headStyle = {
 const bodyStyle = {
   padding: '10px',
 }
-export { contentStyle, headStyle, bodyStyle }
+
+const messageStyle = {
+  fontSize: 13,
+  color: '#666',
+}
+export { contentStyle, headStyle, bodyStyle, messageStyle }

@@ -9,7 +9,7 @@ const useAction = () => {
   const onClick = (e: any) => {
     const path = e.key || '/'
 
-    setcurrentLabel(prevPath => {
+    setcurrentLabel((prevPath: string) => {
       let result = path
       if (path === '/github') {
         result = prevPath

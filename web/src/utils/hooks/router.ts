@@ -21,6 +21,14 @@ export const useParams = () => {
 }
 
 export const useLocation = () => {
-  const location = useRouteLocation()
+  let location: any = {}
+  if (window) {
+    location = { ...window.location }
+  }
+  const locationObj = useRouteLocation()
+  location = {
+    ...location,
+    ...locationObj,
+  }
   return location
 }
