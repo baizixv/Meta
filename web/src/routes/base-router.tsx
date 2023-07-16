@@ -3,7 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import App from '../pages'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
-import Webtools, { HomePage, QRcode } from '@/pages/webtools'
+import Webtools, { HomePage, QRcodeCard } from '@/pages/webtools'
 
 const routesConfigs = [
   {
@@ -12,7 +12,7 @@ const routesConfigs = [
     children: [
       { path: '', element: <HomePage /> },
       { path: '*', element: <Navigate to="/webtools" replace /> },
-      { path: 'qrcode', element: <QRcode /> },
+      { path: 'qrcode', element: <QRcodeCard /> },
     ],
   },
   { path: 'devtools', element: <Devtools /> },

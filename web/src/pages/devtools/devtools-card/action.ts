@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { DevToolsInputType, InputValueType } from '@/typings/common'
 import { removeStrSpace } from '@/utils/format/common'
+import { useInput } from '@/utils/hooks/input'
 
 const useAction = ({
   inputType = InputType.StringType,
@@ -9,19 +10,13 @@ const useAction = ({
   inputType?: DevToolsInputType
   handleDecode: Function
 }) => {
-  const [inputValue, setInputValue] = useState(
+  const initialInput =
     inputType === InputType.TimestampType ? handleDecode(Date.now()) : ''
-  )
+  const [inputValue, changeInput, setInputValue] = useInput(initialInput)
 
   const [outputValue, setOutputValue] = useState(
     inputType === InputType.TimestampType ? Date.now() : ''
   )
-
-  const changeInput = (e: any) => {
-    const value = e.target.value
-    setInputValue(value)
-  }
-
   const changeOutput = (str: string) => {
     setOutputValue(str)
   }

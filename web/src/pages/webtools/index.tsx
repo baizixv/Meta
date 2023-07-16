@@ -6,21 +6,14 @@ import { breadcrumbNameMap } from '@/configs/webtools.config'
 
 const WebTools: React.FC = () => {
   return (
-    <Space
-      wrap
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-      }}
-    >
+    <div>
       <Breadcrumb breadcrumbNameMap={breadcrumbNameMap} />
       <Outlet />
-    </Space>
+    </div>
   )
 }
 
 export default WebTools
 
 export { default as HomePage } from './homepage'
-export { default as QRcode } from './qr-code'
+export { default as QRcodeCard } from './qr-code'
