@@ -46,7 +46,7 @@ const initialMenuConfigs = [
           },
           {
             label: '利息计算',
-            key: 'setting:2',
+            key: 'dsetting:2',
           },
         ],
       },

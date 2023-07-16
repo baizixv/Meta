@@ -9,7 +9,7 @@ const Breadcrumb: React.FC = () => {
       title: <Link to="/">Home</Link>,
     },
     {
-      key: 'home',
+      key: 'path',
       title: <Link to="/">Home</Link>,
     },
   ]

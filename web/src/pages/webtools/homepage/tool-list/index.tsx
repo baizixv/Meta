@@ -7,7 +7,7 @@ const ToolList: React.FC = () => {
   return (
     <Space wrap>
       {toolListConfigs.map(toolCardConfig => (
-        <ToolCard {...toolCardConfig} />
+        <ToolCard key={toolCardConfig.name} {...toolCardConfig} />
       ))}
     </Space>
   )
