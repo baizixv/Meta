@@ -10,11 +10,11 @@
 10. 整理正确的前端路由 // ✅
 11. onlinetools-生成二维码 // ✅
 12. 改造devtools为配置化格式 // ✅
-13. 改进标题页面-随着更换页面而切换标题
-14. onlinetools-json格式化
-15. onlinetools-B站视频解析
-16. onlinetools-抖音视频解析
-17. 二维码，下载，icon，刷新，类型，颜色，尺寸，纠错等级
+13. 高级二维码，icon，刷新，类型，颜色，尺寸，纠错等级
+14. 改进标题页面-随着更换页面而切换标题
+15. onlinetools-json格式化
+16. onlinetools-B站视频解析
+17. onlinetools-抖音视频解析
 18. 页面整体样式整理
 19. 页面样式自适应适配
 20. 给devtools的卡片添加报错提示
