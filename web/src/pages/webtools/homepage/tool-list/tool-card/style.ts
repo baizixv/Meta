@@ -1,13 +1,11 @@
 const contentStyle = {
-  width: '30vw',
-  maxWidth: 450,
-  height: 'auto',
-  borderRadius: '8px',
+  width: 300,
+  borderRadius: '5px',
   marginBottom: 10,
 }
 
 const headStyle = {
-  borderBottom: '1px solid #1e9fff',
+  borderBottom: '2px solid #1e9fff',
   padding: '10px',
   fontSize: '16px',
   fontWeight: 'normal',
