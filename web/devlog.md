@@ -8,8 +8,8 @@
 8.  写一个新的页面，放一些在线工具 // ✅
 9.  在线工具第一个，base64加密解密 // ✅
 10. 整理正确的前端路由 // ✅
-11. onlinetools-生成二维码
-12. 改造devtools为配置化格式
+11. onlinetools-生成二维码 // ✅
+12. 改造devtools为配置化格式 // ✅
 13. onlinetools-json格式化
 14. onlinetools-B站视频解析
 15. onlinetools-抖音视频解析
