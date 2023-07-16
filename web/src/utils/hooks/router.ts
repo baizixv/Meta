@@ -21,7 +21,7 @@ export const useParams = () => {
 }
 
 export const useLocation = () => {
-  let location: any = {}
+  let location: Record<string, any> = {}
   if (window) {
     location = { ...window.location }
   }

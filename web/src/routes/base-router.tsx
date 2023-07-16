@@ -3,12 +3,18 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import App from '../pages'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
-import * as Webtools from '@/pages/webtools'
+import Webtools, { HomePage, QRcode } from '@/pages/webtools'
 
 const routesConfigs = [
-  { path: '', element: <Home /> },
-  { path: 'webtools', element: <Webtools.HomePage /> },
-  { path: 'webtools/qrcode', element: <Webtools.QRcode /> },
+  {
+    path: 'webtools',
+    element: <Webtools />,
+    children: [
+      { path: '', element: <HomePage /> },
+      { path: '*', element: <Navigate to="/webtools" replace /> },
+      { path: 'qrcode', element: <QRcode /> },
+    ],
+  },
   { path: 'devtools', element: <Devtools /> },
 ]
 
@@ -20,9 +26,8 @@ const BaseRouter = () =>
       element: <App />,
       children: [
         ...routesConfigs,
-        { path: '', element: <Navigate to="/" replace /> },
+        { path: '', element: <Home /> },
         { path: '*', element: <Navigate to="/" replace /> },
-        { path: 'home', element: <Navigate to="/" replace /> },
       ],
     },
   ])
