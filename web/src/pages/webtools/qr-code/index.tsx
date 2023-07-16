@@ -24,8 +24,7 @@ const QRCodeCard: React.FC = () => {
     <Row style={qrcodeStyle}>
       <Paragraph>
         <blockquote className="meta_webtools_qrcode_blockquote">
-          输入文本、链接生成二维码。若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过
-          size 配置二维码更大，或者通过短链接服务等方式将链接变短。
+          输入文本、链接生成二维码。若二维码无法扫码识别，可能是因为链接地址过长，像素过于密集。过长也可能无法正常生成。
         </blockquote>
       </Paragraph>
       <Space style={qrSpaceStyle}>
