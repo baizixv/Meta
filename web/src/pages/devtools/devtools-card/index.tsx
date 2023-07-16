@@ -87,7 +87,11 @@ const ExtraButton = ({
   return (
     <React.Fragment>
       <Space wrap>
-        <Button type="primary" onClick={handleEncry}>
+        <Button
+          type="primary"
+          style={{ backgroundColor: '#1e9fff' }}
+          onClick={handleEncry}
+        >
           {encodeTitle}
         </Button>
         <Button

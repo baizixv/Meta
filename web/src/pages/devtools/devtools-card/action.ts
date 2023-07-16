@@ -108,9 +108,10 @@ export const useButton = ({
 
   const getRandomButtonColor = () => {
     return inputType === InputType.RandomColorType &&
+      inputValue &&
       typeof inputValue === 'string'
       ? inputValue
-      : '#1677ff'
+      : '#1e9fff'
   }
 
   return {
