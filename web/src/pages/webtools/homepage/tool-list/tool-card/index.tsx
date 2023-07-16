@@ -11,7 +11,7 @@ const ToolCard: React.FC<ToolCardProps> = props => {
   const { href, onClick } = useAction(path, disable)
   return (
     <Card
-      title={<ToolNameAvatar name={name} iconSrc={iconSrc} />}
+      title={<ToolNameAvatar name={name} iconSrc={iconSrc} disable={disable} />}
       extra={'进入'}
       bordered={false}
       style={contentStyle}
@@ -34,8 +34,12 @@ const ToolCard: React.FC<ToolCardProps> = props => {
   )
 }
 // 图像和标题
-const ToolNameAvatar = (props: { name: string; iconSrc: string }) => {
-  const { name, iconSrc } = props
+const ToolNameAvatar = (props: {
+  name: string
+  iconSrc: string
+  disable?: boolean
+}) => {
+  const { name, iconSrc, disable } = props
   return (
     <Space>
       <Avatar
@@ -45,8 +49,8 @@ const ToolNameAvatar = (props: { name: string; iconSrc: string }) => {
       />
       <Paragraph>
         <Title level={5}>{name}</Title>
-        <Text type="success" style={{ color: 'cadetblue' }}>
-          服务正常
+        <Text type="success" style={{ color: disable ? 'red' : 'cadetblue' }}>
+          {disable ? '服务不可用' : '服务正常'}
         </Text>
       </Paragraph>
     </Space>
