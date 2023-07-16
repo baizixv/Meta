@@ -2,24 +2,24 @@ import React from 'react'
 import { Typography } from 'antd'
 import { CopyOutlined, CheckOutlined } from '@ant-design/icons'
 
-const { Paragraph } = Typography
+const { Text } = Typography
 
 const CopyIcon = ({
-  copyDesc,
+  copyDesc = '',
   copyIcon = <CopyOutlined />,
   copyCheckIcon = <CheckOutlined />,
   copyStatus = false,
 }: {
-  copyDesc: string
+  copyDesc?: string
   copyIcon?: any
   copyCheckIcon?: any
   copyStatus?: boolean
 }) => {
   return (
-    <Paragraph>
+    <Text code style={{ color: '#666' }}>
       {copyDesc}
       {copyStatus ? copyCheckIcon : copyIcon}
-    </Paragraph>
+    </Text>
   )
 }
 

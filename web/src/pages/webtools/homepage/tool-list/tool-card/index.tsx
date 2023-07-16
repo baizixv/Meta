@@ -1,17 +1,17 @@
 import React from 'react'
-import { Card, Typography } from 'antd'
+import { Avatar, Card, Space, Typography } from 'antd'
 import { bodyStyle, contentStyle, headStyle } from './style'
 import CopyIcon from '@/components/icons/copy-icon'
 import { ToolCardProps } from '@/typings/pages/webtools'
 import useAction from './action'
+const { Title, Text, Paragraph } = Typography
 
-const { Paragraph } = Typography
 const ToolCard: React.FC<ToolCardProps> = props => {
   const { name, description, iconSrc, path, disable } = props
   const { href, onClick } = useAction(path, disable)
   return (
     <Card
-      title={name}
+      title={<ToolNameAvatar name={name} iconSrc={iconSrc} />}
       extra={'进入'}
       bordered={false}
       style={contentStyle}
@@ -20,19 +20,36 @@ const ToolCard: React.FC<ToolCardProps> = props => {
       onClick={onClick}
     >
       <Paragraph ellipsis>{description}</Paragraph>
-      <Paragraph
+      <Text
+        type="secondary"
         copyable={{
           text: href,
-          icon: [
-            <CopyIcon copyDesc="复制链接" />,
-            <CopyIcon copyDesc="复制成功" copyStatus={true} />,
-          ],
-          tooltips: false,
+          icon: [<CopyIcon />, <CopyIcon copyStatus={true} />],
+          tooltips: ['复制链接', '复制成功'],
         }}
       >
         {path}
-      </Paragraph>
+      </Text>
     </Card>
+  )
+}
+// 图像和标题
+const ToolNameAvatar = (props: { name: string; iconSrc: string }) => {
+  const { name, iconSrc } = props
+  return (
+    <Space>
+      <Avatar
+        shape="square"
+        size={{ xs: 12, sm: 16, md: 20, lg: 32, xl: 55, xxl: 60 }}
+        src={require(`@/images/icons/webtools/${iconSrc}`)}
+      />
+      <Paragraph>
+        <Title level={5}>{name}</Title>
+        <Text type="success" style={{ color: 'cadetblue' }}>
+          服务正常
+        </Text>
+      </Paragraph>
+    </Space>
   )
 }
 
