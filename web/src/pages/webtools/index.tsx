@@ -2,12 +2,12 @@ import React from 'react'
 import { Space } from 'antd'
 import Breadcrumb from '@/components/breadcrumb'
 import { Outlet } from 'react-router-dom'
-import { breadcrumbNameMap } from '@/configs/webtools.config'
+import { pathNameMap } from '@/configs/webtools.config'
 
 const WebTools: React.FC = () => {
   return (
     <div>
-      <Breadcrumb breadcrumbNameMap={breadcrumbNameMap} />
+      <Breadcrumb breadcrumbNameMap={pathNameMap} />
       <Outlet />
     </div>
   )
