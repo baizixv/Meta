@@ -1,41 +1,32 @@
-const qrcodeStyle = {
+export const jsonWrapStyle = {
   display: 'flex',
   flexDirection: 'column' as any,
   margin: '10px auto',
 }
 
-const qrSpaceStyle = {
+export const jsonSpaceStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
 }
 
-const inputColStyle = {
+export const inputColStyle = {
   display: 'flex',
   flexDirection: 'column' as any,
   alignItems: 'center',
 }
 
-const inputStyle = {
+export const inputStyle = {
   width: '47vw',
   minHeight: '85vh',
   maxHeight: '85vh',
 }
-const qrcodeColStyle = {
+export const codeColStyle = {
   display: 'flex',
   flexDirection: 'column' as any,
   alignItems: 'center',
 }
-const buttonStyle = {
+export const buttonStyle = {
   marginTop: 20,
   backgroundColor: '#1e9fff',
-}
-
-export {
-  qrcodeStyle,
-  qrSpaceStyle,
-  inputColStyle,
-  inputStyle,
-  qrcodeColStyle,
-  buttonStyle,
 }
