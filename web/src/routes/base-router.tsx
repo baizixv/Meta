@@ -3,21 +3,30 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import App from '../pages'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
-import Webtools, { HomePage, QRcodeCard } from '@/pages/webtools'
+import Webtools, { WebToolsHomePage, QRcodeCard } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
+import ToolsPackage from '@/pages/tools-package'
 
 const routesConfigs = [
   {
     path: 'webtools',
     element: <Webtools />,
     children: [
-      { path: '', element: <HomePage /> },
+      { path: '', element: <WebToolsHomePage /> },
       { path: '*', element: <Navigate to="/webtools" replace /> },
       { path: 'qrcode', element: <QRcodeCard /> },
       { path: 'json_format', element: <JSONFormat /> },
     ],
   },
   { path: 'devtools', element: <Devtools /> },
+  {
+    path: 'tools',
+    element: <ToolsPackage />,
+    children: [
+      { path: '', element: <WebToolsHomePage /> },
+      { path: '*', element: <Navigate to="/tools" replace /> },
+    ],
+  },
 ]
 
 const BaseRouter = () =>
