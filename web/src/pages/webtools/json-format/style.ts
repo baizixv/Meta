@@ -6,7 +6,7 @@ const qrcodeStyle = {
 
 const qrSpaceStyle = {
   display: 'flex',
-  justifyContent: 'flex-start',
+  justifyContent: 'space-between',
   alignItems: 'flex-start',
 }
 
@@ -17,7 +17,7 @@ const inputColStyle = {
 }
 
 const inputStyle = {
-  width: 700,
+  width: '47vw',
   minHeight: '85vh',
   maxHeight: '85vh',
 }
