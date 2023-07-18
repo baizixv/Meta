@@ -3,6 +3,6 @@ export const pathNameMap: Record<string, string> = {
   '/home': '主页',
   '/webtools': '在线工具',
   '/webtools/qrcode': '二维码生成',
-  '/webtools/json': 'JSON格式化',
+  '/webtools/json_format': 'JSON格式化',
   '/devtools': '开发者工具',
 }

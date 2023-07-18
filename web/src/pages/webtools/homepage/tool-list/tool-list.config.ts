@@ -10,9 +10,8 @@ export const toolListConfigs: ToolCardConfig[] = [
   {
     name: ' JSON格式化',
     iconSrc: 'icon_json.jpg',
-    path: '/webtools/json',
+    path: '/webtools/json_format',
     description: 'JSON解析和格式化',
-    disable: true,
   },
   {
     name: 'bilibili视频下载地址解析',

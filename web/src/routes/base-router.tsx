@@ -4,6 +4,7 @@ import App from '../pages'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
 import Webtools, { HomePage, QRcodeCard } from '@/pages/webtools'
+import JSONFormat from '@/pages/webtools/json-format'
 
 const routesConfigs = [
   {
@@ -13,6 +14,7 @@ const routesConfigs = [
       { path: '', element: <HomePage /> },
       { path: '*', element: <Navigate to="/webtools" replace /> },
       { path: 'qrcode', element: <QRcodeCard /> },
+      { path: 'json_format', element: <JSONFormat /> },
     ],
   },
   { path: 'devtools', element: <Devtools /> },
