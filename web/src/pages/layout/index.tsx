@@ -12,9 +12,7 @@ const Layout = (props: any) => {
       </div>
       <div>
         <div className="meta_children">{children}</div>
-        <div>
-          <Footer />
-        </div>
+        <div>{/* <Footer /> */}</div>
       </div>
     </div>
   )
