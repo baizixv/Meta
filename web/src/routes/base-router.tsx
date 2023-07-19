@@ -6,6 +6,7 @@ import Devtools from '@/pages/devtools'
 import Webtools, { WebToolsHomePage, QRcodeCard } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
 import ToolsPackage, { ToosPackageHomePage } from '@/pages/tools-package'
+import MoneyPrice from '@/pages/tools-package/finance/money-price'
 
 const routesConfigs = [
   {
@@ -25,6 +26,7 @@ const routesConfigs = [
     children: [
       { path: '', element: <ToosPackageHomePage /> },
       { path: '*', element: <Navigate to="/tools" replace /> },
+      { path: 'money-price', element: <MoneyPrice /> },
     ],
   },
 ]

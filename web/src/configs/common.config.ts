@@ -7,4 +7,5 @@ export const pathNameMap: Record<string, string> = {
   '/webtools/json_format': 'JSON格式化',
   '/devtools': '开发者工具',
   '/tools': '工具包',
+  '/tools/money-price': '财务计算-借贷利率计算',
 }
