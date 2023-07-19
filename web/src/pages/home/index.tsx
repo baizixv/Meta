@@ -1,6 +1,7 @@
 import React from 'react'
 import CalendarCard from './calendar'
 import LinkCard from './link-card'
+import MainContent from './main-content'
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
             height: '70vw',
           }}
         >
-          Home Content
+          <MainContent />
         </div>
         <div
           style={{
