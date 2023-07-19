@@ -2,7 +2,9 @@ import React from 'react'
 import {
   AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,
+  GithubOutlined,
+  AlipayCircleOutlined,
+  TeamOutlined,
 } from '@ant-design/icons'
 
 const initialMenuConfigs = [
@@ -25,40 +27,6 @@ const initialMenuConfigs = [
     label: '工具包',
     key: '/tools',
     icon: <AppstoreOutlined />,
-    // children: [
-    //   {
-    //     label: '工具列表',
-    //     key: '/toollist',
-    //   },
-    //   {
-    //     type: 'group',
-    //     label: '财务工具',
-    //     children: [
-    //       {
-    //         label: '汇率计算',
-    //         key: '/setting:1',
-    //       },
-    //       {
-    //         label: '利息计算',
-    //         key: 'dsetting:2',
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     type: 'group',
-    //     label: '日期工具',
-    //     children: [
-    //       {
-    //         label: '节假日获取',
-    //         key: '/setting:3',
-    //       },
-    //       {
-    //         label: '日期推算',
-    //         key: '/setting:4',
-    //       },
-    //     ],
-    //   },
-    // ],
   },
   {
     label: '免费API',
@@ -67,40 +35,16 @@ const initialMenuConfigs = [
     disabled: true,
   },
   {
-    label: '网站合集',
-    key: '/submenu',
-    icon: <SettingOutlined />,
+    label: '外部网站',
+    key: '/outsite',
+    icon: <AppstoreOutlined />,
     disabled: true,
-    children: [
-      {
-        type: 'group',
-        label: 'Item 1',
-        children: [
-          {
-            label: 'Option 1',
-            key: 'setting:1',
-          },
-          {
-            label: 'Option 2',
-            key: 'setting:2',
-          },
-        ],
-      },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          {
-            label: 'Option 3',
-            key: 'setting:3',
-          },
-          {
-            label: 'Option 4',
-            key: 'setting:4',
-          },
-        ],
-      },
-    ],
+  },
+  {
+    label: '其它归类', // 归类书籍等信息
+    key: '/other',
+    icon: <AppstoreOutlined />,
+    disabled: true,
   },
   {
     label: '关于本站',
@@ -115,6 +59,12 @@ const initialMenuConfigs = [
     disabled: true,
   },
   {
+    label: '公告板', // 广告业务，以及自己的公告信息
+    key: '/billboard',
+    icon: <AppstoreOutlined />,
+    disabled: true,
+  },
+  {
     label: (
       <a
         href="https://github.com/baizixv"
@@ -125,6 +75,19 @@ const initialMenuConfigs = [
       </a>
     ),
     key: '/github',
+    icon: <GithubOutlined />,
+  },
+  {
+    label: '高级探索', // 加入登陆功能，然后开放数据库记录储存功能，并且开放社群，给验证码后加入
+    key: '/billboard',
+    icon: <TeamOutlined />,
+    disabled: true,
+  },
+  {
+    label: '打赏1元',
+    key: '/billboard',
+    icon: <AlipayCircleOutlined />,
+    disabled: true,
   },
 ]
 
