@@ -4,6 +4,7 @@ export interface ToolCardConfig {
   path: string
   description: string
   disable?: boolean
+  needShowHome?: boolean
 }
 
 export interface ToolCardProps extends ToolCardConfig {}

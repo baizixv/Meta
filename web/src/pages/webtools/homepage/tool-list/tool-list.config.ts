@@ -6,12 +6,14 @@ export const toolListConfigs: ToolCardConfig[] = [
     iconSrc: 'icon_qrcode.jpg',
     path: '/webtools/qrcode',
     description: '在线生成二维码，支持各种配置',
+    needShowHome: true,
   },
   {
     name: ' JSON格式化',
     iconSrc: 'icon_json.jpg',
     path: '/webtools/json_format',
     description: 'JSON解析和格式化',
+    needShowHome: true,
   },
   {
     name: 'bilibili视频下载地址解析',
