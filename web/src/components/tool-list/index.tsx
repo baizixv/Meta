@@ -5,19 +5,12 @@ import { ToolCardConfig } from '@/typings/pages/webtools'
 
 const ToolList: React.FC<{
   toolListConfigs: ToolCardConfig[]
-  isHome?: boolean
-}> = ({ toolListConfigs, isHome = false }) => {
+}> = ({ toolListConfigs }) => {
   return (
     <Space wrap>
-      {toolListConfigs.map(toolCardConfig =>
-        isHome ? (
-          toolCardConfig.needShowHome ? (
-            <ToolCard key={toolCardConfig.name} {...toolCardConfig} />
-          ) : null
-        ) : (
-          <ToolCard key={toolCardConfig.name} {...toolCardConfig} />
-        )
-      )}
+      {toolListConfigs.map(toolCardConfig => (
+        <ToolCard key={toolCardConfig.name} {...toolCardConfig} />
+      ))}
     </Space>
   )
 }

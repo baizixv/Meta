@@ -79,13 +79,13 @@ const initialMenuConfigs = [
   },
   {
     label: '高级探索', // 加入登陆功能，然后开放数据库记录储存功能，并且开放社群，给验证码后加入
-    key: '/billboard',
+    key: '/deep',
     icon: <TeamOutlined />,
     disabled: true,
   },
   {
     label: '打赏1元',
-    key: '/billboard',
+    key: '/donate',
     icon: <AlipayCircleOutlined />,
     disabled: true,
   },

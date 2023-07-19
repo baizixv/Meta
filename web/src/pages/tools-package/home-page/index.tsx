@@ -6,15 +6,15 @@ const HomePage = () => {
   return (
     <div>
       <div className="meta-homecard-tilte">财务计算</div>
-      <WebToolsHomePage isHome />
+      <WebToolsHomePage />
       <div className="meta-homecard-tilte">时间相关</div>
-      <WebToolsHomePage isHome />
+      <WebToolsHomePage />
       <div className="meta-homecard-tilte">编码相关</div>
-      <WebToolsHomePage isHome />
+      <WebToolsHomePage />
       <div className="meta-homecard-tilte">编码相关</div>
-      <WebToolsHomePage isHome />
+      <WebToolsHomePage />
       <div className="meta-homecard-tilte">编码相关</div>
-      <WebToolsHomePage isHome />
+      <WebToolsHomePage />
     </div>
   )
 }
