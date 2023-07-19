@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './header'
-import './style.css'
 import Footer from './footer'
+import './style.css'
 
 const Layout = (props: any) => {
   const { children } = props
