@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { default as WebToolsHomePage } from '@/pages/webtools/homepage'
+import { default as WebToolsHomePage } from '@/pages/webtools/home-page'
 
 const MainContent = () => {
   return (

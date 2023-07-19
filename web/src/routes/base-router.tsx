@@ -5,7 +5,7 @@ import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
 import Webtools, { WebToolsHomePage, QRcodeCard } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
-import ToolsPackage from '@/pages/tools-package'
+import ToolsPackage, { ToosPackageHomePage } from '@/pages/tools-package'
 
 const routesConfigs = [
   {
@@ -23,7 +23,7 @@ const routesConfigs = [
     path: 'tools',
     element: <ToolsPackage />,
     children: [
-      { path: '', element: <WebToolsHomePage /> },
+      { path: '', element: <ToosPackageHomePage /> },
       { path: '*', element: <Navigate to="/tools" replace /> },
     ],
   },

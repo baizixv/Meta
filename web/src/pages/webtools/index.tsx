@@ -14,5 +14,5 @@ const WebTools: React.FC = () => {
 
 export default WebTools
 
-export { default as WebToolsHomePage } from './homepage'
+export { default as WebToolsHomePage } from './home-page'
 export { default as QRcodeCard } from './qr-code'

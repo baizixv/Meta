@@ -13,3 +13,5 @@ const ToolsPackage: React.FC = () => {
 }
 
 export default ToolsPackage
+
+export { default as ToosPackageHomePage } from './home-page'

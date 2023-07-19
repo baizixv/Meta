@@ -12,7 +12,7 @@ const initialMenuConfigs = [
     icon: <MailOutlined />,
   },
   {
-    label: '在线工具',
+    label: '常用在线工具',
     key: '/webtools',
     icon: <AppstoreOutlined />,
   },
