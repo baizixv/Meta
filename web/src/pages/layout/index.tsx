@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header'
-import './index.css'
+import './style.css'
+import Footer from './footer'
 
 const Layout = (props: any) => {
   const { children } = props
@@ -9,10 +10,12 @@ const Layout = (props: any) => {
       <div className="meta_header">
         <Header />
       </div>
-      <div className="meta_children">{children}</div>
-      {/* <div style={{ position: 'sticky', bottom: 10 }}>
-        <Footer />
-      </div> */}
+      <div>
+        <div className="meta_children">{children}</div>
+        <div>
+          <Footer />
+        </div>
+      </div>
     </div>
   )
 }
