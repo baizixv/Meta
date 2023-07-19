@@ -1,6 +1,7 @@
 const contentStyle = {
   width: '30vw',
-  maxWidth: 450,
+  minWidth: 350,
+  maxWidth: 500,
   height: 'auto',
   borderRadius: '8px',
   marginBottom: 10,
