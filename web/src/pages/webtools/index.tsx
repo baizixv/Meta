@@ -1,7 +1,7 @@
 import React from 'react'
 import Breadcrumb from '@/components/breadcrumb'
 import { Outlet } from 'react-router-dom'
-import { pathNameMap } from '@/configs/webtools.config'
+import { pathNameMap } from '@/configs/common.config'
 
 const WebTools: React.FC = () => {
   return (

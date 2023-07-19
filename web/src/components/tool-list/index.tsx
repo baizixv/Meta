@@ -1,9 +1,12 @@
 import React from 'react'
 import { Space } from 'antd'
 import ToolCard from './tool-card'
-import { toolListConfigs } from './tool-list.config'
+import { ToolCardConfig } from '@/typings/pages/webtools'
 
-const ToolList: React.FC<{ isHome?: boolean }> = ({ isHome = false }) => {
+const ToolList: React.FC<{
+  toolListConfigs: ToolCardConfig[]
+  isHome?: boolean
+}> = ({ toolListConfigs, isHome = false }) => {
   return (
     <Space wrap>
       {toolListConfigs.map(toolCardConfig =>
