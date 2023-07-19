@@ -19,7 +19,14 @@ const ToolCard: React.FC<ToolCardProps> = props => {
       bodyStyle={bodyStyle}
       onClick={onClick}
     >
-      <Paragraph ellipsis>{description}</Paragraph>
+      <Paragraph
+        ellipsis={{
+          rows: 3,
+          tooltip: true,
+        }}
+      >
+        {description}
+      </Paragraph>
       <Text
         type="secondary"
         copyable={{
@@ -36,17 +43,19 @@ const ToolCard: React.FC<ToolCardProps> = props => {
 // 图像和标题
 const ToolNameAvatar = (props: {
   name: string
-  iconSrc: string
+  iconSrc?: string
   disable?: boolean
 }) => {
   const { name, iconSrc, disable } = props
   return (
     <Space>
-      <Avatar
-        shape="square"
-        size={{ xs: 12, sm: 16, md: 20, lg: 32, xl: 55, xxl: 60 }}
-        src={require(`@/images/icons/webtools/${iconSrc}`)}
-      />
+      {!!iconSrc && (
+        <Avatar
+          shape="square"
+          size={{ xs: 12, sm: 16, md: 20, lg: 32, xl: 55, xxl: 60 }}
+          src={require(`@/images/icons/webtools/${iconSrc}`)}
+        />
+      )}
       <Paragraph>
         <Title level={5}>{name}</Title>
         <Text type="success" style={{ color: disable ? 'red' : 'cadetblue' }}>

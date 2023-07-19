@@ -1,8 +1,8 @@
 export interface ToolCardConfig {
   name: string
-  iconSrc: string
   path: string
   description: string
+  iconSrc?: string
   disable?: boolean
   needShowHome?: boolean
 }

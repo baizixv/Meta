@@ -1,4 +1,4 @@
-const contentStyle = {
+export const contentStyle = {
   width: '30vw',
   maxWidth: 450,
   borderRadius: '5px',
@@ -7,18 +7,17 @@ const contentStyle = {
   cursor: 'pointer',
 }
 
-const headStyle = {
+export const headStyle = {
   padding: '0 10px',
   borderBottom: '1px solid #ccc',
   color: '#333',
 }
 
-const bodyStyle = {
+export const bodyStyle = {
   padding: '10px',
 }
 
-const messageStyle = {
+export const messageStyle = {
   fontSize: 13,
   color: '#666',
 }
-export { contentStyle, headStyle, bodyStyle, messageStyle }
