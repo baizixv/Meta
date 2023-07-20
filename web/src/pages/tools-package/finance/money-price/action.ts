@@ -1,30 +1,23 @@
-import { downloadQRCode } from '@/utils/common/dowload'
-import { useInput } from '@/utils/hooks/input'
-import { message } from 'antd'
-import React from 'react'
+import { Form } from 'antd'
 
 export const useAction = () => {
-  const [qrcodeText, setQRcodeText] = React.useState('-')
-  const [input, changeInput] = useInput()
-
-  const handleBuildQRcode = () => {
-    const str = `${input || '-'}`
-    if (str.length > 500) {
-      message.error('内容过长, 无法生成，限制字符500字')
-    } else {
-      setQRcodeText(str)
-    }
+  const [form] = Form.useForm()
+  const debtPaymentType = Form.useWatch('debtPaymentType', form)
+  const computeModel = Form.useWatch('computeModel', form)
+  const onFinish = (values: any) => {
+    console.log(
+      '%c Line:8 🍑 values',
+      'font-size:18px;color:#fca650;background:#e41a6a',
+      values
+    )
   }
 
-  const handleDownloadQRCode = () => {
-    downloadQRCode('myQRCode')
+  const onFinishFailed = (errorInfo: any) => {
+    console.log(
+      '%c Line:16 🍯 errorInfo',
+      'font-size:18px;color:#42b983;background:#ed9ec7',
+      errorInfo
+    )
   }
-
-  return {
-    input,
-    changeInput,
-    qrcodeText,
-    handleBuildQRcode,
-    handleDownloadQRCode,
-  }
+  return { form, debtPaymentType, computeModel, onFinish, onFinishFailed }
 }

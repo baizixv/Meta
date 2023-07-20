@@ -1,60 +1,38 @@
 import React from 'react'
-import { Input, Space, QRCode, Typography, Row, Col, Button } from 'antd'
-import './style.css'
-import {
-  buttonStyle,
-  inputColStyle,
-  inputStyle,
-  qrSpaceStyle,
-  qrcodeColStyle,
-  qrcodeStyle,
-} from './style'
+import { Typography, Row, Divider, Table } from 'antd'
+import { MoneyCollectOutlined, ProjectOutlined } from '@ant-design/icons'
+import { rowWrapStyle } from './style'
 import { useAction } from './action'
+import DebtForm from './components/debt.form'
+import { paymentTypeDesc } from '@/configs/tools-package/finance.config'
+import './style.css'
 const { Paragraph } = Typography
 
 const MoneyPrice: React.FC = () => {
-  const {
-    input,
-    changeInput,
-    qrcodeText,
-    handleBuildQRcode,
-    handleDownloadQRCode,
-  } = useAction()
+  const { form, debtPaymentType, computeModel, onFinish, onFinishFailed } =
+    useAction()
   return (
-    <Row style={qrcodeStyle}>
+    <Row style={rowWrapStyle}>
+      <Divider orientation="left" orientationMargin={0}>
+        <MoneyCollectOutlined />
+        -输入参数
+      </Divider>
+      <DebtForm
+        computeModel={computeModel}
+        formInstance={form}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+      />
       <Paragraph>
-        <blockquote className="meta_webtools_qrcode_blockquote">
-          等额本金：月供=贷款本金÷还款月数x(1+年化利率÷12x剩余还款期数)
+        <blockquote className="meta-blockquote">
+          {paymentTypeDesc[debtPaymentType]}
         </blockquote>
       </Paragraph>
-      <Space style={qrSpaceStyle}>
-        <Col style={inputColStyle}>
-          <Input.TextArea
-            placeholder="此处输入文字或链接"
-            autoSize={{ minRows: 15, maxRows: 15 }}
-            value={input}
-            style={inputStyle}
-            onChange={changeInput}
-          />
-          <Button
-            type="primary"
-            style={buttonStyle}
-            onClick={handleBuildQRcode}
-          >
-            生成二维码
-          </Button>
-        </Col>
-        <Col style={qrcodeColStyle} id="myQRCode">
-          <QRCode size={300} value={qrcodeText} />
-          <Button
-            type="primary"
-            style={buttonStyle}
-            onClick={handleDownloadQRCode}
-          >
-            下载至本地
-          </Button>
-        </Col>
-      </Space>
+      <Divider orientation="left" orientationMargin={0}>
+        <ProjectOutlined />
+        -计算结果
+      </Divider>
+      <Table />
     </Row>
   )
 }
