@@ -19,7 +19,7 @@ const DebtDesc: React.FC<{
       {captionShows.map(items => {
         const [title, value] = items
         return (
-          <Text>
+          <Text key={title}>
             {title}
             <Tag color="volcano">{value}</Tag>
           </Text>

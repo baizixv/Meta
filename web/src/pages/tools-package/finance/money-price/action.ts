@@ -9,11 +9,6 @@ export const useAction = () => {
   const computeModel = Form.useWatch('computeModel', form)
   const debtMoney = Form.useWatch('debtMoney', form)
   const debtRate = Form.useWatch('debtRate', form)
-  console.log(
-    '%c Line:12 🥓 debtRate',
-    'font-size:18px;color:#e41a6a;background:#4fff4B',
-    debtRate
-  )
 
   const yearRate = debtRate / 100 || 0.34
 
