@@ -1,21 +1,33 @@
 import React from 'react'
-import { Typography, Row, Divider, Table } from 'antd'
+import { Typography, Row, Divider } from 'antd'
 import { MoneyCollectOutlined, ProjectOutlined } from '@ant-design/icons'
 import { rowWrapStyle } from './style'
 import { useAction } from './action'
 import DebtForm from './components/debt.form'
 import { paymentTypeDesc } from '@/configs/tools-package/finance.config'
+import DebtDesc from './components/debt.desc'
+import DebtTable from './components/debt.table.tsx'
 import './style.css'
 const { Paragraph } = Typography
 
 const MoneyPrice: React.FC = () => {
-  const { form, debtPaymentType, computeModel, onFinish, onFinishFailed } =
-    useAction()
+  const {
+    form,
+    debtPaymentType,
+    computeModel,
+    yearRate,
+    debtMoney,
+    debtResult,
+    onFinish,
+    onFinishFailed,
+  } = useAction()
+
+  const { debtMonthArray, totalInterest } = debtResult
   return (
     <Row style={rowWrapStyle}>
-      <Divider orientation="left" orientationMargin={0}>
-        <MoneyCollectOutlined />
-        -输入参数
+      {/* 收集数据 */}
+      <Divider orientation="center" orientationMargin={0}>
+        <MoneyCollectOutlined /> - 输入参数
       </Divider>
       <DebtForm
         computeModel={computeModel}
@@ -28,11 +40,20 @@ const MoneyPrice: React.FC = () => {
           {paymentTypeDesc[debtPaymentType]}
         </blockquote>
       </Paragraph>
-      <Divider orientation="left" orientationMargin={0}>
-        <ProjectOutlined />
-        -计算结果
+      {/* 显示结果 */}
+      <Divider orientation="center" orientationMargin={0}>
+        <ProjectOutlined /> - 计算结果
       </Divider>
-      <Table />
+      <DebtTable
+        title={
+          <DebtDesc
+            debtMoney={debtMoney}
+            rate={yearRate}
+            interestCount={totalInterest}
+          />
+        }
+        datas={debtMonthArray}
+      />
     </Row>
   )
 }
