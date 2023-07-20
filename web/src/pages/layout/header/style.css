@@ -14,9 +14,9 @@
     color: #1e9fff;
     font-weight: 600;
     text-decoration: none;
+    display: inline-block;
     transition: all .5s;
     -ms-transition: all .5s;
-    display: inline-block;
     /* IE 9 */
     -moz-transition: all .5s;
     /* Firefox */
@@ -24,4 +24,9 @@
     /* Safari 和 Chrome */
     -o-transition: all .5s;
     /* Opera */
+}
+.meta-header_menu {
+    position: relative;
+    width: 90%;
+    flex: 1;
 }

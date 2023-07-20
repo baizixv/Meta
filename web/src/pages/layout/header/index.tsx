@@ -12,13 +12,15 @@ const Header: React.FC = () => {
       <a className="header_logo-a" href="/">
         Bai.zixv
       </a>
-      <Menu
-        mode="horizontal"
-        items={initialMenuConfigs}
-        selectedKeys={[currentLabel]}
-        onClick={onClick}
-        style={menuStyle}
-      />
+      <div className="meta-header_menu">
+        <Menu
+          mode="horizontal"
+          items={initialMenuConfigs}
+          selectedKeys={[currentLabel]}
+          onClick={onClick}
+          style={menuStyle}
+        />
+      </div>
     </div>
   )
 }
