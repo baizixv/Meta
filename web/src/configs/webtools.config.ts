@@ -2,6 +2,7 @@ import { ToolCardConfig } from '@/typings/pages/webtools'
 
 export const webtoolsListConfigs: ToolCardConfig[] = [
   {
+    key: 'qrcode',
     name: '二维码生成',
     iconSrc: 'icon_qrcode.jpg',
     path: '/webtools/qrcode',
@@ -9,6 +10,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     needShowHome: true,
   },
   {
+    key: 'json-format',
     name: ' JSON格式化',
     iconSrc: 'icon_json.jpg',
     path: '/webtools/json_format',
@@ -16,6 +18,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     needShowHome: true,
   },
   {
+    key: 'bilibili',
     name: 'bilibili视频下载地址解析',
     iconSrc: 'icon_bilibili.jpg',
     path: '/webtools/bilibili',
@@ -23,6 +26,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     disable: true,
   },
   {
+    key: 'douyin',
     name: '抖音视频下载地址解析',
     iconSrc: 'icon_douyin.jpeg',
     path: '/webtools/douyin',

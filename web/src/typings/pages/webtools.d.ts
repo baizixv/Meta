@@ -1,4 +1,5 @@
 export interface ToolCardConfig {
+  key: string
   name: string
   description: string
   path: string
