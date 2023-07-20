@@ -18,7 +18,7 @@ const DebtForm: React.FC<{
         debtTerm: 12,
         debtRate: 24,
         debtPaymentType: PaymentType.Annuity,
-        debtCountMoney: 11347.2,
+        debtCount: 11347.2,
         computeModel: 'debt-list',
       }}
       onFinish={onFinish}
@@ -72,7 +72,7 @@ const DebtForm: React.FC<{
         ) : (
           <Form.Item
             label="总还款额（元）"
-            name="debtCountMoney"
+            name="debtCount"
             style={formItemStyle}
             rules={[{ required: true, message: '' }]}
           >
