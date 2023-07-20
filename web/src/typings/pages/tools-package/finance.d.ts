@@ -23,7 +23,9 @@ export interface DebtMonthlyParams {
   isLast: boolean
 }
 
-export interface DebtMonthlyResult {
+export interface DebtResult {
+  debtMoney: number
+  debtRate: number
   debtMonthArray: DebtMonthlyParams[] // 还款月供
   totalInterest: number // 还款总利息
 }

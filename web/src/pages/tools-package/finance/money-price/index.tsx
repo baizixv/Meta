@@ -15,14 +15,12 @@ const MoneyPrice: React.FC = () => {
     form,
     debtPaymentType,
     computeModel,
-    yearRate,
-    debtMoney,
     debtResult,
     onFinish,
     onFinishFailed,
   } = useAction()
 
-  const { debtMonthArray, totalInterest } = debtResult
+  const { debtMoney, debtRate, debtMonthArray, totalInterest } = debtResult
   return (
     <Row style={rowWrapStyle}>
       {/* 收集数据 */}
@@ -48,7 +46,7 @@ const MoneyPrice: React.FC = () => {
         title={
           <DebtDesc
             debtMoney={debtMoney}
-            rate={yearRate}
+            rate={debtRate}
             interestCount={totalInterest}
           />
         }
