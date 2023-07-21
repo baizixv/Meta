@@ -1,4 +1,4 @@
-import { pathNameMap } from '@/configs/common.config'
+import { pathNameMap } from '@/configs/router.config/common.config'
 import { useLocation } from './router'
 
 export const useWebTitle = () => {

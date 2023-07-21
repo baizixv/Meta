@@ -8,5 +8,7 @@ export const pathNameMap: Record<string, string> = {
   '/devtools': '开发者工具',
   '/tools': '工具包',
   '/tools/money-price': '借贷月供计算',
-  '/tools/convert-rate': '借贷利率转换',
+  '/tools/convert-rate': '投资回报测算',
 }
+
+

@@ -11,7 +11,7 @@ import {
   DebtParamsFirst,
   DebtResult,
 } from '@/typings/pages/tools-package/finance'
-import { initialFormValues } from '@/configs/tools-package/finance.config'
+import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 export const useAction = () => {
   const [form] = Form.useForm()

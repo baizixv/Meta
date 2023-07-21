@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu } from 'antd'
-import initialMenuConfigs from '@/configs/menu.config'
+import initialMenuConfigs from '@/configs/router.config/menu.config'
 import useAction from './action'
 import { menuStyle } from './style'
 import './style.css'

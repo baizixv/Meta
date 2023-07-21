@@ -3,7 +3,7 @@ import { Button, Form, InputNumber, Radio, Row } from 'antd'
 import { formStyle, formItemStyle, rowButtonStyle } from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
-import { initialFormValues } from '@/configs/tools-package/finance.config'
+import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 const DebtForm: React.FC<{
   formInstance: any
