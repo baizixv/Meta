@@ -2,7 +2,13 @@ import React from 'react'
 import Breadcrumb from '@/components/breadcrumb'
 import { Outlet } from 'react-router-dom'
 import { pathNameMap } from '@/configs/router.config/common.config'
+import { default as WebToolsHomePage } from '@/pages/webtools/home-page'
+import FinanceListPage from './finance'
+import RegexpListPage from './regexp'
+import MathToolsListPage from './math-tools'
+import './style.css'
 
+// 模块整体架构
 const ToolsPackage: React.FC = () => {
   return (
     <div>
@@ -12,6 +18,26 @@ const ToolsPackage: React.FC = () => {
   )
 }
 
+// 模块主页
+const ToolsPackageHomePage = () => {
+  return (
+    <div>
+      <div className="meta-homecard-tilte">财务计算</div>
+      <FinanceListPage />
+      <div className="meta-homecard-tilte">正则相关</div>
+      <RegexpListPage />
+      <div className="meta-homecard-tilte">数学工具</div>
+      <MathToolsListPage />
+      <div className="meta-homecard-tilte">时间相关</div>
+      <WebToolsHomePage />
+      <div className="meta-homecard-tilte">编码相关</div>
+      <WebToolsHomePage />
+      <div className="meta-homecard-tilte">编码相关</div>
+      <WebToolsHomePage />
+    </div>
+  )
+}
+
+export { ToolsPackageHomePage }
 export default ToolsPackage
 
-export { default as ToosPackageHomePage } from './home-page'
