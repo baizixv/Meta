@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Input, Radio, Row } from 'antd'
 import { formStyle, formItemStyle, rowButtonStyle } from './style'
-import { PaymentType } from '@/typings/configs/common'
+import { PaymentTypeEnum } from '@/typings/configs/common'
 
 const DebtForm: React.FC<{
   formInstance: any
@@ -16,7 +16,7 @@ const DebtForm: React.FC<{
         debtMoney: 10000,
         debtTerm: 12,
         debtRate: 24,
-        debtPaymentType: PaymentType.Annuity,
+        debtPaymentType: PaymentTypeEnum.Annuity,
         debtCount: 11347.15,
         computeModel: 'debt-list',
       }}
@@ -36,8 +36,10 @@ const DebtForm: React.FC<{
           style={formItemStyle}
         >
           <Radio.Group optionType="button" buttonStyle="solid">
-            <Radio.Button value={PaymentType.Annuity}>等额本息</Radio.Button>
-            <Radio.Button value={PaymentType.Linear}>等额本金</Radio.Button>
+            <Radio.Button value={PaymentTypeEnum.Annuity}>
+              等额本息
+            </Radio.Button>
+            <Radio.Button value={PaymentTypeEnum.Linear}>等额本金</Radio.Button>
           </Radio.Group>
         </Form.Item>
       </Row>

@@ -1,8 +1,9 @@
 import React from 'react'
 import ToolCard from './components/tool-card'
-import { Col, Row, Input, Button, Space, ColorPicker } from 'antd'
+import { Col, Row, Input, Button, Space } from 'antd'
 import useAction, { InputType, useButton } from './action'
-import { DevToolsInputType, InputValueType } from '@/typings/common'
+import { InputValueType } from '@/typings/common'
+import { DevToolsInputType } from '@/typings/configs/common'
 
 const DevtoolsCard = ({
   title,

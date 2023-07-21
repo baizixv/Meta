@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { DevToolsInputType, InputValueType } from '@/typings/common'
+import { InputValueType } from '@/typings/common'
 import { removeStrSpace } from '@/utils/format/common'
 import { useInput } from '@/utils/hooks/input'
+import { DevToolsInputType } from '@/typings/configs/common'
 
 const useAction = ({
   inputType = InputType.StringType,
