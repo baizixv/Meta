@@ -6,7 +6,6 @@ import FinanceListPage from './finance'
 import RegexpListPage from './regexp'
 import MathToolsListPage from './math-tools'
 import './style.css'
-import { WebToolsHomePage } from '../webtools'
 
 // 模块整体架构
 const ToolsPackage: React.FC = () => {
@@ -29,11 +28,9 @@ const ToolsPackageHomePage = () => {
       <div className="meta-homecard-tilte">数学工具</div>
       <MathToolsListPage />
       <div className="meta-homecard-tilte">时间相关</div>
-      <WebToolsHomePage />
+      <MathToolsListPage />
       <div className="meta-homecard-tilte">编码相关</div>
-      <WebToolsHomePage />
-      <div className="meta-homecard-tilte">编码相关</div>
-      <WebToolsHomePage />
+      <MathToolsListPage />
     </div>
   )
 }
