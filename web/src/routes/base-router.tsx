@@ -7,6 +7,7 @@ import Webtools, { WebToolsHomePage, QRcodeCard } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
 import ToolsPackage, { ToosPackageHomePage } from '@/pages/tools-package'
 import MoneyPrice from '@/pages/tools-package/finance/money-price'
+import ConvertRate from '@/pages/tools-package/finance/convert-rate'
 
 const routesConfigs = [
   {
@@ -27,6 +28,7 @@ const routesConfigs = [
       { path: '', element: <ToosPackageHomePage /> },
       { path: '*', element: <Navigate to="/tools" replace /> },
       { path: 'money-price', element: <MoneyPrice /> },
+      { path: 'convert-rate', element: <ConvertRate /> },
     ],
   },
 ]

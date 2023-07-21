@@ -21,7 +21,7 @@ const ToolCard: React.FC<ToolCardProps> = props => {
     >
       <Paragraph
         ellipsis={{
-          rows: 3,
+          rows: 1,
           tooltip: true,
         }}
       >
