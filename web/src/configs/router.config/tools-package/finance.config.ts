@@ -6,7 +6,7 @@ export const financeListConfigs: ToolCardConfig[] = [
     key: 'debt-rate',
     name: '投资回报测算',
     description: '已知投资的预期现金流，对IRR进行计算',
-    path: '/tools/convert-rate',
+    path: '/tools/rate',
   },
   {
     key: 'debt-bill',

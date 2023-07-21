@@ -8,7 +8,7 @@ import JSONFormat from '@/pages/webtools/json-format'
 import QRCodeCard from '@/pages/webtools/qr-code'
 import ToolsPackage, { ToolsPackageHomePage } from '@/pages/tools-package'
 import MoneyPrice from '@/pages/tools-package/finance/money-price'
-import ConvertRate from '@/pages/tools-package/finance/convert-rate'
+import RateFinance from '@/pages/tools-package/finance/rate'
 
 const routesConfigs = [
   {
@@ -29,7 +29,7 @@ const routesConfigs = [
       { path: '', element: <ToolsPackageHomePage /> },
       { path: '*', element: <Navigate to="/tools" replace /> },
       { path: 'money-price', element: <MoneyPrice /> },
-      { path: 'convert-rate', element: <ConvertRate /> },
+      { path: 'rate', element: <RateFinance /> },
     ],
   },
 ]

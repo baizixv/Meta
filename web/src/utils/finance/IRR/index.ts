@@ -1,6 +1,6 @@
 import { binarySearch } from '@/utils/common/math'
 // 概念：IRR，NPV，现值PV，终值FV，现金流，
-// 利率，名义利率，真实利率，声称利率，折现率，回报率，机会成本
+// 利率，名义利率，真实利率，声称利率，折现率，回报率，机会成本，贴现率
 // 利用二分法，进行逼近近似求解
 export const calculateIRR = (cashFlows: number[]) => {
   const guessRate = binarySearch(
@@ -22,4 +22,13 @@ export const calculateIRR = (cashFlows: number[]) => {
       return -npv
     }
   )
+
+  return guessRate
 }
+
+const result = calculateIRR([-10000, 2500, 2500, 2500, 2500, 2500])
+console.log(
+  '%c Line:30 🍅 result',
+  'font-size:18px;color:#f5ce50;background:#42b983',
+  result
+)

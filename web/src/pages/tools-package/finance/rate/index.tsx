@@ -10,7 +10,7 @@ import DebtTable from './components/debt.table.tsx/index.tsx'
 import './style.css'
 const { Paragraph } = Typography
 
-const ConvertRate: React.FC = () => {
+const RateFinance: React.FC = () => {
   const {
     form,
     debtPaymentType,
@@ -62,4 +62,4 @@ const ConvertRate: React.FC = () => {
   )
 }
 
-export default ConvertRate
+export default RateFinance
