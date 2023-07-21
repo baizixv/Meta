@@ -1,7 +1,7 @@
 import React from 'react'
-import { default as WebToolsHomePage } from '@/pages/webtools/home-page'
-import './style.css'
 import HotToollistPage from './hot-toollist.page'
+import { WebToolsHomePage } from '@/pages/webtools'
+import './style.css'
 
 const MainContent = () => {
   return (

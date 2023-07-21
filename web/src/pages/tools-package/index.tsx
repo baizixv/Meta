@@ -2,11 +2,11 @@ import React from 'react'
 import Breadcrumb from '@/components/breadcrumb'
 import { Outlet } from 'react-router-dom'
 import { pathNameMap } from '@/configs/router.config/common.config'
-import { default as WebToolsHomePage } from '@/pages/webtools/home-page'
 import FinanceListPage from './finance'
 import RegexpListPage from './regexp'
 import MathToolsListPage from './math-tools'
 import './style.css'
+import { WebToolsHomePage } from '../webtools'
 
 // 模块整体架构
 const ToolsPackage: React.FC = () => {

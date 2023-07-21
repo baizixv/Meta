@@ -3,8 +3,9 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import App from '../pages'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
-import Webtools, { WebToolsHomePage, QRcodeCard } from '@/pages/webtools'
+import Webtools, { WebToolsHomePage } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
+import QRCodeCard from '@/pages/webtools/qr-code'
 import ToolsPackage, { ToolsPackageHomePage } from '@/pages/tools-package'
 import MoneyPrice from '@/pages/tools-package/finance/money-price'
 import ConvertRate from '@/pages/tools-package/finance/convert-rate'
@@ -16,7 +17,7 @@ const routesConfigs = [
     children: [
       { path: '', element: <WebToolsHomePage /> },
       { path: '*', element: <Navigate to="/webtools" replace /> },
-      { path: 'qrcode', element: <QRcodeCard /> },
+      { path: 'qrcode', element: <QRCodeCard /> },
       { path: 'json_format', element: <JSONFormat /> },
     ],
   },
