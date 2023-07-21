@@ -1,17 +1,18 @@
+import { fixed2 } from '@/utils/format/number'
 export const useAction = () => {
-  //   const onFinish = (values: any) => {
-  //     console.log(
-  //       '%c Line:8 🍑 values',
-  //       'font-size:18px;color:#fca650;background:#e41a6a',
-  //       values
-  //     )
-  //   }
-  //   const onFinishFailed = (errorInfo: any) => {
-  //     console.log(
-  //       '%c Line:16 🍯 errorInfo',
-  //       'font-size:18px;color:#42b983;background:#ed9ec7',
-  //       errorInfo
-  //     )
-  //   }
-  //   return { onFinish, onFinishFailed }
+  const formatter = (value: number | undefined, _: any) => {
+    if (value) {
+      const showValue = +value * 100
+      return `${+fixed2(showValue, 8)}`
+    }
+    return ''
+  }
+
+  const parser = (strV: string | undefined): any => {
+    if (strV) {
+      const realValue = +strV / 100
+      return +fixed2(realValue, 8)
+    }
+  }
+  return { formatter, parser }
 }

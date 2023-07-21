@@ -1,13 +1,15 @@
 import React from 'react'
-import { Button, Form, Input, Radio, Row } from 'antd'
+import { Button, Form, InputNumber, Radio, Row } from 'antd'
 import { formStyle, formItemStyle, rowButtonStyle } from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
+import { useAction } from './action'
 
 const DebtForm: React.FC<{
   formInstance: any
   computeModel: string
   onFinish: (values: any) => void
 }> = ({ formInstance, onFinish, computeModel }) => {
+  const { formatter, parser } = useAction()
   return (
     <Form
       layout="inline"
@@ -15,9 +17,9 @@ const DebtForm: React.FC<{
       initialValues={{
         debtMoney: 10000,
         debtTerm: 12,
-        debtRate: 24,
-        debtPaymentType: PaymentTypeEnum.Annuity,
+        debtRate: 0.24,
         debtCount: 11347.15,
+        debtPaymentType: PaymentTypeEnum.Annuity,
         computeModel: 'debt-list',
       }}
       onFinish={onFinish}
@@ -45,38 +47,44 @@ const DebtForm: React.FC<{
       </Row>
       <Row>
         <Form.Item
-          label="借款本金（元）"
+          label="借款本金"
           name="debtMoney"
           style={formItemStyle}
           rules={[{ required: true, message: '' }]}
         >
-          <Input placeholder="10000" />
+          <InputNumber addonBefore="¥" placeholder="10000" />
         </Form.Item>
         <Form.Item
-          label="借款期数（一般为月）"
+          label="借款期数"
           name="debtTerm"
           style={formItemStyle}
           rules={[{ required: true, message: '' }]}
         >
-          <Input placeholder="12" />
+          <InputNumber addonAfter="期" placeholder="12" precision={0} />
         </Form.Item>
         {computeModel === 'debt-list' ? (
           <Form.Item
-            label="年利率（%）"
+            label="年利率"
             name="debtRate"
             style={formItemStyle}
             rules={[{ required: true, message: '' }]}
           >
-            <Input placeholder="=每期利率 x 借款期数" />
+            <InputNumber
+              addonAfter="%"
+              placeholder="=每期利率 x 借款期数"
+              step={0.0001}
+              formatter={formatter}
+              parser={parser}
+            />
           </Form.Item>
         ) : (
           <Form.Item
-            label="总还款额（元）"
+            label="总还款额"
             name="debtCount"
             style={formItemStyle}
             rules={[{ required: true, message: '' }]}
           >
-            <Input placeholder="11347.2" />
+            <InputNumber addonBefore="¥" placeholder="11347.2" />
           </Form.Item>
         )}
       </Row>

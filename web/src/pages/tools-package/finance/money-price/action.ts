@@ -28,8 +28,13 @@ export const useAction = () => {
   })
 
   const onFinish = (values: any) => {
+    console.log(
+      '%c Line:31 🍇 values',
+      'font-size:18px;color:#b03734;background:#fca650',
+      values
+    )
     let result: DebtResult = {} as DebtResult
-    let rate: number = values.debtRate / 100
+    let rate: number = values.debtRate
 
     switch (values.debtPaymentType) {
       case PaymentTypeEnum.Annuity: // 等额本息
@@ -54,6 +59,11 @@ export const useAction = () => {
     }
 
     setDebtResult(result)
+    console.log(
+      '%c Line:62 🧀 result',
+      'font-size:18px;color:#6ec1c2;background:#6ec1c2',
+      result
+    )
   }
 
   return {
