@@ -2,8 +2,8 @@ import React from 'react'
 import { Typography } from 'antd'
 import { fixed2 } from '@/utils/format/number'
 
-const renderText = (text: number) => {
-  return <Typography.Text>{`${fixed2(text)}`}</Typography.Text>
+const renderText = (text: number, style: any) => {
+  return <Typography.Text style={style}>{`${fixed2(text)}`}</Typography.Text>
 }
 
 export const columns = [
@@ -21,7 +21,7 @@ export const columns = [
     dataIndex: 'monthlyPay',
     key: 'monthlyPay',
     align: 'center' as any,
-    render: renderText,
+    render: (text: number) => renderText(text, { color: '#e82298' }),
   },
   {
     title: '月供拆解',
@@ -32,14 +32,14 @@ export const columns = [
         key: 'monthlyPrincipal',
         width: 150,
         align: 'center' as any,
-        render: renderText,
+        render: (text: number) => renderText(text, { color: '#221373' }),
       },
       {
         title: '利息',
         dataIndex: 'monthlyPayInterest',
         key: 'monthlyPayInterest',
         align: 'center' as any,
-        render: renderText,
+        render: (text: number) => renderText(text, { color: '#221373' }),
       },
     ],
   },
@@ -54,7 +54,7 @@ export const columns = [
         align: 'center' as any,
         render: (text: number, record: any) => (
           <Typography.Text
-            style={record.isLast ? { color: 'red' } : {}}
+            style={record.isLast ? { color: 'red' } : { color: '#6cd21d' }}
           >{`${fixed2(text)}`}</Typography.Text>
         ),
       },
@@ -65,7 +65,7 @@ export const columns = [
         align: 'center' as any,
         render: (text: number, record: any) => (
           <Typography.Text
-            style={record.isLast ? { color: 'red' } : {}}
+            style={record.isLast ? { color: 'red' } : { color: '#6cd21d' }}
           >{`${fixed2(text)}`}</Typography.Text>
         ),
       },
@@ -80,14 +80,14 @@ export const columns = [
         key: 'restPayPrincipal',
         width: 150,
         align: 'center' as any,
-        render: renderText,
+        render: (text: number) => renderText(text, { color: '#47445e' }),
       },
       {
         title: '利息',
         dataIndex: 'restPayInterest',
         key: 'restPayInterest',
         align: 'center' as any,
-        render: renderText,
+        render: (text: number) => renderText(text, { color: '#47445e' }),
       },
     ],
   },
