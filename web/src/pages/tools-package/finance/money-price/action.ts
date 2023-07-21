@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Form } from 'antd'
 import {
   getLinearRate,
@@ -11,6 +11,7 @@ import {
   DebtParamsFirst,
   DebtResult,
 } from '@/typings/pages/tools-package/finance'
+import { initialFormValues } from '@/configs/tools-package/finance.config'
 
 export const useAction = () => {
   const [form] = Form.useForm()
@@ -28,11 +29,6 @@ export const useAction = () => {
   })
 
   const onFinish = (values: any) => {
-    console.log(
-      '%c Line:31 🍇 values',
-      'font-size:18px;color:#b03734;background:#fca650',
-      values
-    )
     let result: DebtResult = {} as DebtResult
     let rate: number = values.debtRate
 
@@ -59,12 +55,12 @@ export const useAction = () => {
     }
 
     setDebtResult(result)
-    console.log(
-      '%c Line:62 🧀 result',
-      'font-size:18px;color:#6ec1c2;background:#6ec1c2',
-      result
-    )
   }
+
+  // 初始进入页面就更新一次，以便显示出数值
+  useEffect(() => {
+    onFinish(initialFormValues)
+  }, [])
 
   return {
     form,

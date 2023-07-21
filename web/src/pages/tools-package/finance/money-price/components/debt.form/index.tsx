@@ -3,6 +3,7 @@ import { Button, Form, InputNumber, Radio, Row } from 'antd'
 import { formStyle, formItemStyle, rowButtonStyle } from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
+import { initialFormValues } from '@/configs/tools-package/finance.config'
 
 const DebtForm: React.FC<{
   formInstance: any
@@ -14,14 +15,7 @@ const DebtForm: React.FC<{
     <Form
       layout="inline"
       form={formInstance}
-      initialValues={{
-        debtMoney: 10000,
-        debtTerm: 12,
-        debtRate: 0.24,
-        debtCount: 11347.15,
-        debtPaymentType: PaymentTypeEnum.Annuity,
-        computeModel: 'debt-list',
-      }}
+      initialValues={initialFormValues}
       onFinish={onFinish}
       style={formStyle}
     >
