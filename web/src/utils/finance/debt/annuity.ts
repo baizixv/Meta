@@ -1,8 +1,13 @@
-import { DebtParamsSencond } from '@/typings/pages/tools-package/finance'
+import {
+  DebtMonthlyParams,
+  DebtParamsFirst,
+  DebtParamsSencond,
+} from '@/typings/pages/tools-package/finance'
 import { binarySearch } from '@/utils/common/math'
 import { fixed2 } from '@/utils/format/number'
 
 // 等额本息
+// 等额本息：月供 = 贷款本金 × [年化利率 ÷ 12 × (1 + 年化利率 ÷ 12) ^ 还款月数] ÷ { [ (1 + 年化利率÷ 12) ^ 还款月数] - 1}
 // 获取每期还款额度
 export const getAnnuityMonthPay = (
   A: number, // 借贷额度
@@ -17,7 +22,6 @@ export const getAnnuityMonthPay = (
   // 每期还款总额
   return Q
 }
-// 等额本息，获取月供账单
 
 // 获取等额本息的利率,二分法逼近进行近似计算
 export const getAnnuityRate = ({
@@ -48,4 +52,62 @@ export const getAnnuityRate = ({
   )
   // 利率百分比后保留四位小数
   return +fixed2(guessResult * 100) / 100
+}
+
+// 获取等额本息月供账单
+export const getAnnuityMonthPayArray = ({
+  debtMoney,
+  debtRate,
+  debtTerm,
+}: DebtParamsFirst): DebtMonthlyParams[] => {
+  // 每期利率
+  const R = debtRate / debtTerm
+  // 每期偿还总额
+  const monthMoney = getAnnuityMonthPay(debtMoney, debtTerm, R)
+
+  const resultArray: DebtMonthlyParams[] = []
+
+  let totalRest = debtMoney // 剩余本金
+  let totalPrincipal = 0 // 累计本金
+  let totalInterest = 0 // 累计利息
+
+  // 每期偿还本金
+  for (let i = 0; i < debtTerm; i++) {
+    // 每期偿还利息, 当前剩余本金*月利率
+    const currInterest = totalRest * R
+    // 每期偿还本金，每期还款总额 - 每期偿还利息
+    const currPrincipal = monthMoney - currInterest
+    // 更新剩余本金和
+    totalRest -= currPrincipal
+
+    totalPrincipal += currPrincipal
+    totalInterest += currInterest
+
+    const item: DebtMonthlyParams = {
+      key: i,
+      termIndex: i,
+      monthlyPrincipal: currPrincipal,
+      monthlyPayInterest: currInterest,
+      monthlyPay: monthMoney,
+      countPayPrincipal: totalPrincipal,
+      countPayInterest: totalInterest,
+      restPayPrincipal: debtMoney - totalPrincipal,
+      restPayInterest: 0,
+      isLast: false,
+    }
+
+    if (i === debtTerm - 1) {
+      item.isLast = true
+    }
+
+    resultArray.push(item)
+  }
+
+  const debtMonthArray: DebtMonthlyParams[] = resultArray.map(ele => {
+    return {
+      ...ele,
+      restPayInterest: totalInterest - ele.countPayInterest,
+    }
+  })
+  return debtMonthArray
 }

@@ -1,13 +1,16 @@
-import { PaymentType } from '@/typings/configs/common'
-import { DebtResult } from '@/typings/pages/tools-package/finance'
+import { useState } from 'react'
+import { Form } from 'antd'
 import {
-  getAnnuityMonthlyPayment,
   getLinearMonthlyPayMent,
   getLinearRate,
+  getAnnuityRate,
+  getAnnuityMonthPayArray,
 } from '@/utils/finance'
-import { getAnnuityRate } from '@/utils/finance/debt/annuity'
-import { Form } from 'antd'
-import { useState } from 'react'
+import { PaymentType } from '@/typings/configs/common'
+import {
+  DebtParamsFirst,
+  DebtResult,
+} from '@/typings/pages/tools-package/finance'
 
 export const useAction = () => {
   const [form] = Form.useForm()
@@ -21,40 +24,63 @@ export const useAction = () => {
     debtRate: 0,
   })
 
-  let totalInterest = 0
   const onFinish = (values: any) => {
     let result: DebtResult = {} as DebtResult
     let rate: number = values.debtRate / 100
-    if (values.debtPaymentType === PaymentType.Annuity) {
-      if (computeModel === 'rate') {
-        rate = getAnnuityRate({ ...values })
-      }
-      result = getAnnuityMonthlyPayment({
-        ...values,
-        debtRate: rate,
-      })
-    } else {
-      if (computeModel === 'rate') {
-        rate = getLinearRate(values)
-      }
-      result = getLinearMonthlyPayMent({
-        ...values,
-        debtRate: rate,
-      })
+
+    switch (values.debtPaymentType) {
+      case PaymentType.Annuity: // 等额本息
+        if (computeModel === 'rate') {
+          rate = getAnnuityRate({ ...values })
+        }
+        result = getAnnuityMonthlyPayment({
+          ...values,
+          debtRate: rate,
+        })
+        break
+      case PaymentType.Linear: // 等额本金
+      default:
+        if (computeModel === 'rate') {
+          rate = getLinearRate(values)
+        }
+        result = getLinearMonthlyPayMent({
+          ...values,
+          debtRate: rate,
+        })
+        break
     }
 
     setDebtResult(result)
   }
-
-  const onFinishFailed = (errorInfo: any) => {}
 
   return {
     form,
     debtPaymentType,
     computeModel,
     debtResult,
-    totalInterest,
     onFinish,
-    onFinishFailed,
+  }
+}
+
+// 获取等额本息月供账单
+const getAnnuityMonthlyPayment = ({
+  debtMoney,
+  debtRate,
+  debtTerm,
+}: DebtParamsFirst) => {
+  const debtMonthArray = getAnnuityMonthPayArray({
+    debtMoney,
+    debtRate,
+    debtTerm,
+  })
+
+  const lastMonthItem = debtMonthArray[debtMonthArray.length - 1]
+  const { countPayInterest: totalInterest } = lastMonthItem
+
+  return {
+    debtMoney, // 借款本金
+    debtRate, // 年利率
+    totalInterest, // 利息总额
+    debtMonthArray, // 月供账单
   }
 }

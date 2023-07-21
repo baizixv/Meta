@@ -11,14 +11,8 @@ import './style.css'
 const { Paragraph } = Typography
 
 const MoneyPrice: React.FC = () => {
-  const {
-    form,
-    debtPaymentType,
-    computeModel,
-    debtResult,
-    onFinish,
-    onFinishFailed,
-  } = useAction()
+  const { form, debtPaymentType, computeModel, debtResult, onFinish } =
+    useAction()
 
   const { debtMoney, debtRate, debtMonthArray, totalInterest } = debtResult
   return (
@@ -31,7 +25,6 @@ const MoneyPrice: React.FC = () => {
         computeModel={computeModel}
         formInstance={form}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
       />
       <Paragraph>
         <blockquote className="meta-blockquote">

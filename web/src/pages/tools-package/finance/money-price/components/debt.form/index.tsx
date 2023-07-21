@@ -7,8 +7,7 @@ const DebtForm: React.FC<{
   formInstance: any
   computeModel: string
   onFinish: (values: any) => void
-  onFinishFailed: (errorInfo: any) => void
-}> = ({ formInstance, onFinish, onFinishFailed, computeModel }) => {
+}> = ({ formInstance, onFinish, computeModel }) => {
   return (
     <Form
       layout="inline"
@@ -22,7 +21,6 @@ const DebtForm: React.FC<{
         computeModel: 'debt-list',
       }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       style={formStyle}
     >
       <Row style={rowButtonStyle}>
@@ -53,7 +51,7 @@ const DebtForm: React.FC<{
           <Input placeholder="10000" />
         </Form.Item>
         <Form.Item
-          label="借款期限（月）"
+          label="借款期数（一般为月）"
           name="debtTerm"
           style={formItemStyle}
           rules={[{ required: true, message: '' }]}
@@ -62,12 +60,12 @@ const DebtForm: React.FC<{
         </Form.Item>
         {computeModel === 'debt-list' ? (
           <Form.Item
-            label="年化利率（%）"
+            label="年利率（%）"
             name="debtRate"
             style={formItemStyle}
             rules={[{ required: true, message: '' }]}
           >
-            <Input placeholder="24" />
+            <Input placeholder="=每期利率 x 借款期数" />
           </Form.Item>
         ) : (
           <Form.Item
