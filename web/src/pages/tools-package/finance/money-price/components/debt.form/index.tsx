@@ -8,9 +8,10 @@ import { initialFormValues } from '@/configs/tools-package/finance.config'
 const DebtForm: React.FC<{
   formInstance: any
   computeModel: string
+  debtAccuracy: number
   onFinish: (values: any) => void
-}> = ({ formInstance, onFinish, computeModel }) => {
-  const { formatter, parser } = useAction()
+}> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
+  const { formatter, parser } = useAction(debtAccuracy)
   return (
     <Form
       layout="inline"
@@ -37,6 +38,19 @@ const DebtForm: React.FC<{
             </Radio.Button>
             <Radio.Button value={PaymentTypeEnum.Linear}>等额本金</Radio.Button>
           </Radio.Group>
+        </Form.Item>
+        <Form.Item
+          label="年化利率精度-百分比后小数位数"
+          name="debtAccuracy"
+          style={formItemStyle}
+        >
+          <InputNumber
+            placeholder="默认为2"
+            step={1}
+            min={0}
+            max={10}
+            precision={0}
+          />
         </Form.Item>
       </Row>
       <Row>
@@ -66,7 +80,7 @@ const DebtForm: React.FC<{
             <InputNumber
               addonAfter="%"
               placeholder="=每期利率 x 借款期数"
-              step={0.0001}
+              step={0.01 * 10 ** -debtAccuracy}
               formatter={formatter}
               parser={parser}
             />

@@ -4,8 +4,8 @@ export const formStyle = {
 }
 export const formItemStyle = {
   marginBottom: 20,
+  flex: 1,
 }
 export const rowButtonStyle = {
-  justifyContent: 'space-between',
-  maxWidth: '50%',
+  justifyContent: 'flex-start',
 }

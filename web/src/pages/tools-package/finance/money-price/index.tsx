@@ -11,9 +11,15 @@ import './style.css'
 const { Paragraph } = Typography
 
 const MoneyPrice: React.FC = () => {
-  const { form, debtPaymentType, computeModel, debtResult, onFinish } =
-    useAction()
+  const {
+    form,
+    debtPaymentType,
+    computeModel,
+    debtAccuracy,
 
+    debtResult,
+    onFinish,
+  } = useAction()
   const { debtMoney, debtRate, debtMonthArray, totalInterest } = debtResult
   return (
     <Row style={rowWrapStyle}>
@@ -23,6 +29,7 @@ const MoneyPrice: React.FC = () => {
       </Divider>
       <DebtForm
         computeModel={computeModel}
+        debtAccuracy={debtAccuracy ?? 2}
         formInstance={form}
         onFinish={onFinish}
       />
@@ -41,6 +48,7 @@ const MoneyPrice: React.FC = () => {
             debtMoney={debtMoney}
             rate={debtRate}
             interestCount={totalInterest}
+            debtAccuracy={debtAccuracy ?? 2}
           />
         }
         datas={debtMonthArray}

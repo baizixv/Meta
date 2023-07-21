@@ -8,10 +8,11 @@ const DebtDesc: React.FC<{
   rate: number
   interestCount: number
   debtMoney: number
-}> = ({ rate, interestCount, debtMoney }) => {
+  debtAccuracy: number
+}> = ({ rate, interestCount, debtMoney, debtAccuracy }) => {
   const captionShows = [
     ['还款总额：', `${fixed2(+debtMoney + +interestCount)}元`],
-    ['年利率：', `${fixed2(rate * 100, 6)}%`],
+    ['年利率：', `${fixed2(rate * 100, debtAccuracy)}%`],
     ['利息总额：', `${fixed2(interestCount)}元`],
   ]
   return (

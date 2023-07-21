@@ -20,6 +20,7 @@ export const useAction = () => {
     form
   )
   const computeModel = Form.useWatch('computeModel', form)
+  const debtAccuracy = Form.useWatch('debtAccuracy', form)
 
   const [debtResult, setDebtResult] = useState<DebtResult>({
     debtMonthArray: [],
@@ -66,6 +67,7 @@ export const useAction = () => {
     form,
     debtPaymentType,
     computeModel,
+    debtAccuracy,
     debtResult,
     onFinish,
   }
