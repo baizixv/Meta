@@ -44,7 +44,7 @@ const DebtForm: React.FC<{
           </Radio.Group>
         </Form.Item>
         <Form.Item
-          label="年化利率精度-百分比后小数位数"
+          label="设置年化利率精度(百分比后小数位数)"
           name="debtAccuracy"
           style={formItemStyle}
         >
