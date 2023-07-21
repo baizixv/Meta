@@ -3,17 +3,16 @@ import { ToolCardConfig } from '@/typings/pages/webtools'
 
 export const financeListConfigs: ToolCardConfig[] = [
   {
+    key: 'debt-rate',
+    name: '投资回报测算',
+    description: '已知投资的预期现金流，对IRR进行计算',
+    path: '/tools/convert-rate',
+  },
+  {
     key: 'debt-bill',
     name: '借贷月供计算',
     description: '提供借贷月供计算，生成月供账单。或者根据月供推算年化利率.',
     path: '/tools/money-price',
-  },
-  {
-    key: 'debt-rate',
-    name: '借贷利率转换',
-    description:
-      '等额本息，等额本金，一次性还本付息，先息后本之间的等效利率转换',
-    path: '/tools/convert-rate',
   },
 ]
 
