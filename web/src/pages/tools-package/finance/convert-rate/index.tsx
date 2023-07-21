@@ -42,6 +42,11 @@ const ConvertRate: React.FC = () => {
       <Divider orientation="center" orientationMargin={0}>
         <ProjectOutlined /> - 计算结果
       </Divider>
+      <Paragraph>
+        <blockquote className="meta-blockquote">
+          {paymentTypeDesc[debtPaymentType]}
+        </blockquote>
+      </Paragraph>
       <DebtTable
         title={
           <DebtDesc
