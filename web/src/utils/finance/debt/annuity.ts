@@ -6,23 +6,21 @@ import {
 import { binarySearch } from '@/utils/common/math'
 import { fixed2 } from '@/utils/format/number'
 
-// 等额本息
 // 等额本息：月供 = 贷款本金 × [年化利率 ÷ 12 × (1 + 年化利率 ÷ 12) ^ 还款月数] ÷ { [ (1 + 年化利率÷ 12) ^ 还款月数] - 1}
 // 获取每期还款额度
 export const getAnnuityMonthPay = (
-  A: number, // 借贷额度
+  A: number, // 借贷本金
   n: number, // 借贷期数
   R: number // 每期利率
 ): number => {
   // 等额本息辅助计算公式
   const C = (1 + R) ** n
-  // 每期偿还总额
-  const M = (R * C) / (C - 1)
-  const Q = A * M
+  // 每期偿还中间结果
+  const T = (R * C) / (C - 1)
   // 每期还款总额
+  const Q = A * T
   return Q
 }
-
 // 获取等额本息的利率,二分法逼近进行近似计算
 export const getAnnuityRate = ({
   debtMoney,
