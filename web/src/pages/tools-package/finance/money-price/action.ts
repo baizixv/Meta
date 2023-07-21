@@ -2,10 +2,10 @@ import { PaymentType } from '@/typings/configs/common'
 import { DebtResult } from '@/typings/pages/tools-package/finance'
 import {
   getAnnuityMonthlyPayment,
-  getAnnuityRate,
   getLinearMonthlyPayMent,
   getLinearRate,
 } from '@/utils/finance'
+import { getAnnuityRate } from '@/utils/finance/debt/annuity'
 import { Form } from 'antd'
 import { useState } from 'react'
 
@@ -23,23 +23,12 @@ export const useAction = () => {
 
   let totalInterest = 0
   const onFinish = (values: any) => {
-    console.log(
-      '%c Line:26 🍯 values',
-      'font-size:18px;color:#ea7e5c;background:#b03734',
-      values
-    )
     let result: DebtResult = {} as DebtResult
     let rate: number = values.debtRate / 100
     if (values.debtPaymentType === PaymentType.Annuity) {
       if (computeModel === 'rate') {
         rate = getAnnuityRate({ ...values })
       }
-      console.log(
-        '%c Line:36 🍌 rate',
-        'font-size:18px;color:#465975;background:#6ec1c2',
-        rate
-      )
-
       result = getAnnuityMonthlyPayment({
         ...values,
         debtRate: rate,

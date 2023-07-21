@@ -18,7 +18,7 @@ const DebtForm: React.FC<{
         debtTerm: 12,
         debtRate: 24,
         debtPaymentType: PaymentType.Annuity,
-        debtCount: 11347.2,
+        debtCount: 11347.15,
         computeModel: 'debt-list',
       }}
       onFinish={onFinish}

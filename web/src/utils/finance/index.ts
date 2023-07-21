@@ -4,6 +4,8 @@ import {
   DebtParamsSencond,
   DebtResult,
 } from '@/typings/pages/tools-package/finance'
+import { fixed2 } from '../format/number'
+import { getAnnuityMonthPay } from './debt/annuity'
 
 // 等额本金：月供 = 贷款本金 ÷ 还款月数 x (1 + 年化利率 ÷ 12 x 剩余还款期数)
 export const getLinearMonthlyPayMent = ({
@@ -179,46 +181,41 @@ export const getLinearRate = ({
   return guess // 返回实际年利率
 }
 
-// 获取等额本息的利率,二分法茶逼近
-export const getAnnuityRate = ({
-  debtMoney,
-  debtCount,
-  debtTerm,
-}: DebtParamsSencond) => {
-  let guess = 0.1 // 初始猜测利率
-  let precision = 1e-3 // 精确度
-  let maxIterations = 10 // 最大迭代次数
+// 获取等额本息的利率,二分法逼近进行近似计算
+// export const getAnnuityRate = ({
+//   debtMoney,
+//   debtCount,
+//   debtTerm,
+// }: DebtParamsSencond) => {
+//   // 初始猜测利率范围,等额本息肯定比假定一次性还本付息的利率高,但其实二分法下提升的计算效率不大
+//   let low = (debtCount - debtMoney) / debtMoney
+//   let high = 1 // 比1要小
 
-  // 实际的每月还款额
-  const realMonthMoney = debtCount / debtTerm
-  console.log(
-    '%c Line:194 🍏 realMonthMoney',
-    'font-size:18px;color:#465975;background:#93c0a4',
-    realMonthMoney
-  )
+//   let guess = 0
+//   let precision = 1e-6 // 精确度
 
-  const getMonthMoneyGuess = (currGuess: number) => {
-    // 月利率
-    const R = currGuess / 12
-    // 等额本息辅助计算公式
-    const cR = (1 + R) ** debtTerm
-    // 每月偿还总额
-    const A = debtMoney
-    const monthMoney = (A * (R * cR)) / (cR - 1)
-    return monthMoney
-  }
+//   while (low <= high) {
+//     guess = (low + high) / 2
+//     let balance =
+//       getAnnuityMonthPay(debtMoney, debtTerm, guess / debtTerm) -
+//       debtCount / debtTerm
+//     if (Math.abs(balance) < precision) {
+//       // 精度足够，提前退出
+//       break
+//     } else if (balance > 0) {
+//       // 近似利率下，猜测的月供高于实际，本金计算剩余，说明近似比实际大了,调低高位
+//       high = guess - precision
+//     } else {
+//       // 近似利率下，猜测的月供小于实际，本金计算负值，说明近似比实际小了，调高低位
+//       low = guess + precision
+//     }
+//   }
 
-  let i = 0
-  while (i < maxIterations) {
-    const currGuessMonthMoney = getMonthMoneyGuess(guess)
+//   // 利率百分比后保留四位小数
+//   guess = +fixed2(guess * 100) / 100
 
-    if (Math.abs(realMonthMoney - currGuessMonthMoney) <= precision) {
-      return guess // 返回利率的百分比形式
-    }
+//   return guess
+// }
 
-    guess += 0.0001 // 每次增加0.1%的利率猜测
-    i++
-  }
-  return -1 // 未找到合适的利率
-}
+
 
