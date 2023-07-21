@@ -11,13 +11,17 @@ const DebtForm: React.FC<{
   debtAccuracy: number
   onFinish: (values: any) => void
 }> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
-  const { formatter, parser } = useAction(debtAccuracy)
+  const { onValuesChange, formatter, parser } = useAction(
+    formInstance,
+    debtAccuracy
+  )
   return (
     <Form
       layout="inline"
       form={formInstance}
       initialValues={initialFormValues}
       onFinish={onFinish}
+      onValuesChange={onValuesChange}
       style={formStyle}
     >
       <Row style={rowButtonStyle}>
@@ -86,14 +90,23 @@ const DebtForm: React.FC<{
             />
           </Form.Item>
         ) : (
-          <Form.Item
-            label="总还款额"
-            name="debtCount"
-            style={formItemStyle}
-            rules={[{ required: true, message: '' }]}
-          >
-            <InputNumber addonBefore="¥" placeholder="11347.2" />
-          </Form.Item>
+          <>
+            {/* 每月还款额只是个显示项目，其实并不参与表单计算 */}
+            <Form.Item
+              label="每期还款额"
+              name="debtCountMonthly"
+              style={formItemStyle}
+              rules={[{ required: true, message: '' }]}
+            >
+              <InputNumber addonBefore="¥" placeholder="11347.2" />
+            </Form.Item>
+            <Form.Item label="总还款额" name="debtCount" style={formItemStyle}>
+              <InputNumber
+                addonBefore="¥"
+                placeholder="每期还款额 x 借款期数"
+              />
+            </Form.Item>
+          </>
         )}
       </Row>
       <Row style={rowButtonStyle}></Row>

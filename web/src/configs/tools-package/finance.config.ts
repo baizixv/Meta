@@ -21,6 +21,7 @@ export const initialFormValues = {
   debtTerm: 12,
   debtRate: 0.24,
   debtCount: 11347.15,
+  debtCountMonthly: 945.6,
   debtAccuracy: 2,
   debtPaymentType: PaymentTypeEnum.Annuity,
   computeModel: 'debt-list',

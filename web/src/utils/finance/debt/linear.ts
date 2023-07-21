@@ -32,7 +32,7 @@ export const getLinearRate = ({
   const guessResult = binarySearch(
     {
       low: (debtCount - debtMoney) / debtMoney,
-      high: 1,
+      high: 10000, // 并不会带来计算性能问题，二分法下增加的计算次数是有限的
       precision: 1e-6,
     },
     (guess: number) => {

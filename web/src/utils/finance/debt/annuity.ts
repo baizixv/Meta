@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js'
 import {
   DebtMonthlyParams,
   DebtParamsFirst,
@@ -13,13 +14,22 @@ export const getAnnuityMonthPay = (
   n: number, // 借贷期数
   R: number // 每期利率
 ): number => {
+  // 防止金融计算，中间结果溢出，使用大数计算
   // 等额本息辅助计算公式
-  const C = (1 + R) ** n
+  const BigA = new BigNumber(A)
+  const BigN = new BigNumber(n)
+  const BigR = new BigNumber(R)
+
+  const C = BigR.plus(1).pow(BigN)
+
   // 每期偿还中间结果
-  const T = (R * C) / (C - 1)
+  const T = C.times(BigR).dividedBy(C.minus(1))
+
   // 每期还款总额
-  const Q = A * T
-  return Q
+  const Q = BigA.times(T)
+
+  const QNumber = +Q.toString()
+  return QNumber
 }
 // 获取等额本息的利率,二分法逼近进行近似计算
 export const getAnnuityRate = ({
@@ -31,7 +41,7 @@ export const getAnnuityRate = ({
   const guessResult = binarySearch(
     {
       low: (debtCount - debtMoney) / debtMoney,
-      high: 1,
+      high: 10000, // 并不会带来计算性能问题，二分法下增加的计算次数是有限的
       precision: 1e-6,
     },
     (guess: number) => {
