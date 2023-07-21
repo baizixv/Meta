@@ -7,7 +7,7 @@ export const useAction = (formInstance: any, debtAccuracy: number) => {
   const formatter = (value: number | undefined, _: any) => {
     if (value) {
       const showValue = +value * 100
-      return `${+fixed2(showValue, debtAccuracy + 2)}`
+      return `${fixed2(showValue, debtAccuracy)}`
     }
     return ''
   }
