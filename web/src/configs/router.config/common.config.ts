@@ -8,6 +8,7 @@ export const getPathNameMap = () => {
     '/': '主页',
   }
 
+  // 头部导航菜单
   const menuList = [...initialMenuConfigs]
 
   menuList.forEach(menu => {
@@ -17,6 +18,7 @@ export const getPathNameMap = () => {
     }
   })
 
+  // 工具卡片列表
   const cardList = [...webtoolsListConfigs, ...financeListConfigs]
 
   cardList.forEach(card => {
