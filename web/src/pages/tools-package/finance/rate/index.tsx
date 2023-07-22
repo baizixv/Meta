@@ -16,7 +16,6 @@ const RateFinance: React.FC = () => {
     debtPaymentType,
     computeModel,
     debtAccuracy,
-
     debtResult,
     onFinish,
   } = useAction()
