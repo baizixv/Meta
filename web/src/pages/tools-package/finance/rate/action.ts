@@ -54,7 +54,7 @@ const getCashFlows = (cashFlowsStr: string = '') => {
     if (str) {
       const num = +str
       if (isNaN(num)) {
-        message.warning(`请输入正确格式的现金流，格式错误--->${str}`)
+        message.warning(`请输入正确格式的现金流，以下格式错误--->${str}`)
         return []
       }
       results.push(num)
