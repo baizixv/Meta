@@ -2,7 +2,7 @@ import {
   DebtMonthlyParams,
   DebtParamsFirst,
   DebtParamsSencond,
-} from '@/typings/pages/tools-package/finance'
+} from '@/typings/pages/tools-package/finance/money-price'
 import { binarySearch } from '@/utils/common/math'
 import { fixed2 } from '@/utils/format/number'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table } from 'antd'
 import { columns } from './colums.config.tsx'
-import { DebtMonthlyParams } from '@/typings/pages/tools-package/finance'
+import { DebtMonthlyParams } from '@/typings/pages/tools-package/finance/money-price.js'
 import { fixed2 } from '@/utils/format/number.ts'
 import DescList from '@/components/desc-list/index.tsx'
 

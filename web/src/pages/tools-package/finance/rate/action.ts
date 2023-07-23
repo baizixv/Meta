@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Form } from 'antd'
-import { DebtResult } from '@/typings/pages/tools-package/finance'
+import { DebtResult } from '@/typings/pages/tools-package/finance/money-price'
 import { initialRateFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 export const useAction = () => {
   const [form] = Form.useForm()
 
-  const [rateResult, setRateResult] = useState<DebtResult>({
-    debtMonthArray: [],
-    totalInterest: 0,
-    debtMoney: 0,
-    debtRate: 0,
+  const [rateResult, setRateResult] = useState<any>({
+    irrRate: 0,
   })
 
   const onFinish = (values: any) => {

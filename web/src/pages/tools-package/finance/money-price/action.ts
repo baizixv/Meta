@@ -10,7 +10,7 @@ import { PaymentTypeEnum } from '@/typings/configs/common'
 import {
   DebtParamsFirst,
   DebtResult,
-} from '@/typings/pages/tools-package/finance'
+} from '@/typings/pages/tools-package/finance/money-price'
 import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 export const useAction = () => {

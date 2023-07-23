@@ -12,7 +12,9 @@ import DebtForm from './components/rate.form/index.tsx'
 import RateDesc from './components/rate.desc/index.tsx'
 
 const RateFinance: React.FC = () => {
-  const { form, onFinish } = useAction()
+  const { form, rateResult, onFinish } = useAction()
+
+  const { irrRate } = rateResult
 
   return (
     <Row style={rowWrapStyle}>
@@ -30,12 +32,7 @@ const RateFinance: React.FC = () => {
           <Divider orientation="center" orientationMargin={0}>
             <ProjectOutlined /> - 计算结果
           </Divider>
-          <RateDesc
-            debtMoney={1}
-            irrRate={1}
-            interestCount={1}
-            debtAccuracy={2}
-          />
+          <RateDesc irrRate={irrRate} debtAccuracy={2} />
         </Col>
       </Row>
       <Row></Row>
