@@ -12,12 +12,6 @@ export const useAction = () => {
   const rateAccuracy = Form.useWatch('rateAccuracy', form)
   const rateType = Form.useWatch('rateType', form)
   const rateCount = termConfigs.find(item => item.value === rateType)?.count
-  console.log(
-    '%c Line:10 🍬 rateAccuracy',
-    'font-size:18px;color:#4fff4B;background:#7f2b82',
-    rateAccuracy
-  )
-
   const [rateResult, setRateResult] = useState<RateResult>({
     irrRate: 0,
   })
