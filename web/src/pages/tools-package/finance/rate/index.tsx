@@ -11,6 +11,8 @@ import { useAction } from './action.ts'
 import DebtForm from './components/rate.form/index.tsx'
 import RateDesc from './components/rate.desc/index.tsx'
 import BlockquoteComp from '@/components/blockquote/index.tsx'
+import { heloCashFlowsHelpInfos } from '@/configs/router.config/tools-package/finance.config.ts'
+import './style.css'
 
 const RateFinance: React.FC = () => {
   const { form, rateResult, onFinish } = useAction()
@@ -25,6 +27,12 @@ const RateFinance: React.FC = () => {
             <MoneyCollectOutlined /> - 输入参数
           </Divider>
           <DebtForm formInstance={form} onFinish={onFinish} />
+          <Divider orientation="center" orientationMargin={0}>
+            辅助现金流输入参数说明
+          </Divider>
+          <BlockquoteComp className="meta-blockquote-rate-help">
+            {heloCashFlowsHelpInfos}
+          </BlockquoteComp>
         </Col>
         <Divider type="vertical" dashed style={verticalDividerStyle} />
         {/* 显示结果 */}

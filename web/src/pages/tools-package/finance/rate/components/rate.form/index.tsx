@@ -35,8 +35,8 @@ const DebtForm: React.FC<{
         <Typography.Title level={5} style={titleStyle}>
           辅助现金流输入：
         </Typography.Title>
-        <Form.Item name="debtMoney" noStyle>
-          <Input.TextArea placeholder="1,3" autoSize style={inputStyle} />
+        <Form.Item name="helpCashFlowStr" noStyle>
+          <Input.TextArea autoSize style={inputStyle} />
         </Form.Item>
       </Form.Item>
 

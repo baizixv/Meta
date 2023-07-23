@@ -4,8 +4,8 @@ export const descListStyle = {
 
 export const textStyle = {
   display: 'inline-block',
-  marginTop: 10,
-  marginBottom: 10,
+  marginBottom: 5,
+  marginTop: 5,
 }
 
 export const blockquoteStyle = {

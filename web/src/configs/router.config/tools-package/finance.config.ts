@@ -36,3 +36,13 @@ export const initialMoneyPriceFormValues = {
 export const initialRateFormValues = {
   cashFlowStr: '-1000,250,250,250,250,250',
 }
+
+export const heloCashFlowsHelpInfos = [
+  '1. 和现金流值一一对应，表示当前位置重复几次',
+  '2. 用于解决相同值重复输入的问题。',
+  '3. 举例，现金流输入为: "-1000, 250", 辅助现金流输入为: "1,5"',
+  '4. 实际得到的现金流就为: "-1000,250,250,250,250,250"',
+  '5. 默认为1，输入值必须为正整数，',
+  '6. 负值和0一律视为1处理，其它非正整数向上取整处理',
+  '7. 后续位可缺省，默认为1',
+]

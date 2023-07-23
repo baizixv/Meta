@@ -16,6 +16,6 @@ export const titleStyle = {
 
 export const inputStyle = {
   width: '47vw',
-  minHeight: '15vh',
-  maxHeight: '15vh',
+  minHeight: '10vh',
+  maxHeight: '10vh',
 }
