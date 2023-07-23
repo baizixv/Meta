@@ -11,9 +11,19 @@ const DebtTable: React.FC<{
   totalInterest: number
   debtMoney: number
   debtAccuracy: number
-}> = ({ datas, debtRate, totalInterest, debtMoney, debtAccuracy }) => {
+  debtIrrRate?: number
+}> = ({
+  datas,
+  debtRate,
+  totalInterest,
+  debtMoney,
+  debtAccuracy,
+  debtIrrRate = 0,
+}) => {
   const captionShows = [
     ['年利率：', `${fixed2(debtRate * 100, debtAccuracy)}%`],
+    ['IRR-每期：', `${fixed2(debtIrrRate * 100, debtAccuracy)}%`],
+    ['IRR-每年：', `${fixed2(debtIrrRate * 100 * 12, debtAccuracy)}%`],
     ['利息总额：', `${fixed2(totalInterest)}元`],
     ['还款总额：', `${fixed2(+debtMoney + +totalInterest)}元`],
   ]

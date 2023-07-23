@@ -18,7 +18,8 @@ const MoneyPrice: React.FC = () => {
     debtResult,
     onFinish,
   } = useAction()
-  const { debtMoney, debtRate, debtMonthArray, totalInterest } = debtResult
+  const { debtMoney, debtRate, debtIrrRate, debtMonthArray, totalInterest } =
+    debtResult
   return (
     <Row style={rowWrapStyle}>
       <BlockquoteComp
@@ -42,6 +43,7 @@ const MoneyPrice: React.FC = () => {
       <DebtTable
         debtMoney={debtMoney}
         debtRate={debtRate}
+        debtIrrRate={debtIrrRate}
         totalInterest={totalInterest}
         debtAccuracy={debtAccuracy ?? 2}
         datas={debtMonthArray}

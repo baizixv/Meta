@@ -12,6 +12,7 @@ import {
   DebtResult,
 } from '@/typings/pages/tools-package/finance/money-price'
 import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
+import { calculateIRR } from '@/utils/finance/IRR'
 
 export const useAction = () => {
   const [form] = Form.useForm()
@@ -55,7 +56,9 @@ export const useAction = () => {
         break
     }
 
-    setDebtResult(result)
+    const debtIrrRate = getIrrRate(result)
+
+    setDebtResult({ ...result, debtIrrRate })
   }
 
   // 初始进入页面就更新一次，以便显示出数值
@@ -103,4 +106,15 @@ const getMonthlyPayment = ({
     totalInterest, // 利息总额
     debtMonthArray, // 月供账单
   }
+}
+
+// 获取IRR
+const getIrrRate = (result: DebtResult): number => {
+  const { debtMoney, debtMonthArray } = result
+  const cashFlows = [-debtMoney].concat(
+    debtMonthArray.map(item => item.monthlyPay)
+  )
+  const irrRate = calculateIRR(cashFlows)
+
+  return irrRate
 }

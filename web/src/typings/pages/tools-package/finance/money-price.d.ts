@@ -28,4 +28,5 @@ export interface DebtResult {
   debtRate: number
   debtMonthArray: DebtMonthlyParams[] // 还款月供
   totalInterest: number // 还款总利息
+  debtIrrRate?: number
 }

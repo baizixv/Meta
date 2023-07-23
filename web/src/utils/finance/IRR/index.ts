@@ -30,6 +30,5 @@ export const calculateIRR = (cashFlows: number[]) => {
       return -npvResult
     }
   )
-
   return guessRate
 }
