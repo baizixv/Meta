@@ -13,11 +13,6 @@ export const useAction = () => {
 
   const onFinish = (values: any) => {
     const { cashFlowStr } = values
-    console.log(
-      '%c Line:16 🍖 cashFlowStr',
-      'font-size:18px;color:#2eafb0;background:#ffdd4d',
-      cashFlowStr
-    )
     const cashFlows = getCashFlows(cashFlowStr)
     console.log(
       '%c Line:17 🍌 cashFlows',
@@ -25,11 +20,11 @@ export const useAction = () => {
       cashFlows
     )
     const irrRate = cashFlows.length > 0 ? calculateIRR(cashFlows) : 0
-    console.log(
-      '%c Line:28 🍺 irrRate',
-      'font-size:18px;color:#465975;background:#ea7e5c',
-      irrRate
-    )
+    // console.log(
+    //   '%c Line:28 🍺 irrRate',
+    //   'font-size:18px;color:#465975;background:#ea7e5c',
+    //   irrRate
+    // )
 
     setRateResult({
       irrRate,
@@ -50,6 +45,7 @@ export const useAction = () => {
 
 const getCashFlows = (cashFlowsStr: string = '') => {
   let results = [] as number[]
+  // 支持中英文逗号和两种换行符作为分割符号
   const regExp = /\n|\r\n|,|，/g
 
   const strArr = cashFlowsStr.split(regExp)
@@ -58,7 +54,7 @@ const getCashFlows = (cashFlowsStr: string = '') => {
     if (str) {
       const num = +str
       if (isNaN(num)) {
-        message.warning('请输入正确格式的现金流')
+        message.warning(`请输入正确格式的现金流，格式错误--->${str}`)
         return []
       }
       results.push(num)
