@@ -10,7 +10,7 @@ import {
 } from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
-import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
+import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 const DebtForm: React.FC<{
   formInstance: any
@@ -26,7 +26,7 @@ const DebtForm: React.FC<{
     <Form
       layout="inline"
       form={formInstance}
-      initialValues={initialFormValues}
+      initialValues={initialMoneyPriceFormValues}
       onFinish={onFinish}
       onValuesChange={onValuesChange}
       style={formStyle}

@@ -22,7 +22,7 @@ export const paymentTypeDesc: Record<PaymentTypeEnum, string> = {
     剩余还款期数)`,
 }
 
-export const initialFormValues = {
+export const initialMoneyPriceFormValues = {
   debtMoney: 10000,
   debtTerm: 12,
   debtRate: 0.24,
@@ -32,3 +32,5 @@ export const initialFormValues = {
   debtPaymentType: PaymentTypeEnum.Annuity,
   computeModel: 'debt-list',
 }
+
+export const initialRateFormValues = {}

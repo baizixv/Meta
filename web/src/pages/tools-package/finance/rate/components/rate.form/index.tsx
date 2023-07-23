@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Input, InputNumber, Radio, Row, Typography } from 'antd'
+import { Button, Form, Input, Row, Typography } from 'antd'
 import {
   formStyle,
   formItemStyle,
@@ -7,9 +7,8 @@ import {
   titleStyle,
   inputStyle,
 } from './style'
-import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
-import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
+import { initialRateFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 const DebtForm: React.FC<{
   formInstance: any
@@ -25,45 +24,43 @@ const DebtForm: React.FC<{
     <Form
       layout="vertical"
       form={formInstance}
-      initialValues={initialFormValues}
+      initialValues={initialRateFormValues}
       onFinish={onFinish}
       onValuesChange={onValuesChange}
       style={formStyle}
     >
-      <Form.Item
-        name="debtMoney"
-        style={formItemStyle}
-        rules={[{ required: true, message: '' }]}
-      >
+      <Form.Item style={formItemStyle}>
         <Typography.Title level={5} style={titleStyle}>
           现金流输入：
         </Typography.Title>
-        <Input.TextArea
-          placeholder="-1000，250，250，250"
-          autoSize
-          // value={input}
-          style={inputStyle}
-          // onChange={handleInput}
-        />
+        <Form.Item
+          name="debtMoney"
+          noStyle
+          rules={[{ required: true, message: '' }]}
+        >
+          <Input.TextArea
+            placeholder="-1000，250，250，250"
+            autoSize
+            // value={input}
+            style={inputStyle}
+            // onChange={handleInput}
+          />
+        </Form.Item>
       </Form.Item>
-      <Form.Item
-        name="debtMoney"
-        style={formItemStyle}
-        // rules={[{ required: true, message: '' }]}
-      >
+      <Form.Item style={formItemStyle}>
         <Typography.Title level={5} style={titleStyle}>
           辅助现金流输入：
         </Typography.Title>
-        <Input.TextArea
-          placeholder="-1000，250，250，250"
-          autoSize
-          // value={input}
-          style={inputStyle}
-          // onChange={handleInput}
-        />
+        <Form.Item name="debtMoney" noStyle>
+          <Input.TextArea
+            placeholder="-1000，250，250，250"
+            autoSize
+            // value={input}
+            style={inputStyle}
+            // onChange={handleInput}
+          />
+        </Form.Item>
       </Form.Item>
-
-      <Row style={rowButtonStyle}></Row>
 
       <Button
         type="primary"

@@ -2,5 +2,8 @@
     height: 40px;
     line-height: 40px;
     background-color: white;
+}
 
+.meta-blockquote-rate {
+    width: 100%;
 }

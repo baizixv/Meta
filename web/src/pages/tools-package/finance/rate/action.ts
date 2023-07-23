@@ -11,7 +11,7 @@ import {
   DebtParamsFirst,
   DebtResult,
 } from '@/typings/pages/tools-package/finance'
-import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
+import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 export const useAction = () => {
   const [form] = Form.useForm()
@@ -60,7 +60,7 @@ export const useAction = () => {
 
   // 初始进入页面就更新一次，以便显示出数值
   useEffect(() => {
-    onFinish(initialFormValues)
+    onFinish(initialMoneyPriceFormValues)
   }, [])
 
   return {
