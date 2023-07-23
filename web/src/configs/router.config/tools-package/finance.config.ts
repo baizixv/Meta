@@ -33,4 +33,6 @@ export const initialMoneyPriceFormValues = {
   computeModel: 'debt-list',
 }
 
-export const initialRateFormValues = {}
+export const initialRateFormValues = {
+  cashFlow: '-1000,250,250,250',
+}

@@ -1,32 +1,18 @@
 import React from 'react'
-import { Button, Form, Input, Row, Typography } from 'antd'
-import {
-  formStyle,
-  formItemStyle,
-  rowButtonStyle,
-  titleStyle,
-  inputStyle,
-} from './style'
-import { useAction } from './action'
+import { Button, Form, Input, Typography } from 'antd'
+import { formStyle, formItemStyle, titleStyle, inputStyle } from './style'
 import { initialRateFormValues } from '@/configs/router.config/tools-package/finance.config'
 
 const DebtForm: React.FC<{
   formInstance: any
-  computeModel: string
-  debtAccuracy: number
   onFinish: (values: any) => void
-}> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
-  const { onValuesChange, formatter, parser } = useAction(
-    formInstance,
-    debtAccuracy
-  )
+}> = ({ formInstance, onFinish }) => {
   return (
     <Form
       layout="vertical"
       form={formInstance}
       initialValues={initialRateFormValues}
       onFinish={onFinish}
-      onValuesChange={onValuesChange}
       style={formStyle}
     >
       <Form.Item style={formItemStyle}>
@@ -34,16 +20,14 @@ const DebtForm: React.FC<{
           现金流输入：
         </Typography.Title>
         <Form.Item
-          name="debtMoney"
+          name="cashFlow"
           noStyle
           rules={[{ required: true, message: '' }]}
         >
           <Input.TextArea
-            placeholder="-1000，250，250，250"
+            placeholder="-1000,250,250,250"
             autoSize
-            // value={input}
             style={inputStyle}
-            // onChange={handleInput}
           />
         </Form.Item>
       </Form.Item>
@@ -52,13 +36,7 @@ const DebtForm: React.FC<{
           辅助现金流输入：
         </Typography.Title>
         <Form.Item name="debtMoney" noStyle>
-          <Input.TextArea
-            placeholder="-1000，250，250，250"
-            autoSize
-            // value={input}
-            style={inputStyle}
-            // onChange={handleInput}
-          />
+          <Input.TextArea placeholder="1,3" autoSize style={inputStyle} />
         </Form.Item>
       </Form.Item>
 
