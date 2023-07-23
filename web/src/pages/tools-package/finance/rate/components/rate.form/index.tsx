@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, InputNumber, Radio, Row } from 'antd'
+import { Button, Form, Input, InputNumber, Radio, Row } from 'antd'
 import { formStyle, formItemStyle, rowButtonStyle } from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
@@ -24,39 +24,6 @@ const DebtForm: React.FC<{
       onValuesChange={onValuesChange}
       style={formStyle}
     >
-      <Row style={rowButtonStyle}>
-        <Form.Item label="计算模式" name="computeModel" style={formItemStyle}>
-          <Radio.Group optionType="button" buttonStyle="solid">
-            <Radio.Button value="debt-list">计算月供</Radio.Button>
-            <Radio.Button value="rate">反推利率</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item
-          label="还款方式"
-          name="debtPaymentType"
-          style={formItemStyle}
-        >
-          <Radio.Group optionType="button" buttonStyle="solid">
-            <Radio.Button value={PaymentTypeEnum.Annuity}>
-              等额本息
-            </Radio.Button>
-            <Radio.Button value={PaymentTypeEnum.Linear}>等额本金</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item
-          label="年化利率精度-百分比后小数位数"
-          name="debtAccuracy"
-          style={formItemStyle}
-        >
-          <InputNumber
-            placeholder="默认为2"
-            step={1}
-            min={0}
-            max={10}
-            precision={0}
-          />
-        </Form.Item>
-      </Row>
       <Row>
         <Form.Item
           label="借款本金"
@@ -64,7 +31,13 @@ const DebtForm: React.FC<{
           style={formItemStyle}
           rules={[{ required: true, message: '' }]}
         >
-          <InputNumber addonBefore="¥" placeholder="10000" />
+          <Input.TextArea
+            placeholder="在此处输入JSON字符串"
+            autoSize
+            // value={input}
+            // style={inputStyle}
+            // onChange={handleInput}
+          />
         </Form.Item>
         <Form.Item
           label="借款期数"

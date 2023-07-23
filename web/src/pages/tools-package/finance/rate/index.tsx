@@ -3,10 +3,10 @@ import { Typography, Row, Divider } from 'antd'
 import { MoneyCollectOutlined, ProjectOutlined } from '@ant-design/icons'
 import { rowWrapStyle } from './style.ts'
 import { useAction } from './action.ts'
-import DebtForm from './components/debt.form/index.tsx'
+import DebtForm from './components/rate.form/index.tsx'
 import { paymentTypeDesc } from '@/configs/router.config/tools-package/finance.config.ts'
-import DebtDesc from './components/debt.desc.tsx'
-import DebtTable from './components/debt.table.tsx/index.tsx'
+import DebtDesc from './components/rate.desc.tsx'
+import DebtTable from './components/rate.table.tsx/index.tsx'
 import './style.css'
 const { Paragraph } = Typography
 
