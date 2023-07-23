@@ -3,7 +3,12 @@
     line-height: 40px;
     background-color: white;
 }
-
 .meta-blockquote-rate {
     width: 100%;
+}
+.meta-blockquote-rate-flows {
+    width: 100%;
+    /* background-color: aqua; */
+    height: auto;
+    /* display: flex; */
 }

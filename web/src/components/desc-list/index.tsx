@@ -1,18 +1,33 @@
 import React from 'react'
 import { Tag, Typography } from 'antd'
+import { useStyle } from '@/utils/hooks/style'
 const { Paragraph, Text } = Typography
 
 const DescList: React.FC<{
   descList: string[][]
-}> = ({ descList }) => {
+  color?: string | string[]
+  style?: any
+  textStyle?: any
+  tagStyle?: any
+}> = ({ descList, color = 'volcano', style, textStyle, tagStyle }) => {
+  const paragStyle = useStyle([{ marginTop: 10 }, style])
+  const myTextStyle = useStyle([textStyle])
+  const myTagStyle = useStyle([tagStyle])
   return (
-    <Paragraph style={{ marginTop: 10 }}>
-      {descList.map(items => {
+    <Paragraph style={paragStyle}>
+      {descList.map((items, index) => {
         const [title, value] = items
         return (
-          <Text key={title}>
+          <Text key={index} style={myTextStyle}>
             {title}
-            <Tag color="volcano">{value}</Tag>
+            {value && (
+              <Tag
+                color={Array.isArray(color) ? color[index] : color}
+                style={myTagStyle}
+              >
+                {value}
+              </Tag>
+            )}
           </Text>
         )
       })}

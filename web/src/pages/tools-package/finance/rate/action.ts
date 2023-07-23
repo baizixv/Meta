@@ -27,6 +27,7 @@ export const useAction = () => {
     // )
 
     setRateResult({
+      cashFlows,
       irrRate,
     })
   }
