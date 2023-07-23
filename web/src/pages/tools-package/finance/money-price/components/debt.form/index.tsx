@@ -1,6 +1,21 @@
 import React from 'react'
-import { Button, Form, InputNumber, Radio, Row } from 'antd'
-import { formStyle, formItemStyle, rowButtonStyle } from './style'
+import {
+  Button,
+  Divider,
+  Form,
+  InputNumber,
+  Radio,
+  Row,
+  Typography,
+} from 'antd'
+import { EditOutlined } from '@ant-design/icons'
+import {
+  formStyle,
+  formItemStyle,
+  rowButtonStyle,
+  inputStyle,
+  titleStyle,
+} from './style'
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
 import { initialFormValues } from '@/configs/router.config/tools-package/finance.config'
@@ -24,6 +39,9 @@ const DebtForm: React.FC<{
       onValuesChange={onValuesChange}
       style={formStyle}
     >
+      <Typography.Title level={5} style={titleStyle}>
+        设置模式：
+      </Typography.Title>
       <Row style={rowButtonStyle}>
         <Form.Item label="计算模式" name="computeModel" style={formItemStyle}>
           <Radio.Group optionType="button" buttonStyle="solid">
@@ -43,6 +61,11 @@ const DebtForm: React.FC<{
             <Radio.Button value={PaymentTypeEnum.Linear}>等额本金</Radio.Button>
           </Radio.Group>
         </Form.Item>
+      </Row>
+      <Typography.Title level={5} style={titleStyle}>
+        配置参数：
+      </Typography.Title>
+      <Row style={rowButtonStyle}>
         <Form.Item
           label="设置年化利率精度(百分比后小数位数)"
           name="debtAccuracy"
@@ -57,7 +80,10 @@ const DebtForm: React.FC<{
           />
         </Form.Item>
       </Row>
-      <Row>
+      <Typography.Title level={5} style={titleStyle}>
+        数据收集：
+      </Typography.Title>
+      <Row style={rowButtonStyle}>
         <Form.Item
           label="借款本金"
           name="debtMoney"
@@ -96,25 +122,30 @@ const DebtForm: React.FC<{
           </Form.Item>
         ) : (
           <>
-            {/* 每月还款额只是个显示项目，其实并不参与表单计算 */}
+            {/* 每月还款额只是个显示项目，其实并不参与表单计算,参与计算的是总还款额 */}
             <Form.Item
               label="每期还款额"
               name="debtCountMonthly"
               style={formItemStyle}
               rules={[{ required: true, message: '' }]}
             >
-              <InputNumber addonBefore="¥" placeholder="11347.2" />
+              <InputNumber
+                addonBefore="¥"
+                placeholder="11347.2"
+                style={inputStyle}
+                addonAfter={<EditOutlined />}
+              />
             </Form.Item>
             <Form.Item label="总还款额" name="debtCount" style={formItemStyle}>
               <InputNumber
                 addonBefore="¥"
                 placeholder="每期还款额 x 借款期数"
+                addonAfter={<EditOutlined />}
               />
             </Form.Item>
           </>
         )}
       </Row>
-      <Row style={rowButtonStyle}></Row>
 
       <Button
         type="primary"

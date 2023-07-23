@@ -4,8 +4,15 @@ export const formStyle = {
 }
 export const formItemStyle = {
   marginBottom: 20,
-  flex: 1,
 }
 export const rowButtonStyle = {
   justifyContent: 'flex-start',
+  alignItems: 'center',
+}
+export const inputStyle = {
+  flex: '1,1',
+}
+export const titleStyle = {
+  marginTop: 0,
+  marginBottom: 0,
 }
