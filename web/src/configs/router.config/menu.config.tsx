@@ -5,6 +5,7 @@ import {
   GithubOutlined,
   AlipayCircleOutlined,
   TeamOutlined,
+  BugOutlined,
 } from '@ant-design/icons'
 
 const initialMenuConfigs = [
@@ -82,6 +83,12 @@ const initialMenuConfigs = [
     ),
     key: '/github',
     icon: <GithubOutlined />,
+  },
+  {
+    label: '反馈问题',
+    key: '/bug',
+    icon: <BugOutlined />,
+    disabled: true,
   },
   {
     label: '高级探索', // 加入登陆功能，然后开放数据库记录储存功能，并且开放社群，给验证码后加入
