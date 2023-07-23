@@ -1,7 +1,9 @@
 import { Form } from 'antd'
 import { fixed2 } from '@/utils/format/number'
+import { useState } from 'react'
 
 export const useAction = (formInstance: any, debtAccuracy: number) => {
+  const [isEdit, setIsEdit] = useState(true)
   const debtCountMonthly = Form.useWatch('debtCountMonthly', formInstance)
   const debtTerm = Form.useWatch('debtTerm', formInstance)
   const formatter = (value: number | undefined, _: any) => {
@@ -41,9 +43,16 @@ export const useAction = (formInstance: any, debtAccuracy: number) => {
         break
     }
   }
+
+  const onClickAfter = () => {
+    setIsEdit(!isEdit)
+  }
+
   return {
+    isEdit,
     formatter,
     parser,
     onValuesChange,
+    onClickAfter,
   }
 }

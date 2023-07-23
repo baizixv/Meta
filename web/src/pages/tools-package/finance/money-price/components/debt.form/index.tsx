@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  Button,
-  Divider,
-  Form,
-  InputNumber,
-  Radio,
-  Row,
-  Typography,
-} from 'antd'
+import { Button, Form, InputNumber, Radio, Row, Typography } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
 import {
   formStyle,
@@ -26,7 +18,7 @@ const DebtForm: React.FC<{
   debtAccuracy: number
   onFinish: (values: any) => void
 }> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
-  const { onValuesChange, formatter, parser } = useAction(
+  const { isEdit, onValuesChange, formatter, parser, onClickAfter } = useAction(
     formInstance,
     debtAccuracy
   )
@@ -127,20 +119,31 @@ const DebtForm: React.FC<{
               label="每期还款额"
               name="debtCountMonthly"
               style={formItemStyle}
-              rules={[{ required: true, message: '' }]}
+              rules={[{ required: isEdit, message: '' }]}
             >
               <InputNumber
                 addonBefore="¥"
                 placeholder="11347.2"
+                disabled={!isEdit}
                 style={inputStyle}
-                addonAfter={<EditOutlined />}
+                addonAfter={
+                  isEdit ? '' : <EditOutlined onClick={onClickAfter} />
+                }
               />
             </Form.Item>
-            <Form.Item label="总还款额" name="debtCount" style={formItemStyle}>
+            <Form.Item
+              label="总还款额(每期还款额x借款期数)"
+              name="debtCount"
+              style={formItemStyle}
+              rules={[{ required: !isEdit, message: '' }]}
+            >
               <InputNumber
                 addonBefore="¥"
                 placeholder="每期还款额 x 借款期数"
-                addonAfter={<EditOutlined />}
+                disabled={isEdit}
+                addonAfter={
+                  isEdit ? <EditOutlined onClick={onClickAfter} /> : ''
+                }
               />
             </Form.Item>
           </>
