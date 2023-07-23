@@ -23,10 +23,10 @@ export const getAnnuityMonthPay = (
   const C = BigR.plus(1).pow(BigN)
 
   // 每期偿还中间结果
-  const T = C.times(BigR).dividedBy(C.minus(1))
+  const T = C.dividedBy(C.minus(1))
 
   // 每期还款总额
-  const Q = BigA.times(T)
+  const Q = BigA.times(BigR).times(T) 
 
   const QNumber = +Q.toString()
   return QNumber
