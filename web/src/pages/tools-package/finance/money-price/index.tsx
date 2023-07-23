@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Row, Divider } from 'antd'
+import { Row, Divider } from 'antd'
 import { MoneyCollectOutlined, ProjectOutlined } from '@ant-design/icons'
 import { rowWrapStyle } from './style'
 import { useAction } from './action'
@@ -7,8 +7,7 @@ import DebtForm from './components/debt.form'
 import { paymentTypeDesc } from '@/configs/router.config/tools-package/finance.config.ts'
 import DebtDesc from './components/debt.desc'
 import DebtTable from './components/debt.table.tsx'
-import './style.css'
-const { Paragraph } = Typography
+import BlockquoteComp from '@/components/blockquote/index.tsx'
 
 const MoneyPrice: React.FC = () => {
   const {
@@ -33,11 +32,7 @@ const MoneyPrice: React.FC = () => {
         formInstance={form}
         onFinish={onFinish}
       />
-      <Paragraph>
-        <blockquote className="meta-blockquote">
-          {paymentTypeDesc[debtPaymentType]}
-        </blockquote>
-      </Paragraph>
+      <BlockquoteComp blockquoteDesc={paymentTypeDesc[debtPaymentType]} />
       {/* 显示结果 */}
       <Divider orientation="center" orientationMargin={0}>
         <ProjectOutlined /> - 计算结果

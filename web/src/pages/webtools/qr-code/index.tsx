@@ -1,6 +1,5 @@
 import React from 'react'
-import { Input, Space, QRCode, Typography, Row, Col, Button } from 'antd'
-import './style.css'
+import { Input, Space, QRCode, Row, Col, Button } from 'antd'
 import {
   buttonStyle,
   inputColStyle,
@@ -10,7 +9,7 @@ import {
   qrcodeStyle,
 } from './style'
 import { useAction } from './action'
-const { Paragraph } = Typography
+import BlockquoteComp from '@/components/blockquote'
 
 const QRCodeCard: React.FC = () => {
   const {
@@ -22,11 +21,7 @@ const QRCodeCard: React.FC = () => {
   } = useAction()
   return (
     <Row style={qrcodeStyle}>
-      <Paragraph>
-        <blockquote className="meta_webtools_qrcode_blockquote">
-          输入文本、链接生成二维码。若二维码无法扫码识别，可能是因为链接地址过长，像素过于密集。过长也可能无法正常生成。
-        </blockquote>
-      </Paragraph>
+      <BlockquoteComp blockquoteDesc="输入文本、链接生成二维码。若二维码无法扫码识别，可能是因为链接地址过长，像素过于密集。过长也可能无法正常生成。" />
       <Space style={qrSpaceStyle}>
         <Col style={inputColStyle}>
           <Input.TextArea

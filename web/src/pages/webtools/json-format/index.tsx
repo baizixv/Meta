@@ -2,7 +2,6 @@ import React from 'react'
 import { Input, Space, Row, Col } from 'antd'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/default.css'
-import './style.css'
 import {
   inputColStyle,
   inputStyle,
