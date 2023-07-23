@@ -1,9 +1,15 @@
 import React from 'react'
-import { useAction } from './action'
+import { Typography } from 'antd'
+import './style.css'
 
-const Demo: React.FC = () => {
-  const {} = useAction()
-  return <React.Fragment />
+const BlockquoteComp: React.FC<{ blockquoteDesc: string }> = ({
+  blockquoteDesc,
+}) => {
+  return (
+    <Typography.Paragraph>
+      <blockquote className="meta-blockquote">{blockquoteDesc}</blockquote>
+    </Typography.Paragraph>
+  )
 }
 
-export default Demo
+export default BlockquoteComp
