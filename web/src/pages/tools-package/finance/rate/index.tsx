@@ -1,7 +1,7 @@
 import React from 'react'
-import { Typography, Row, Divider } from 'antd'
+import { Typography, Row, Divider, Space } from 'antd'
 import { MoneyCollectOutlined, ProjectOutlined } from '@ant-design/icons'
-import { rowWrapStyle } from './style.ts'
+import { rowWrapStyle, rowItemStyle, spaceMainWrapStyle } from './style.ts'
 import { useAction } from './action.ts'
 import DebtForm from './components/rate.form/index.tsx'
 import { paymentTypeDesc } from '@/configs/router.config/tools-package/finance.config.ts'
@@ -23,40 +23,47 @@ const RateFinance: React.FC = () => {
   return (
     <Row style={rowWrapStyle}>
       {/* 收集数据 */}
-      <Divider orientation="center" orientationMargin={0}>
-        <MoneyCollectOutlined /> - 输入参数2
-      </Divider>
-      <DebtForm
-        computeModel={computeModel}
-        debtAccuracy={debtAccuracy ?? 2}
-        formInstance={form}
-        onFinish={onFinish}
-      />
-      <Paragraph>
-        <blockquote className="meta-blockquote">
-          {paymentTypeDesc[debtPaymentType]}
-        </blockquote>
-      </Paragraph>
-      {/* 显示结果 */}
-      <Divider orientation="center" orientationMargin={0}>
-        <ProjectOutlined /> - 计算结果
-      </Divider>
-      <Paragraph>
-        <blockquote className="meta-blockquote">
-          {paymentTypeDesc[debtPaymentType]}
-        </blockquote>
-      </Paragraph>
-      <DebtTable
-        title={
-          <DebtDesc
-            debtMoney={debtMoney}
-            rate={debtRate}
-            interestCount={totalInterest}
+      <Space style={spaceMainWrapStyle}>
+        <Row style={rowItemStyle}>
+          <Divider orientation="center" orientationMargin={0}>
+            <MoneyCollectOutlined /> - 输入参数
+          </Divider>
+          <DebtForm
+            computeModel={computeModel}
             debtAccuracy={debtAccuracy ?? 2}
+            formInstance={form}
+            onFinish={onFinish}
           />
-        }
-        datas={debtMonthArray}
-      />
+          <Paragraph>
+            <blockquote className="meta-blockquote">
+              {paymentTypeDesc[debtPaymentType]}
+            </blockquote>
+          </Paragraph>
+        </Row>
+        <Row>
+          {/* 显示结果 */}
+          <Divider orientation="center" orientationMargin={0}>
+            <ProjectOutlined /> - 计算结果
+          </Divider>
+          <Paragraph>
+            <blockquote className="meta-blockquote">
+              {paymentTypeDesc[debtPaymentType]}
+            </blockquote>
+          </Paragraph>
+          <DebtTable
+            title={
+              <DebtDesc
+                debtMoney={debtMoney}
+                rate={debtRate}
+                interestCount={totalInterest}
+                debtAccuracy={debtAccuracy ?? 2}
+              />
+            }
+            datas={debtMonthArray}
+          />
+        </Row>
+      </Space>
+      <Space></Space>
     </Row>
   )
 }

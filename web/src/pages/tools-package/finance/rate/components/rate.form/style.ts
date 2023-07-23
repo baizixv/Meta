@@ -9,3 +9,13 @@ export const formItemStyle = {
 export const rowButtonStyle = {
   justifyContent: 'flex-start',
 }
+export const titleStyle = {
+  marginTop: 0,
+  marginBottom: 10,
+}
+
+export const inputStyle = {
+  width: '47vw',
+  minHeight: '15vh',
+  maxHeight: '15vh',
+}
