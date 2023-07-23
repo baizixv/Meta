@@ -15,7 +15,7 @@ import { heloCashFlowsHelpInfos } from '@/configs/router.config/tools-package/fi
 import './style.css'
 
 const RateFinance: React.FC = () => {
-  const { form, rateResult, onFinish } = useAction()
+  const { form, rateAccuracy, rateCount, rateResult, onFinish } = useAction()
   const { irrRate, cashFlows } = rateResult
 
   return (
@@ -40,7 +40,12 @@ const RateFinance: React.FC = () => {
           <Divider orientation="center" orientationMargin={0}>
             <ProjectOutlined /> - 计算结果
           </Divider>
-          <RateDesc cashFlows={cashFlows} irrRate={irrRate} debtAccuracy={2} />
+          <RateDesc
+            cashFlows={cashFlows}
+            irrRate={irrRate}
+            debtAccuracy={rateAccuracy}
+            rateCount={rateCount}
+          />
         </Col>
       </Row>
       <Row></Row>

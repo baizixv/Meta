@@ -10,11 +10,14 @@ const RateDesc: React.FC<{
   irrRate: number
   debtAccuracy: number
   cashFlows?: number[]
-}> = ({ cashFlows = [], irrRate = 0, debtAccuracy = 2 }) => {
+  rateCount?: number
+}> = ({ cashFlows = [], irrRate = 0, debtAccuracy = 2, rateCount = 0 }) => {
   const captionShows = [
-    ['IRR(内部收益率)-每期: ', `${fixed2(irrRate * 100, debtAccuracy)}%`],
+    ['IRR(每期): ', `${fixed2(irrRate * 100, debtAccuracy)}%`],
   ]
-
+  const captionShowsHelp = [
+    ['IRR(每年): ', `${fixed2(irrRate * 100 * rateCount, debtAccuracy)}%`],
+  ]
   const showCashFlows = cashFlows.map(cash => [``, `${cash}`])
   const showCashFlowsColors = cashFlows.map(cash =>
     cash <= 0 ? 'green' : 'red'
@@ -23,7 +26,13 @@ const RateDesc: React.FC<{
   return (
     <>
       <BlockquoteComp style={blockquoteStyle} className="meta-blockquote-rate">
-        <DescList descList={captionShows} />
+        <DescList
+          descList={
+            rateCount > 0
+              ? [...captionShows, ...captionShowsHelp]
+              : captionShows
+          }
+        />
       </BlockquoteComp>
       <Divider orientation="center" orientationMargin={0}>
         对应的现金流（从左到右，从上到下）

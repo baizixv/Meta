@@ -35,6 +35,8 @@ export const initialMoneyPriceFormValues = {
 
 export const initialRateFormValues = {
   cashFlowStr: '-1000,250,250,250,250,250',
+  rateType: 'term',
+  rateAccuracy: 2,
 }
 
 export const heloCashFlowsHelpInfos = [
@@ -45,4 +47,13 @@ export const heloCashFlowsHelpInfos = [
   '5. 默认为1，输入值必须为正整数，',
   '6. 负值和0一律视为1处理，其它非正整数向上取整处理',
   '7. 后续位可缺省，默认为1',
+]
+
+export const termConfigs = [
+  { value: 'term', label: '期', count: 0 }, // 注意不要参与计算，0只是表示期这个意思
+  { value: 'day', label: '日(360)', count: 360 },
+  { value: 'day2', label: '日(365)', count: 365 },
+  { value: 'month', label: '月', count: 12 },
+  { value: 'quarter', label: '季', count: 4 },
+  { value: 'year', label: '年', count: 1 },
 ]

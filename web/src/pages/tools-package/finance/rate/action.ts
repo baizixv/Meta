@@ -1,11 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Form, message } from 'antd'
-import { initialRateFormValues } from '@/configs/router.config/tools-package/finance.config'
+import {
+  initialRateFormValues,
+  termConfigs,
+} from '@/configs/router.config/tools-package/finance.config'
 import { RateResult } from '@/typings/pages/tools-package/finance/rate'
 import { calculateIRR } from '@/utils/finance/IRR'
 
 export const useAction = () => {
   const [form] = Form.useForm()
+  const rateAccuracy = Form.useWatch('rateAccuracy', form)
+  const rateType = Form.useWatch('rateType', form)
+  const rateCount = termConfigs.find(item => item.value === rateType)?.count
+  console.log(
+    '%c Line:10 🍬 rateAccuracy',
+    'font-size:18px;color:#4fff4B;background:#7f2b82',
+    rateAccuracy
+  )
 
   const [rateResult, setRateResult] = useState<RateResult>({
     irrRate: 0,
@@ -15,24 +26,8 @@ export const useAction = () => {
     const { cashFlowStr, helpCashFlowStr } = values
     const cashFlows = getCashFlows(cashFlowStr)
     const helpCashFlows = getCashFlows(helpCashFlowStr)
-    console.log(
-      '%c Line:17 🍌 cashFlows',
-      'font-size:18px;color:#3f7cff;background:#f5ce50',
-      cashFlows
-    )
-
-   const realCashFlows = getRealCashFlows(cashFlows, helpCashFlows)
-   console.log(
-     '%c Line:25 🍧 realCashFlows',
-     'font-size:18px;color:#465975;background:#2eafb0',
-     realCashFlows
-   )
-   const irrRate = cashFlows.length > 0 ? calculateIRR(realCashFlows) : 0
-    // console.log(
-    //   '%c Line:28 🍺 irrRate',
-    //   'font-size:18px;color:#465975;background:#ea7e5c',
-    //   irrRate
-    // )
+    const realCashFlows = getRealCashFlows(cashFlows, helpCashFlows)
+    const irrRate = cashFlows.length > 0 ? calculateIRR(realCashFlows) : 0
 
     setRateResult({
       cashFlows: realCashFlows,
@@ -47,6 +42,8 @@ export const useAction = () => {
 
   return {
     form,
+    rateAccuracy,
+    rateCount,
     rateResult,
     onFinish,
   }
