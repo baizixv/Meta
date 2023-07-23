@@ -14,8 +14,8 @@ const DebtTable: React.FC<{
 }> = ({ datas, debtRate, totalInterest, debtMoney, debtAccuracy }) => {
   const captionShows = [
     ['年利率：', `${fixed2(debtRate * 100, debtAccuracy)}%`],
-    ['还款总额：', `${fixed2(+debtMoney + +totalInterest)}元`],
     ['利息总额：', `${fixed2(totalInterest)}元`],
+    ['还款总额：', `${fixed2(+debtMoney + +totalInterest)}元`],
   ]
   return (
     <Table
