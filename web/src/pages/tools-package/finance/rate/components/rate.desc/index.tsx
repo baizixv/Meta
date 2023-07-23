@@ -3,8 +3,8 @@ import { fixed2 } from '@/utils/format/number'
 import DescList from '@/components/desc-list'
 import BlockquoteComp from '@/components/blockquote'
 import { descListStyle, textStyle, blockquoteStyle } from './style.ts'
-import './style.css'
 import { Divider } from 'antd'
+import './style.css'
 
 const RateDesc: React.FC<{
   irrRate: number
