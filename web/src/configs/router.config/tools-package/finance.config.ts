@@ -49,6 +49,14 @@ export const heloCashFlowsHelpInfos = [
   '7. 后续位可缺省，默认为1',
 ]
 
+export const rateHelpInfos = [
+  '1. Internal Rate of Return，内部收益率',
+  '2. 即：资金流入现值总额与资金流出现值总额相等、净现值等于零时的折现率；',
+  '3. 是一项投资渴望达到的报酬率，是能使投资项目净现值等于零时的折现率；',
+  '4. 如果不使用电子计算机，需要用若干个折现率进行试算，直至找到净现值等于零或接近于零的那个折现率；',
+  '5. IRR实际上是一个收益率试算工具，是一个经过较为复杂的复利计算后得出的数值，不止考虑到了投资收益比，还考虑到了钱的时间价值；',
+]
+
 export const termConfigs = [
   { value: 'term', label: '期', count: 0 }, // 注意不要参与计算，0只是表示期这个意思
   { value: 'day', label: '日(360)', count: 360 },

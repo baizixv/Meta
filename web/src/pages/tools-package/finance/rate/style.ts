@@ -1,9 +1,9 @@
 export const rowWrapStyle = {
   display: 'flex',
-  flexDirection: 'row' as any,
+  flexDirection: 'column' as any,
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-
+  // height: 'auto',
   // backgroundColor: 'green',
 }
 
@@ -12,12 +12,17 @@ export const mainContentStyle = {
   flexDirection: 'row' as any,
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
+  width: '100%',
   flex: 1,
+}
+export const helpContentStyle = {
+  width: '100%',
+  flex: 1,
+  // backgroundColor: 'rebeccapurple',
 }
 export const colStyle = {
   display: 'flex',
   flexDirection: 'column' as any,
-  // backgroundColor: 'rebeccapurple',
   flex: 1,
 }
 

@@ -6,12 +6,14 @@ import {
   mainContentStyle,
   verticalDividerStyle,
   colStyle,
+  helpContentStyle,
 } from './style.ts'
 import { useAction } from './action.ts'
 import DebtForm from './components/rate.form/index.tsx'
 import RateDesc from './components/rate.desc/index.tsx'
 import BlockquoteComp from '@/components/blockquote/index.tsx'
 import { heloCashFlowsHelpInfos } from '@/configs/router.config/tools-package/finance.config.ts'
+import RateHelp from './components/rate.help/index.tsx'
 import './style.css'
 
 const RateFinance: React.FC = () => {
@@ -48,7 +50,12 @@ const RateFinance: React.FC = () => {
           />
         </Col>
       </Row>
-      <Row></Row>
+      <Divider orientation="center" orientationMargin={0}>
+        IRR说明
+      </Divider>
+      <Row style={helpContentStyle}>
+        <RateHelp />
+      </Row>
     </Row>
   )
 }

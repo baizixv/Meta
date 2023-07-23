@@ -35,7 +35,18 @@ const RateDesc: React.FC<{
         />
       </BlockquoteComp>
       <Divider orientation="center" orientationMargin={0}>
-        对应的现金流（从左到右，从上到下）
+        真实的现金流（从左到右，从上到下）
+      </Divider>
+      <BlockquoteComp className="meta-blockquote-rate-flows">
+        <DescList
+          style={descListStyle}
+          textStyle={textStyle}
+          descList={showCashFlows}
+          color={showCashFlowsColors}
+        />
+      </BlockquoteComp>
+      <Divider orientation="center" orientationMargin={0}>
+        等效的常规现金流（针对非常规现金流）
       </Divider>
       <BlockquoteComp className="meta-blockquote-rate-flows">
         <DescList
