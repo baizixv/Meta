@@ -23,7 +23,7 @@ export const calculateIRR = (cashFlows: number[]) => {
 
         npvBig = npvBig.plus(A.dividedBy(B))
       }
-      const npvResult = +npvBig.toString
+      const npvResult = +npvBig.toString()
       // 试算法计算IRR时，如果用试算的利率算出来的净现值大于等于0，说明这个利率还是比IRR小，应该往上测。
       // 这是因为，折现率与现值成反方向变动，而IRR是使得净现值等于0的折现率。
       // 因为我定义的通用二分法是结果大于0，调整上界，所以这里取负

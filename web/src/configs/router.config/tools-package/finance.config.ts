@@ -34,5 +34,5 @@ export const initialMoneyPriceFormValues = {
 }
 
 export const initialRateFormValues = {
-  cashFlow: '-1000,250,250,250',
+  cashFlowStr: '-1000,250,250,250,250,250',
 }

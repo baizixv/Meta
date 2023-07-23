@@ -8,9 +8,9 @@ import './style.css'
 const RateDesc: React.FC<{
   irrRate: number
   debtAccuracy: number
-}> = ({ irrRate, debtAccuracy }) => {
+}> = ({ irrRate = 0, debtAccuracy = 2 }) => {
   const captionShows = [
-    ['IRR(内部收益率)：', `${fixed2(irrRate * 100, debtAccuracy)}%`],
+    ['IRR(内部收益率)-每期: ', `${fixed2(irrRate * 100, debtAccuracy)}%`],
   ]
   return (
     <BlockquoteComp style={blockquoteStyle} className="meta-blockquote-rate">

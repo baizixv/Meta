@@ -20,7 +20,7 @@ const DebtForm: React.FC<{
           现金流输入：
         </Typography.Title>
         <Form.Item
-          name="cashFlow"
+          name="cashFlowStr"
           noStyle
           rules={[{ required: true, message: '' }]}
         >

@@ -13,7 +13,6 @@ import RateDesc from './components/rate.desc/index.tsx'
 
 const RateFinance: React.FC = () => {
   const { form, rateResult, onFinish } = useAction()
-
   const { irrRate } = rateResult
 
   return (
