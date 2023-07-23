@@ -29,12 +29,12 @@ const initialMenuConfigs = [
     key: '/tools',
     icon: <AppstoreOutlined />,
   },
-  {
-    label: '免费API',
-    key: '/apilist',
-    icon: <AppstoreOutlined />,
-    disabled: true,
-  },
+  // {
+  //   label: '免费API',
+  //   key: '/apilist',
+  //   icon: <AppstoreOutlined />,
+  //   disabled: true,
+  // },
   {
     label: '外部网站',
     key: '/outsite',
