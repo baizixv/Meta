@@ -23,8 +23,12 @@ const BlockquoteComp: React.FC<{
     <Typography.Paragraph style={myStyle}>
       <blockquote className={`meta-blockquote ${className}`}>
         {Array.isArray(showValue)
-          ? showValue.map(value => {
-              return <div className={divClassName}>{value}</div>
+          ? showValue.map((value, index) => {
+              return (
+                <div key={index} className={divClassName}>
+                  {value}
+                </div>
+              )
             })
           : showValue}
       </blockquote>
