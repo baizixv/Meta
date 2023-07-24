@@ -11,7 +11,17 @@ export const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.t
 export const capitalize = (str, lowerRest = false) =>
   str.slice(0, 1).toUpperCase() + (lowerRest ? str.slice(1).toLowerCase() : str.slice(1))
 
+// 简化长字符显示，中间短省略号，前后保留固定位数字符
+export const simplifyString = (str, start = 4, end = 3) => {
+  const strArr = [...str]
+  const simplifyStr = strArr
+    .slice(0, start)
+    .concat(['···'])
+    .concat(strArr.slice(-end))
+  return simplifyStr.join('')
+}
 export const StringFunc = {
+  simplifyString,
   capitalizeEveryWord,
   capitalize,
 }

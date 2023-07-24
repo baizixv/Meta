@@ -1,0 +1,19 @@
+.meta-homecard-tilte {
+    font-size: 22px;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.meta-homecard-tilte::before {
+    width: 5px;
+    background-color: #1e9fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 20px;
+    content: "";
+}

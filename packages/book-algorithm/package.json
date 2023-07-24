@@ -1,0 +1,31 @@
+{
+  "name": "@baizixv/book-algorithm",
+  "version": "1.0.1",
+  "description": "> TODO: description",
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "ISC",
+  "main": "lib/book-algorithm.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@baizixv/book-algorithm.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  },
+  "gitHead": "38d160b40aed7797fd5e6a1b7229b51d025b6d2b"
+}

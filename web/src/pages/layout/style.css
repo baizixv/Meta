@@ -1,0 +1,15 @@
+.meta_page {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta_header {
+    display: block;
+    position: sticky;
+    background-color: white;
+}
+
+.meta_children {
+    margin: 10px auto;
+    width: 95%;
+}

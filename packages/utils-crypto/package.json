@@ -1,0 +1,53 @@
+{
+  "name": "@baizixv/utils-crypto",
+  "version": "0.0.3",
+  "description": "javascript utility functions",
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "unpkg": "dist/umd/index.min.js",
+  "module": "dist/es/index.js",
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "test": "node ./__tests__/@baizixv/utils.test.js",
+    "publish": "npm publish"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.5",
+    "@baizixv/config-rollup": "^1.0.1",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
+    "rimraf": "^5.0.0",
+    "rollup": "^3.21.7",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "gitHead": "38d160b40aed7797fd5e6a1b7229b51d025b6d2b",
+  "dependencies": {
+    "@babel/runtime": "^7.21.5"
+  },
+  "sideEffects": false
+}

@@ -1,4 +1,4 @@
-export {
+import {
   ArrayFunc,
   createArr,
   createArr2,
@@ -12,15 +12,20 @@ export {
   transpose,
   average,
 } from './array'
-export { ColorFunc, getRandomColor, hexToRgb } from './color'
-export { FunctionFunc, isAsyncFunction } from './function'
-export { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
-export { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object'
-export { OtherFunc, sleep } from './other'
-export { RandomFunc, randomIp, uuid } from './random'
-export { RegexFunc, formatPhone, setTrimOut } from './regex'
-export { StringFunc, capitalizeEveryWord, capitalize } from './string'
-export {
+import { ColorFunc, getRandomColor, hexToRgb } from './color'
+import { FunctionFunc, isAsyncFunction } from './function'
+import { MathFunc, anagrams, toDecimal, toFixed, round, replenishZero } from './math'
+import { ObjectFunc, removeNullUndefined, invert, isEqualObject } from './object'
+import { OtherFunc, sleep } from './other'
+import { RandomFunc, randomIp, uuid } from './random'
+import { RegexFunc, formatPhone, setTrimOut } from './regex'
+import {
+  StringFunc,
+  capitalizeEveryWord,
+  capitalize,
+  simplifyString,
+} from './string'
+import {
   TimeFunc,
   isToday,
   formatYmd,
@@ -29,7 +34,7 @@ export {
   getLastDate,
   getDaysNum,
 } from './time'
-export {
+import {
   WebFunc,
   reload,
   goToTop,
@@ -40,6 +45,64 @@ export {
   goTo,
   copyText,
 } from './web'
+
+export {
+  ArrayFunc,
+  ColorFunc,
+  FunctionFunc,
+  MathFunc,
+  ObjectFunc,
+  OtherFunc,
+  RandomFunc,
+  RegexFunc,
+  StringFunc,
+  TimeFunc,
+  WebFunc,
+  createArr,
+  createArr2,
+  randomSort,
+  removeDuplicates,
+  intersection,
+  indexOfMax,
+  indexOfMin,
+  closest,
+  zip,
+  transpose,
+  average,
+  getRandomColor,
+  hexToRgb,
+  isAsyncFunction,
+  anagrams,
+  toDecimal,
+  toFixed,
+  round,
+  replenishZero,
+  removeNullUndefined,
+  invert,
+  isEqualObject,
+  sleep,
+  randomIp,
+  uuid,
+  formatPhone,
+  setTrimOut,
+  capitalizeEveryWord,
+  capitalize,
+  isToday,
+  formatYmd,
+  formatSeconds,
+  getFirstDate,
+  getLastDate,
+  getDaysNum,
+  reload,
+  goToTop,
+  scrollToTop,
+  scrollToBottom,
+  isIE,
+  stripHtml,
+  goTo,
+  copyText,
+  simplifyString,
+}
 
 export default {
   ArrayFunc,
@@ -96,4 +159,5 @@ export default {
   stripHtml,
   goTo,
   copyText,
+  simplifyString,
 }

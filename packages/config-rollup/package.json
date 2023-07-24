@@ -1,0 +1,42 @@
+{
+  "name": "@baizixv/config-rollup",
+  "version": "1.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "bai.zixv <bai.zixv@foxmail.com>",
+  "license": "ISC",
+  "main": "es/config-rollup.js",
+  "type": "module",
+  "directories": {
+    "es": "es",
+    "test": "__tests__"
+  },
+  "files": [
+    "es"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizixv/Meta.git"
+  },
+  "scripts": {
+    "build": "rimraf es && rollup -c",
+    "test": "node ./__tests__/@baizixv/config-rollup.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/baizixv/Meta/issues"
+  },
+  "homepage": "https://github.com/baizixv/Meta#readme",
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
+    "rimraf": "^5.0.0",
+    "rollup": "^3.21.7",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

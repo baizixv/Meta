@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.header_logo-a {
+    margin-right: 20px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 35px;
+    color: #1e9fff;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .5s;
+    -ms-transition: all .5s;
+    /* IE 9 */
+    -moz-transition: all .5s;
+    /* Firefox */
+    -webkit-transition: all .5s;
+    /* Safari 和 Chrome */
+    -o-transition: all .5s;
+    /* Opera */
+}
+.meta-header_menu {
+    position: relative;
+    width: 90%;
+    flex: 1;
+}
