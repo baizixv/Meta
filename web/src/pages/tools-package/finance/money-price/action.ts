@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Form } from 'antd'
 import {
   getLinearRate,
@@ -30,10 +30,9 @@ export const useAction = () => {
     debtRate: 0,
   })
 
-  const onFinish = (values: any) => {
+  const onFinishRaw = (values: any) => {
     let result: DebtResult = {} as DebtResult
-    let rate: number = values.debtRate
-
+    let { debtRate: rate, computeModel } = values
     switch (values.debtPaymentType) {
       case PaymentTypeEnum.Annuity: // 等额本息
         if (computeModel === 'rate') {
@@ -61,10 +60,12 @@ export const useAction = () => {
     setDebtResult({ ...result, debtIrrRate })
   }
 
+  const onFinish = useCallback(onFinishRaw, [])
+
   // 初始进入页面就更新一次，以便显示出数值
   useEffect(() => {
     onFinish(initialMoneyPriceFormValues)
-  }, [])
+  }, [onFinish])
 
   return {
     form,
