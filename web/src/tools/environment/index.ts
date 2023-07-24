@@ -1,15 +1,12 @@
-let configLocal = { isNeedDevModelQuick: false }
+let isNeedDevModelQuick = false
 
-const path = './config.ts'
-
-import(path)
-  .then(resolve => {
-    const { fileModule } = resolve
-    configLocal = fileModule
-  })
-  .catch(err => console.log(err))
-
-const { isNeedDevModelQuick = false } = configLocal
+try {
+  // 处理配置模块文件可能不存在的情况，不影响正常业务逻辑，会取默认配置
+  const fileModule = require('../../config.local.ts')
+  isNeedDevModelQuick = fileModule.isNeedDevModelQuick || false
+} catch (error) {
+  console.log(error)
+}
 // 开发环境
 export const isDev = process.env.NODE_ENV === 'development'
 
