@@ -32,7 +32,10 @@ const MoneyPrice: React.FC = () => {
         formInstance={form}
         onFinish={onFinish}
       />
-
+      <BlockquoteComp
+        className="meta-blockquote-money-price"
+        blockquoteDesc={paymentTypeDesc[debtPaymentType]}
+      />
       {/* 显示结果 */}
       <Divider orientation="center" orientationMargin={0}>
         <ProjectOutlined /> - 计算结果
@@ -44,10 +47,6 @@ const MoneyPrice: React.FC = () => {
         totalInterest={totalInterest}
         debtAccuracy={debtAccuracy ?? 2}
         datas={debtMonthArray}
-      />
-      <BlockquoteComp
-        className="meta-blockquote-money-price"
-        blockquoteDesc={paymentTypeDesc[debtPaymentType]}
       />
     </Row>
   )

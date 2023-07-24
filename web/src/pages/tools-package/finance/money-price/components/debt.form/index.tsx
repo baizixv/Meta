@@ -90,12 +90,7 @@ const DebtForm: React.FC<{
           style={formItemStyle}
           rules={[{ required: true, message: '' }]}
         >
-          <InputNumber
-            // style={{ width: 100 }}
-            addonAfter="期"
-            placeholder="12"
-            precision={0}
-          />
+          <InputNumber addonAfter="期" placeholder="12" precision={0} />
         </Form.Item>
         {computeModel === 'debt-list' ? (
           <Form.Item
