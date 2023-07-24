@@ -11,6 +11,7 @@ import {
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
 import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
+import { fixed2 } from '@/utils/format/number'
 
 const DebtForm: React.FC<{
   formInstance: any
@@ -18,7 +19,7 @@ const DebtForm: React.FC<{
   debtAccuracy: number
   onFinish: (values: any) => void
 }> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
-  const { isEdit, onValuesChange, formatter, parser, onClickAfter } = useAction(
+  const { isEdit, onValuesChange, onClickAfter } = useAction(
     formInstance,
     debtAccuracy
   )
@@ -91,7 +92,7 @@ const DebtForm: React.FC<{
           rules={[{ required: true, message: '' }]}
         >
           <InputNumber
-            style={{ width: 100 }}
+            // style={{ width: 100 }}
             addonAfter="期"
             placeholder="12"
             precision={0}
@@ -99,17 +100,15 @@ const DebtForm: React.FC<{
         </Form.Item>
         {computeModel === 'debt-list' ? (
           <Form.Item
-            label="年利率"
+            label="年利率(APR)"
             name="debtRate"
             style={formItemStyle}
             rules={[{ required: true, message: '' }]}
           >
             <InputNumber
               addonAfter="%"
-              placeholder="=每期利率 x 借款期数"
-              step={0.01 * 10 ** -debtAccuracy}
-              formatter={formatter}
-              parser={parser}
+              placeholder=""
+              step={10 ** -debtAccuracy}
             />
           </Form.Item>
         ) : (

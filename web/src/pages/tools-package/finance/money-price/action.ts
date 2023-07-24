@@ -32,24 +32,26 @@ export const useAction = () => {
 
   const onFinishRaw = (values: any) => {
     let result: DebtResult = {} as DebtResult
-    let { debtRate: rate, computeModel } = values
+    const formValues = formatValues(values)
+    let rate = formValues.debtRate
+
     switch (values.debtPaymentType) {
       case PaymentTypeEnum.Annuity: // 等额本息
         if (computeModel === 'rate') {
-          rate = getAnnuityRate({ ...values })
+          rate = getAnnuityRate(formValues)
         }
         result = getMonthlyPayment({
-          ...values,
+          ...formValues,
           debtRate: rate,
         })
         break
       case PaymentTypeEnum.Linear: // 等额本金
       default:
         if (computeModel === 'rate') {
-          rate = getLinearRate(values)
+          rate = getLinearRate(formValues)
         }
         result = getMonthlyPayment({
-          ...values,
+          ...formValues,
           debtRate: rate,
         })
         break
@@ -74,6 +76,16 @@ export const useAction = () => {
     debtAccuracy,
     debtResult,
     onFinish,
+  }
+}
+
+// 格式化表单输入值
+const formatValues = (values: any) => {
+  const { debtRate = 0 } = values || {}
+
+  return {
+    ...values,
+    debtRate: debtRate / 100, // 计算百分比换算后的真实数字
   }
 }
 

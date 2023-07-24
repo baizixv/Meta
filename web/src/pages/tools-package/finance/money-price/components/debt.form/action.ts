@@ -6,20 +6,6 @@ export const useAction = (formInstance: any, debtAccuracy: number) => {
   const [isEdit, setIsEdit] = useState(true)
   const debtCountMonthly = Form.useWatch('debtCountMonthly', formInstance)
   const debtTerm = Form.useWatch('debtTerm', formInstance)
-  const formatter = (value: number | undefined, _: any) => {
-    if (value) {
-      const showValue = +value * 100
-      return `${fixed2(showValue, debtAccuracy)}`
-    }
-    return ''
-  }
-
-  const parser = (strV: string | undefined): any => {
-    if (strV) {
-      const realValue = +strV / 100
-      return +fixed2(realValue, debtAccuracy + 2)
-    }
-  }
 
   const onValuesChange = (values: any) => {
     switch (true) {
@@ -50,8 +36,6 @@ export const useAction = (formInstance: any, debtAccuracy: number) => {
 
   return {
     isEdit,
-    formatter,
-    parser,
     onValuesChange,
     onClickAfter,
   }

@@ -25,7 +25,7 @@ export const paymentTypeDesc: Record<PaymentTypeEnum, string> = {
 export const initialMoneyPriceFormValues = {
   debtMoney: 10000,
   debtTerm: 12,
-  debtRate: 0.24,
+  debtRate: 24,
   debtCount: 11347.15,
   debtCountMonthly: 945.6,
   debtAccuracy: 2,
