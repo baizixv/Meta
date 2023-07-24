@@ -24,7 +24,7 @@ export const useAction = () => {
   const debtAccuracy = Form.useWatch('debtAccuracy', form)
 
   const [debtResult, setDebtResult] = useState<DebtResult>({
-    debtMonthArray: [],
+    debtTermArray: [],
     totalInterest: 0,
     debtMoney: 0,
     debtRate: 0,
@@ -78,8 +78,6 @@ export const useAction = () => {
   }
 }
 
-
-
 // 获取每期还款账单
 const getMonthlyPayment = ({
   debtMoney,
@@ -88,7 +86,7 @@ const getMonthlyPayment = ({
   debtPaymentType,
 }: DebtParamsFirst &
   Record<'debtPaymentType', PaymentTypeEnum>): DebtResult => {
-  let debtMonthArray =
+  let debtTermArray =
     debtPaymentType === PaymentTypeEnum.Linear
       ? getLinearMonthPayArray({
           debtMoney,
@@ -101,22 +99,22 @@ const getMonthlyPayment = ({
           debtTerm,
         })
 
-  const lastMonthItem = debtMonthArray[debtMonthArray.length - 1]
+  const lastMonthItem = debtTermArray[debtTermArray.length - 1]
   const { countPayInterest: totalInterest } = lastMonthItem
 
   return {
     debtMoney, // 借款本金
     debtRate, // 年利率
     totalInterest, // 利息总额
-    debtMonthArray, // 月供账单
+    debtTermArray, // 月供账单
   }
 }
 
 // 获取IRR
 const getIrrRate = (result: DebtResult): number => {
-  const { debtMoney, debtMonthArray } = result
+  const { debtMoney, debtTermArray } = result
   const cashFlows = [-debtMoney].concat(
-    debtMonthArray.map(item => item.monthlyPay)
+    debtTermArray.map(item => item.monthlyPay)
   )
   const irrRate = calculateIRR(cashFlows)
 

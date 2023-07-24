@@ -14,6 +14,7 @@ export const FormItemTerm = ({ onSelectTermRatio, formItemStyle }: any) => {
       rules={[{ required: true, message: '' }]}
     >
       <InputNumber
+        style={{ width: 150 }}
         addonAfter={
           <Select
             defaultValue={APRTypeEnum.Month}

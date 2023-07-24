@@ -18,7 +18,7 @@ const MoneyPrice: React.FC = () => {
     debtResult,
     onFinish,
   } = useAction()
-  const { debtMoney, debtRate, debtIrrRate, debtMonthArray, totalInterest } =
+  const { debtMoney, debtRate, debtIrrRate, debtTermArray, totalInterest } =
     debtResult
   return (
     <Row style={rowWrapStyle}>
@@ -46,7 +46,7 @@ const MoneyPrice: React.FC = () => {
         debtIrrRate={debtIrrRate}
         totalInterest={totalInterest}
         debtAccuracy={debtAccuracy ?? 2}
-        datas={debtMonthArray}
+        datas={debtTermArray}
       />
     </Row>
   )

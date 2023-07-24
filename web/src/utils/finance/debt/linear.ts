@@ -97,12 +97,12 @@ export const getLinearMonthPayArray = ({
 
     resultArray.push(item)
   }
-  const debtMonthArray: DebtMonthlyParams[] = resultArray.map(ele => {
+  const debtTermArray: DebtMonthlyParams[] = resultArray.map(ele => {
     return {
       ...ele,
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
 
-  return debtMonthArray
+  return debtTermArray
 }

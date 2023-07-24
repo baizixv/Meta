@@ -10,8 +10,8 @@ export const financeListConfigs: ToolCardConfig[] = [
   },
   {
     key: 'debt-bill',
-    name: '借贷月供计算',
-    description: '提供借贷月供计算，生成月供账单。或者根据月供推算年化利率.',
+    name: '借贷计算',
+    description: '提供借贷计算，生成账单。或者根据还款推算利率.',
     path: '/tools/money-price',
   },
 ]

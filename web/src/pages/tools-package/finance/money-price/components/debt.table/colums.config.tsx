@@ -17,14 +17,14 @@ export const columns = [
     },
   },
   {
-    title: '月供金额',
+    title: '每期还款金额',
     dataIndex: 'monthlyPay',
     key: 'monthlyPay',
     align: 'center' as any,
     render: (text: number) => renderText(text, { color: '#e82298' }),
   },
   {
-    title: '月供拆解',
+    title: '每期还款拆解',
     children: [
       {
         title: '本金',
@@ -72,7 +72,7 @@ export const columns = [
     ],
   },
   {
-    title: '剩余月供',
+    title: '剩余应还',
     children: [
       {
         title: '本金',

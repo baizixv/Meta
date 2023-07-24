@@ -56,7 +56,6 @@ const DebtForm: React.FC<{
           onClickAfter,
         }}
       />
-
       <Button type="primary" htmlType="submit" style={submitButtonStyle}>
         开始计算
       </Button>
