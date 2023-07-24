@@ -10,3 +10,18 @@ export const enum PaymentTypeEnum {
   Annuity = 'Annuity', // 等额本息
   Linear = 'Linear', // 等额本金
 }
+
+// 财务计算工具,借款显示利率类型
+export const enum APRTypeEnum {
+  Year = "year",
+  Month = "month",
+  Day = "day",
+  Term = "term"
+}
+
+export const APRTypeEnumRateMap  = {
+  [APRTypeEnum.Year]: "年利率",
+  [APRTypeEnum.Month]: "月利率",
+  [APRTypeEnum.Day]: "日利率",
+  [APRTypeEnum.Term]: "期利率",
+}

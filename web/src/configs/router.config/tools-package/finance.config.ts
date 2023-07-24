@@ -1,4 +1,4 @@
-import { PaymentTypeEnum } from '@/typings/configs/common'
+import { APRTypeEnum, PaymentTypeEnum } from '@/typings/configs/common'
 import { ToolCardConfig } from '@/typings/pages/webtools'
 
 export const financeListConfigs: ToolCardConfig[] = [
@@ -31,6 +31,8 @@ export const initialMoneyPriceFormValues = {
   debtAccuracy: 2,
   debtPaymentType: PaymentTypeEnum.Annuity,
   computeModel: 'debt-list',
+  debtCycleUnit: APRTypeEnum.Month,
+  payCycleUnit: APRTypeEnum.Month,
 }
 
 export const initialRateFormValues = {

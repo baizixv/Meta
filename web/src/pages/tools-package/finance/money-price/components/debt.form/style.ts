@@ -16,3 +16,9 @@ export const titleStyle = {
   marginTop: 0,
   marginBottom: 0,
 }
+
+export const submitButtonStyle = {
+  alignSelf: 'flex-start',
+  backgroundColor: '#5cb85c',
+  borderColor: '#4cae4c',
+}

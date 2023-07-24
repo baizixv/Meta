@@ -30,12 +30,16 @@ export const useAction = () => {
     debtRate: 0,
   })
 
-  const onFinishRaw = (values: any) => {
+  const onFinishRaw = (formValues: any) => {
+    console.log(
+      '%c Line:34 🥤 formValues',
+      'font-size:18px;color:#42b983;background:#fca650',
+      formValues
+    )
     let result: DebtResult = {} as DebtResult
-    const formValues = formatValues(values)
-    let rate = formValues.debtRate
+    let { debtRate: rate, debtPaymentType } = formValues
 
-    switch (values.debtPaymentType) {
+    switch (debtPaymentType) {
       case PaymentTypeEnum.Annuity: // 等额本息
         if (computeModel === 'rate') {
           rate = getAnnuityRate(formValues)
@@ -64,11 +68,6 @@ export const useAction = () => {
 
   const onFinish = useCallback(onFinishRaw, [])
 
-  // 初始进入页面就更新一次，以便显示出数值
-  useEffect(() => {
-    onFinish(initialMoneyPriceFormValues)
-  }, [onFinish])
-
   return {
     form,
     debtPaymentType,
@@ -79,15 +78,7 @@ export const useAction = () => {
   }
 }
 
-// 格式化表单输入值
-const formatValues = (values: any) => {
-  const { debtRate = 0 } = values || {}
 
-  return {
-    ...values,
-    debtRate: debtRate / 100, // 计算百分比换算后的真实数字
-  }
-}
 
 // 获取每期还款账单
 const getMonthlyPayment = ({
