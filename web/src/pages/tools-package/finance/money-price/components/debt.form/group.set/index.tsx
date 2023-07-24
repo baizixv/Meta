@@ -26,12 +26,15 @@ const FormItemGroupSet = ({
           name="debtPaymentType"
           style={formItemStyle}
         >
-          <Radio.Group optionType="button" buttonStyle="solid">
-            <Radio.Button value={PaymentTypeEnum.Annuity}>
-              等额本息
-            </Radio.Button>
-            <Radio.Button value={PaymentTypeEnum.Linear}>等额本金</Radio.Button>
-          </Radio.Group>
+          <Select style={{ width: 120 }}>
+            <Option value={PaymentTypeEnum.Annuity}>等额本息</Option>
+            <Option value={PaymentTypeEnum.Linear}>等额本金</Option>
+            {/* <Option value={PaymentTypeEnum.InterestOnly}>先息后本</Option>
+            <Option value={PaymentTypeEnum.Once}>后息后本</Option>
+            <Option value={PaymentTypeEnum.Equal}>等本等息</Option>
+            <Option value={PaymentTypeEnum.FrontLoaded}>砍头息</Option>
+            <Option value={PaymentTypeEnum.Balloon}>气球贷</Option> */}
+          </Select>
         </Form.Item>
         <Form.Item label="计息周期" name="debtCycleUnit" style={formItemStyle}>
           <Select style={{ width: 60 }}>

@@ -9,6 +9,11 @@ export const enum DevToolsInputType {
 export const enum PaymentTypeEnum {
   Annuity = 'Annuity', // 等额本息
   Linear = 'Linear', // 等额本金
+  Once = 'Once', // 一次性还本付息，'后息后本'
+  InterestOnly = 'InterestOnly', // 先息后本
+  Equal = 'Equal', // 等本等息
+  FrontLoaded = 'FrontLoaded', // 砍头息
+  Balloon = 'Balloon', // 气球贷
 }
 
 // 财务计算工具,借款显示利率类型
