@@ -1,7 +1,15 @@
-// import
+let configLocal = { isNeedDevModelQuick: false }
 
-import { isNeedDevModelQuick } from './config.local'
+const path = './config.ts'
 
+import(path)
+  .then(resolve => {
+    const { fileModule } = resolve
+    configLocal = fileModule
+  })
+  .catch(err => console.log(err))
+
+const { isNeedDevModelQuick = false } = configLocal
 // 开发环境
 export const isDev = process.env.NODE_ENV === 'development'
 
