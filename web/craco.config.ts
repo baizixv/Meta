@@ -38,7 +38,7 @@ module.exports = {
       port: 80,
       host: 'baizixv.com',
     },
-    configure: (webpackConfig: any) => {
+    configure: (webpackConfig: any, { env, paths }: any) => {
       webpackConfig.resolve = {
         ...webpackConfig.resolve,
         fallback: {
