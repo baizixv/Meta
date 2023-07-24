@@ -11,7 +11,6 @@ import {
 import { PaymentTypeEnum } from '@/typings/configs/common'
 import { useAction } from './action'
 import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
-import { fixed2 } from '@/utils/format/number'
 
 const DebtForm: React.FC<{
   formInstance: any
