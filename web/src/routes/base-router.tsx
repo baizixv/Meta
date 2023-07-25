@@ -9,6 +9,7 @@ import QRCodeCard from '@/pages/webtools/qr-code'
 import ToolsPackage, { ToolsPackageHomePage } from '@/pages/tools-package'
 import MoneyPrice from '@/pages/tools-package/finance/money-price'
 import RateFinance from '@/pages/tools-package/finance/rate'
+import CommontoolsFinance from '@/pages/tools-package/finance/common-tools'
 
 const routesConfigs = [
   {
@@ -30,6 +31,7 @@ const routesConfigs = [
       { path: '*', element: <Navigate to="/tools" replace /> },
       { path: 'money-price', element: <MoneyPrice /> },
       { path: 'rate', element: <RateFinance /> },
+      { path: 'commont-tools', element: <CommontoolsFinance /> },
     ],
   },
 ]

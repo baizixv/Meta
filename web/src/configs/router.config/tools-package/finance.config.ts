@@ -14,6 +14,12 @@ export const financeListConfigs: ToolCardConfig[] = [
     description: '提供借贷计算，生成账单。或者根据还款推算利率.',
     path: '/tools/money-price',
   },
+  {
+    key: 'commont-tools',
+    name: '通用理财工具',
+    description: '提供理财简单的计算工具.如APR和EPR转换',
+    path: '/tools/commont-tools',
+  },
 ]
 
 export const paymentTypeDesc: Record<string, string> = {
