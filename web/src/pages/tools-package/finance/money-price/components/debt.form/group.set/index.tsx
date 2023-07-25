@@ -44,14 +44,14 @@ const FormItemGroupSet = ({
             <Option value={APRTypeEnum.Term}>期</Option>
           </Select>
         </Form.Item>
-        <Form.Item label="还款周期" name="payCycleUnit" style={formItemStyle}>
+        {/* <Form.Item label="还款周期" name="payCycleUnit" style={formItemStyle}>
           <Select style={{ width: 60 }}>
             <Option value={APRTypeEnum.Year}>年</Option>
             <Option value={APRTypeEnum.Month}>月</Option>
             <Option value={APRTypeEnum.Day}>日</Option>
             <Option value={APRTypeEnum.Term}>期</Option>
           </Select>
-        </Form.Item>
+        </Form.Item> */}
       </Row>
     </>
   )
