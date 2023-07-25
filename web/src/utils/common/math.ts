@@ -7,7 +7,7 @@ export const binarySearch = (
   }: Record<'low' | 'high' | 'precision', number>,
   callBack: Function // 比较函数
 ): number => {
-  let n = 0
+  // let n = 0
   while (low <= high) {
     let mid = (low + high) / 2
     const result = callBack(mid)
@@ -18,9 +18,9 @@ export const binarySearch = (
     } else {
       low = mid + precision
     }
-    n++
+    // n++
     // 观察执行时间
-    console.log(n)
+    // console.log(n)
   }
   return (low + high) / 2
 }
