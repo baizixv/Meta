@@ -31,4 +31,5 @@ export interface DebtResult {
   totalInterest: number // 还款总利息
   debtIrrRate?: number
   debtCycleUnitRatio?: number // 计息周期系数，表示一年有多少个该周期
+  debtTerm?: number // 计息周期
 }

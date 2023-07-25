@@ -65,8 +65,7 @@ export const useAction = () => {
         break
     }
 
-    const debtIrrRate = getIrrRate(result)
-    setDebtResult({ ...formValues, ...result, debtIrrRate })
+    setDebtResult({ ...formValues, ...result })
   }
 
   const onFinish = useCallback(onFinishRaw, [])
