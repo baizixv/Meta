@@ -45,11 +45,7 @@ export const getAnnuityRate = ({
       precision: 1e-6,
     },
     (guess: number) => {
-      const monthlyPayGuess = getAnnuityMonthPay(
-        debtMoney,
-        debtTerm,
-        guess / 12
-      )
+      const monthlyPayGuess = getAnnuityMonthPay(debtMoney, debtTerm, guess)
       const monthlyPayReal = debtCount / debtTerm
       // 近似利率下，猜测的月供高于实际，本金计算剩余，说明近似比实际大了,调低高位
       // 近似利率下，猜测的月供小于实际，本金计算负值，说明近似比实际小了，调高低位
@@ -68,8 +64,8 @@ export const getAnnuityMonthPayArray = ({
   debtRate,
   debtTerm,
 }: DebtParamsFirst): DebtMonthlyParams[] => {
-  // 每月利率
-  const R = debtRate / 12
+  // 每期利率
+  const R = debtRate
   // 每期偿还总额
   const monthMoney = getAnnuityMonthPay(debtMoney, debtTerm, R)
 
@@ -117,5 +113,10 @@ export const getAnnuityMonthPayArray = ({
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
+  console.log(
+    '%c Line:108 🍌 debtTermArray',
+    'font-size:18px;color:#ed9ec7;background:#7f2b82',
+    debtTermArray
+  )
   return debtTermArray
 }

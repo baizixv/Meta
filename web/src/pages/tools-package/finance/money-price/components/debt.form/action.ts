@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Form } from 'antd'
 import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
-import { APRTypeEnum } from '@/typings/configs/common'
+import { APRTypeEnum, APRTypeEnumRatioMap } from '@/typings/configs/common'
 
 export const useAction = (formInstance: any, onFinish: Function) => {
   const debtCountMonthly = Form.useWatch('debtCountMonthly', formInstance)
@@ -9,14 +9,14 @@ export const useAction = (formInstance: any, onFinish: Function) => {
   const [isEdit, setIsEdit] = useState(true)
 
   const [debtRatio, setDebtRatio] = useState({
-    termRatio: 12, // 借款期数单位，默认为月
+    termRatioUnit: APRTypeEnum.Month, // 借款期数单位，默认为月
     APRType: APRTypeEnum.Year, // APR显示类型，默认为"year",年利率
     rateRatio: 100, // 利率单位系数，默认为百分比
   } as any)
 
   // 更新借款期数单位
-  const onSelectTermRatio = (termRatio: number) =>
-    setDebtRatio((prevState: any) => ({ ...prevState, termRatio }))
+  const onSelectTermRatio = (termRatioUnit: number) =>
+    setDebtRatio((prevState: any) => ({ ...prevState, termRatioUnit }))
   // 更新APRType
   const onSelectAPRType = (APRType: string) =>
     setDebtRatio((prevState: any) => ({ ...prevState, APRType }))
@@ -73,7 +73,7 @@ export const useAction = (formInstance: any, onFinish: Function) => {
   }
 }
 
-// 格式化表单输入值
+// 格式化表单输入值，提供真正参与计算的校正后的参数
 const formatValues = (values: any, debtRatio: any = {}) => {
   const { debtCycleUnit, payCycleUnit, debtTerm, debtRate = 0 } = values || {}
   console.log(
@@ -86,12 +86,26 @@ const formatValues = (values: any, debtRatio: any = {}) => {
     'font-size:18px;color:#42b983;background:#e41a6a',
     debtRatio
   )
-  const { rateRatio, APRType, termRatio } = debtRatio
+  const { rateRatio, APRType, termRatioUnit } = debtRatio
 
-  const realDebtTerm = debtTerm
+  const debtCycleUnitRatio = APRTypeEnumRatioMap[debtCycleUnit as APRTypeEnum]
+  const termRatioUnitRatio = APRTypeEnumRatioMap[termRatioUnit as APRTypeEnum]
+  const APRTypeRatio = APRTypeEnumRatioMap[APRType as APRTypeEnum]
 
+  const realDebtTerm =
+    debtCycleUnitRatio < 0 || termRatioUnitRatio < 0 // 单位为期，则单纯以输入期数为准
+      ? debtTerm
+      : debtTerm * (debtCycleUnitRatio / termRatioUnitRatio)
+
+  // TODO:日月换算-365还是360
+
+  const realDebtRate =
+    APRTypeRatio < 0 || debtCycleUnitRatio < 0 // 单位为期，则单纯以输入利率为准
+      ? debtRate / rateRatio
+      : (debtRate / rateRatio) * (APRTypeRatio / debtCycleUnitRatio)
   return {
     ...values,
-    debtRate: debtRate / rateRatio, // 计算百分比换算后的真实每期利率
+    debtTerm: realDebtTerm,
+    debtRate: realDebtRate, // 计算百分比换算后的真实每期利率
   }
 }

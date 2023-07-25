@@ -42,7 +42,7 @@ export const getLinearRate = ({
         debtCountGuess += getLinearMonthPay(
           debtMoney,
           debtTerm,
-          guess / 12,
+          guess,
           restMonths
         )
       }
@@ -73,7 +73,7 @@ export const getLinearMonthPayArray = ({
   for (let i = 0; i < debtTerm; i++) {
     const restMonths = debtTerm - i
     const monthlyPayInterest =
-      getLinearMonthPay(debtMoney, debtTerm, debtRate / 12, restMonths) -
+      getLinearMonthPay(debtMoney, debtTerm, debtRate, restMonths) -
       monthlyPrincipal
     totalPrincipal += monthlyPrincipal
     totalInterest += monthlyPayInterest
@@ -103,6 +103,5 @@ export const getLinearMonthPayArray = ({
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
-
   return debtTermArray
 }

@@ -30,3 +30,11 @@ export const APRTypeEnumRateMap  = {
   [APRTypeEnum.Day]: "日利率",
   [APRTypeEnum.Term]: "期利率",
 }
+
+// 借款显示利率类型，对应的期数计算系数
+export const APRTypeEnumRatioMap = {
+  [APRTypeEnum.Year]: 1,
+  [APRTypeEnum.Month]: 12,
+  [APRTypeEnum.Day]: 365,
+  [APRTypeEnum.Term]:-1,
+}
