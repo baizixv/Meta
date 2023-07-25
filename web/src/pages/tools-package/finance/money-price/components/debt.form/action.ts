@@ -97,5 +97,6 @@ const formatValues = (values: any, debtRatio: any = {}) => {
     ...values,
     debtTerm: realDebtTerm,
     debtRate: realDebtRate, // 计算百分比换算后的真实每期利率
+    debtCycleUnitRatio,
   }
 }

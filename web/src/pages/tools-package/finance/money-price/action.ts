@@ -30,6 +30,11 @@ export const useAction = () => {
   })
 
   const onFinishRaw = (formValues: any) => {
+    console.log(
+      '%c Line:33 🍉 formValues',
+      'font-size:18px;color:#7f2b82;background:#33a5ff',
+      formValues
+    )
     let result: DebtResult = {} as DebtResult
     let { debtRate: rate, debtPaymentType } = formValues
 
@@ -42,6 +47,11 @@ export const useAction = () => {
           ...formValues,
           debtRate: rate,
         })
+        console.log(
+          '%c Line:47 🥚 result',
+          'font-size:18px;color:#4fff4B;background:#42b983',
+          result
+        )
         break
       case PaymentTypeEnum.Linear: // 等额本金
       default:
@@ -56,8 +66,7 @@ export const useAction = () => {
     }
 
     const debtIrrRate = getIrrRate(result)
-
-    setDebtResult({ ...result, debtIrrRate })
+    setDebtResult({ ...formValues, ...result, debtIrrRate })
   }
 
   const onFinish = useCallback(onFinishRaw, [])

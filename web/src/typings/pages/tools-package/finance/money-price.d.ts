@@ -23,10 +23,12 @@ export interface DebtMonthlyParams {
   isLast: boolean
 }
 
+// 借贷计算，展示结果类型
 export interface DebtResult {
   debtMoney: number
   debtRate: number
   debtTermArray: DebtMonthlyParams[] // 还款月供
   totalInterest: number // 还款总利息
   debtIrrRate?: number
+  debtCycleUnitRatio?: number // 计息周期系数，表示一年有多少个该周期
 }

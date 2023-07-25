@@ -18,8 +18,7 @@ const MoneyPrice: React.FC = () => {
     debtResult,
     onFinish,
   } = useAction()
-  const { debtMoney, debtRate, debtIrrRate, debtTermArray, totalInterest } =
-    debtResult
+ 
   return (
     <Row style={rowWrapStyle}>
       {/* 收集数据 */}
@@ -40,14 +39,7 @@ const MoneyPrice: React.FC = () => {
       <Divider orientation="center" orientationMargin={0}>
         <ProjectOutlined /> - 计算结果
       </Divider>
-      <DebtTable
-        debtMoney={debtMoney}
-        debtRate={debtRate}
-        debtIrrRate={debtIrrRate}
-        totalInterest={totalInterest}
-        debtAccuracy={debtAccuracy ?? 2}
-        datas={debtTermArray}
-      />
+      <DebtTable debtResult={debtResult} debtAccuracy={debtAccuracy ?? 2} />
     </Row>
   )
 }
