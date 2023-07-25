@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Form } from 'antd'
 import {
   getLinearRate,
@@ -11,7 +11,6 @@ import {
   DebtParamsFirst,
   DebtResult,
 } from '@/typings/pages/tools-package/finance/money-price'
-import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
 import { calculateIRR } from '@/utils/finance/IRR'
 
 export const useAction = () => {
@@ -31,11 +30,6 @@ export const useAction = () => {
   })
 
   const onFinishRaw = (formValues: any) => {
-    console.log(
-      '%c Line:34 🥤 formValues',
-      'font-size:18px;color:#42b983;background:#fca650',
-      formValues
-    )
     let result: DebtResult = {} as DebtResult
     let { debtRate: rate, debtPaymentType } = formValues
 

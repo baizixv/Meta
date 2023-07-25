@@ -113,10 +113,5 @@ export const getAnnuityMonthPayArray = ({
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
-  console.log(
-    '%c Line:108 🍌 debtTermArray',
-    'font-size:18px;color:#ed9ec7;background:#7f2b82',
-    debtTermArray
-  )
   return debtTermArray
 }

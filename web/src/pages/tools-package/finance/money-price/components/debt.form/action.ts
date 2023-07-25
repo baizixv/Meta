@@ -76,16 +76,6 @@ export const useAction = (formInstance: any, onFinish: Function) => {
 // 格式化表单输入值，提供真正参与计算的校正后的参数
 const formatValues = (values: any, debtRatio: any = {}) => {
   const { debtCycleUnit, payCycleUnit, debtTerm, debtRate = 0 } = values || {}
-  console.log(
-    '%c Line:84 🍅 values',
-    'font-size:18px;color:#93c0a4;background:#ffdd4d',
-    values
-  )
-  console.log(
-    '%c Line:67 🥪 debtRatio',
-    'font-size:18px;color:#42b983;background:#e41a6a',
-    debtRatio
-  )
   const { rateRatio, APRType, termRatioUnit } = debtRatio
 
   const debtCycleUnitRatio = APRTypeEnumRatioMap[debtCycleUnit as APRTypeEnum]
@@ -98,11 +88,11 @@ const formatValues = (values: any, debtRatio: any = {}) => {
       : debtTerm * (debtCycleUnitRatio / termRatioUnitRatio)
 
   // TODO:日月换算-365还是360
-
   const realDebtRate =
     APRTypeRatio < 0 || debtCycleUnitRatio < 0 // 单位为期，则单纯以输入利率为准
       ? debtRate / rateRatio
       : (debtRate / rateRatio) * (APRTypeRatio / debtCycleUnitRatio)
+
   return {
     ...values,
     debtTerm: realDebtTerm,
