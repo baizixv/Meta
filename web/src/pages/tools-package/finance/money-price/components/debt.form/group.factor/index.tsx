@@ -14,7 +14,7 @@ const FormItemGroupFactor = ({
       </Typography.Title>
       <Row style={rowButtonStyle}>
         <Form.Item
-          label="设置年化利率精度(百分比后小数位数)"
+          label="设置利率精度(小数位数)"
           name="debtAccuracy"
           style={formItemStyle}
         >

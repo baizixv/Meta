@@ -12,7 +12,6 @@ export const FormItemRate = ({
 }: any) => {
   return (
     <Form.Item
-      label="APR"
       name="debtRate"
       style={formItemStyle}
       rules={[{ required: true, message: '' }]}
