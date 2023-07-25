@@ -77,11 +77,6 @@ export const getAnnuityMonthPayArray = ({
 
   // 每期偿还本金
   for (let i = 0; i < debtTerm; i++) {
-    console.log(
-      '%c Line:80 🍖 i',
-      'font-size:18px;color:#ffdd4d;background:#ffdd4d',
-      i
-    )
     // 每期偿还利息, 当前剩余本金*月利率
     const currInterest = totalRest * R
     // 每期偿还本金，每期还款总额 - 每期偿还利息
