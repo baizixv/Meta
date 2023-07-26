@@ -34,7 +34,7 @@ export const FormItemCount = ({
       >
         <InputNumber
           addonBefore="¥"
-          placeholder="每期还款额 x 借款期数"
+          placeholder="10000"
           disabled={isEdit}
           addonAfter={isEdit ? <EditOutlined onClick={onClickAfter} /> : ''}
         />

@@ -38,3 +38,18 @@ export const APRTypeEnumRatioMap = {
   [APRTypeEnum.Day]: 365,
   [APRTypeEnum.Term]:-1,
 }
+
+// 金钱单位类型
+export const enum MoneyUnitTypeEnum {
+  USD = 'USD', // 美元
+  EUR = 'EUR', // 欧元
+  GBP = 'GBP', // 英镑
+  CNY = 'CNY', // 人民币
+}
+
+export const MoneyUnitTypeMap ={
+  [MoneyUnitTypeEnum.CNY]: "¥",
+  [MoneyUnitTypeEnum.EUR]: "€",
+  [MoneyUnitTypeEnum.GBP]: "£",
+  [MoneyUnitTypeEnum.USD]: "$",
+}

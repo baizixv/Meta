@@ -1,3 +1,4 @@
+import { MoneyUnitTypeEnum, MoneyUnitTypeMap } from '@/typings/configs/common'
 import { DebtResult } from '@/typings/pages/tools-package/finance/money-price'
 import { fixed2 } from '@/utils/format/number'
 
@@ -7,11 +8,13 @@ export const useAction = (debtResult: DebtResult, debtAccuracy: number) => {
     debtRate,
     totalInterest,
     debtCycleUnitRatio = 1,
+    moneyUnit = MoneyUnitTypeEnum.CNY,
     // debtTerm = 1,
   } = debtResult
+  const moneyUnitShow = MoneyUnitTypeMap[moneyUnit]
   const captionShows = [
-    ['利息总额：', `${fixed2(totalInterest)}元`],
-    ['还款总额：', `${fixed2(+debtMoney + +totalInterest)}元`],
+    ['利息总额：', `${moneyUnitShow}${fixed2(totalInterest)}`],
+    ['还款总额：', `${moneyUnitShow}${fixed2(+debtMoney + +totalInterest)}`],
   ]
 
   if (debtCycleUnitRatio > 0) {

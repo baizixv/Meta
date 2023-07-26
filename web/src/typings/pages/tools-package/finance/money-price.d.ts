@@ -1,3 +1,5 @@
+import { MoneyUnitTypeEnum } from '@/typings/configs/common'
+
 // 借贷利率计算，相关参数类型
 export interface DebtParams {
   debtMoney: number // 贷款本金
@@ -32,4 +34,5 @@ export interface DebtResult {
   debtIrrRate?: number
   debtCycleUnitRatio?: number // 计息周期系数，表示一年有多少个该周期
   debtTerm?: number // 计息周期
+  moneyUnit?: MoneyUnitTypeEnum // 金额单位
 }
