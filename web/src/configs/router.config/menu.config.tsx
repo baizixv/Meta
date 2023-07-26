@@ -36,7 +36,7 @@ const initialMenuConfigs = [
   //   disabled: true,
   // },
   {
-    label: '外部网站',
+    label: '网站归类',
     key: '/outsite',
     icon: <AppstoreOutlined />,
     disabled: true,
