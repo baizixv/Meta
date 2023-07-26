@@ -15,7 +15,7 @@ export const financeBooks = [
     buyPrice: 10,
     buyPriceUnit: MoneyUnitTypeMap.CNY,
     readUrl: '', // 在线阅读链接
-    knowledgeDomain: '', // 知识领域
+    knowledgeDomain: '投资学', // 知识领域
     knowledgeArea: '', // 知识细分范围
   },
 ]
