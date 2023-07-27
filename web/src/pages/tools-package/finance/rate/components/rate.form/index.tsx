@@ -48,9 +48,10 @@ const DebtForm: React.FC<{
         rules={[{ required: true, message: '' }]}
       >
         <Input.TextArea
-          placeholder="-1000,250,250,250"
+          placeholder="-1000,250"
           autoSize
           style={inputStyle}
+          allowClear
         />
       </Form.Item>
 
@@ -58,7 +59,7 @@ const DebtForm: React.FC<{
         辅助现金流输入：
       </Typography.Title>
       <Form.Item name="helpCashFlowStr" style={formItemStyle}>
-        <Input.TextArea autoSize style={inputStyle} />
+        <Input.TextArea autoSize style={inputStyle} allowClear />
       </Form.Item>
 
       <Button

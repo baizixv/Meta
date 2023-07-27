@@ -42,7 +42,8 @@ export const initialMoneyPriceFormValues = {
 }
 
 export const initialRateFormValues = {
-  cashFlowStr: '-1000,250,250,250,250,250',
+  cashFlowStr: '-1000,250',
+  helpCashFlowStr: '1,5',
   rateType: 'term',
   rateAccuracy: 2,
 }
