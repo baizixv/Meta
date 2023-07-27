@@ -39,7 +39,7 @@ export const getFVIFTerms = ({
 
 // 获取终值
 export const getFV = ({
-  princialCount: A = 0,
+  PV: A = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber => {
@@ -56,23 +56,54 @@ export const getFV = ({
 
 // 获取每期终值数组
 export const getFVTerms = ({
-  princialCount = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber[] => {
-  const [ABig] = convertToBigNumber([princialCount])
+  const [ABig] = convertToBigNumber([PV])
 
   // 获取终值数组
   const FVIFTerms = getFVIFTerms({ rate, timeCount })
-  
+
   const FVTerms = FVIFTerms.map(item => ABig.multipliedBy(item))
 
   return FVTerms
 }
 
-// 获取每年的单利利润
+// 获取单利终值，仅计算单利利润
+export const getFVSimple = ({
+  PV = 0,
+  rate = 0,
+  timeCount = 0,
+}: FinanceBasicParams): BigNumber => {
+  const [ABig] = convertToBigNumber([PV])
+  const interestSimple = getInterestSimple({ PV, rate, timeCount })
+
+  const FVSimple = ABig.plus(interestSimple)
+
+  return FVSimple
+}
+
+// 获取单利终值每期数组，仅计算每期单利利润
+export const getFVSimpleTerms = ({
+  PV = 0,
+  rate = 0,
+  timeCount = 0,
+}: FinanceBasicParams): BigNumber[] => {
+  const [ABig] = convertToBigNumber([PV])
+  const interestSimpleTerm = getInterestSimpleTerm({ PV, rate, timeCount })
+
+  let FVSimpleTerms: BigNumber[] = []
+  for (let i = 1; i <= convertToNumber(timeCount); i++) {
+    const FVIFTerm = ABig.plus(interestSimpleTerm.multipliedBy(i))
+    FVSimpleTerms.push(FVIFTerm)
+  }
+  return FVSimpleTerms
+}
+
+// 获取每期的单利利润
 export const getInterestSimpleTerm = ({
-  princialCount: A = 0,
+  PV: A = 0,
   rate: r = 0,
   timeCount: t = 0,
 }: FinanceBasicParams): BigNumber => {
@@ -83,7 +114,7 @@ export const getInterestSimpleTerm = ({
 
 // 获取单利利润总和
 export const getInterestSimple = ({
-  princialCount = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber => {
@@ -91,7 +122,7 @@ export const getInterestSimple = ({
 
   // 每期的单利
   const interestSimpleTerm = getInterestSimpleTerm({
-    princialCount,
+    PV,
     rate,
     timeCount,
   })
@@ -103,11 +134,11 @@ export const getInterestSimple = ({
 
 // 获取每期的复利利润
 export const getInterestTermCompound = ({
-  princialCount = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber[] => {
-  const [ABig, rBig] = convertToBigNumber([princialCount, rate])
+  const [ABig, rBig] = convertToBigNumber([PV, rate])
   let interestCompoundTerms = [] as BigNumber[]
 
   // 迭代累加
@@ -123,16 +154,16 @@ export const getInterestTermCompound = ({
 
 // 获取复利利润总和
 export const getInterestCompound = (
-  { princialCount = 0, rate = 0, timeCount = 0 }: FinanceBasicParams,
+  { PV = 0, rate = 0, timeCount = 0 }: FinanceBasicParams,
   modelAdd = false // true-累加法,false-减差法，
 ): BigNumber => {
-  const [ABig] = convertToBigNumber([princialCount])
+  const [ABig] = convertToBigNumber([PV])
   // 两种方法，总和减差和迭代累加
   if (modelAdd) {
     // 迭代累加
     // 每年复利利润数组
     const interestCompoundTerms = getInterestTermCompound({
-      princialCount,
+      PV,
       rate,
       timeCount,
     })
@@ -144,9 +175,9 @@ export const getInterestCompound = (
   } else {
     // 总和减差
     // 终值总和
-    const FV = getFV({ princialCount, rate, timeCount })
+    const FV = getFV({ PV, rate, timeCount })
     // 单利
-    const interestSimple = getInterestSimple({ princialCount, rate, timeCount })
+    const interestSimple = getInterestSimple({ PV, rate, timeCount })
     // 复利
     const interestCompound = FV.minus(ABig).minus(interestSimple)
 
@@ -156,20 +187,20 @@ export const getInterestCompound = (
 
 // 获取利润每期数组
 export const getInterestTerms = ({
-  princialCount = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber[] => {
   // 每期单利利润
   const interestSimpleTerm = getInterestSimpleTerm({
-    princialCount,
+    PV,
     rate,
     timeCount,
   })
 
   // 每期复利利润
   const interestCompoundTerms = getInterestTermCompound({
-    princialCount,
+    PV,
     rate,
     timeCount,
   })
@@ -183,13 +214,13 @@ export const getInterestTerms = ({
 
 // 获取利润总和
 export const getInterest = ({
-  princialCount = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
 }: FinanceBasicParams): BigNumber => {
-  const interestSimple = getInterestSimple({ princialCount, rate, timeCount })
+  const interestSimple = getInterestSimple({ PV, rate, timeCount })
   const interestCompound = getInterestCompound({
-    princialCount,
+    PV,
     rate,
     timeCount,
   })
@@ -200,45 +231,54 @@ export const getInterest = ({
 
 // 获取终值的详细信息
 export const getFVDetailInfo = (
-  { princialCount = 0, rate = 0, timeCount = 0 }: FinanceBasicParams,
+  { PV = 0, rate = 0, timeCount = 0 }: FinanceBasicParams,
   needBigNumber = false
 ): Record<string, any> => {
-  const financeBasicParams = { princialCount, rate, timeCount }
-  // 终值总和
-  const FV = getFV(financeBasicParams)
-  // 每年的单利
-  const interestSimpleTerm = getInterestSimpleTerm(financeBasicParams)
+  const financeBasicParams = { PV, rate, timeCount }
+
   // 单利
   const interestSimple = getInterestSimple(financeBasicParams)
-  // 每年的复利
-  const interestCompoundTerms = getInterestTermCompound(financeBasicParams)
+  // 每期单利
+  const interestSimpleTerm = getInterestSimpleTerm(financeBasicParams)
   // 复利
   const interestCompound = getInterestCompound(financeBasicParams)
-  // 终值系数
-  const FVIF = getFVIF(financeBasicParams)
-  // 终值系数数组
-  const FVIFTerms = getFVIFTerms(financeBasicParams)
-  // 终值数组
-  const FVTerms = getFVTerms(financeBasicParams)
+  // 复利数组
+  const interestCompoundTerms = getInterestTermCompound(financeBasicParams)
   // 利润数组
   const interestTerms = getInterestTerms(financeBasicParams)
   // 利润总和
   const interest = getInterest(financeBasicParams)
+  // 终值系数
+  const FVIF = getFVIF(financeBasicParams)
+  // 终值系数数组
+  const FVIFTerms = getFVIFTerms(financeBasicParams)
+  // 终值
+  const FV = getFV(financeBasicParams)
+  // 终值数组
+  const FVTerms = getFVTerms(financeBasicParams)
+  // 单利终值
+  const FVSimple = getFVSimple(financeBasicParams)
+  // 单利终值数组
+  const FVSimpleTerms = getFVSimpleTerms(financeBasicParams)
 
   const detailResult = {
-    princialCount: convertToBigNumber(princialCount),
-    rate: convertToBigNumber(rate),
-    timeCount: convertToBigNumber(timeCount),
     FVIF,
     FVIFTerms,
     FV,
     FVTerms,
+    FVSimple,
+    FVSimpleTerms,
+
+    interest,
+    interestTerms,
     interestSimple,
     interestSimpleTerm,
     interestCompound,
     interestCompoundTerms,
-    interest,
-    interestTerms,
+
+    PV: convertToBigNumber(PV),
+    rate: convertToBigNumber(rate),
+    timeCount: convertToBigNumber(timeCount),
   }
 
   return needBigNumber
