@@ -1,21 +1,21 @@
-import BigNumber from 'bignumber.js'
+import Decimal from 'decimal.js'
 
 // 将普通数字包装为大数
 export const convertToBigNumber = <
-  T extends (number | BigNumber) | (number | BigNumber)[],
-  U = T extends number | BigNumber ? BigNumber : BigNumber[]
+  T extends (number | Decimal) | (number | Decimal)[],
+  U = T extends number | Decimal ? Decimal : Decimal[]
 >(
   srcNum: T
 ): U => {
   return Array.isArray(srcNum)
-    ? (srcNum.map(num => new BigNumber(num)) as U)
-    : (new BigNumber(srcNum) as U)
+    ? (srcNum.map(num => new Decimal(num)) as U)
+    : (new Decimal(srcNum) as U)
 }
 
 // 将大数转换为普通数字
 export const convertToNumber = <
-  T extends (number | BigNumber) | (number | BigNumber)[],
-  U = T extends number | BigNumber ? number : number[]
+  T extends (number | Decimal) | (number | Decimal)[],
+  U = T extends number | Decimal ? number : number[]
 >(
   srcBigNum: T
 ): U => {
@@ -25,7 +25,7 @@ export const convertToNumber = <
 }
 
 // 将单个大数转为普通数字
-const convertToNumberSingle = <T extends number | BigNumber>(
+const convertToNumberSingle = <T extends number | Decimal>(
   prevNum: T
 ): number => {
   if (typeof prevNum === 'number') {
@@ -41,8 +41,8 @@ export const convertBigNumberObjToNumber = (bigNumObj: Record<string, any>) => {
   Object.entries(bigNumObj).forEach(([key, value]) => {
     let newValue = 0 as any
 
-    if (value instanceof BigNumber || typeof value === 'number') {
-      newValue = convertToNumberSingle(value as BigNumber | number)
+    if (value instanceof Decimal || typeof value === 'number') {
+      newValue = convertToNumberSingle(value as Decimal | number)
     } else if (Array.isArray(value)) {
       newValue = value.map(item => convertToNumberSingle(item))
     } else {

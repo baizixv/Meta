@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+import Decimal from 'decimal.js'
 import { binarySearch } from '@/utils/common/math'
 // 概念：IRR，NPV，现值PV，终值FV，现金流，
 // 利率，名义利率，真实利率，声称利率，折现率，回报率，机会成本，贴现率
@@ -12,15 +12,15 @@ export const calculateIRR = (cashFlows: number[]) => {
       precision: 1e-6,
     },
     (rate: number) => {
-      const rateBig = new BigNumber(1 + rate)
-      let npvBig = new BigNumber(0) // 净现值
+      const rateBig = new Decimal(1 + rate)
+      let npvBig = new Decimal(0) // 净现值
       for (let i = 0; i < cashFlows.length; i++) {
         // n++
         // console.log(n) // 测量计算效率
         // 根据IRR的猜测值计算净现值,
         // IRR: 资金流入现值总额与资金流出现值总额相等、净现值等于零时的折现率；
         // npv += cashFlows[i] / Math.pow(1 + rate, i)
-        const A = new BigNumber(cashFlows[i])
+        const A = new Decimal(cashFlows[i])
         const B = rateBig.pow(i)
         npvBig = npvBig.plus(A.dividedBy(B))
       }

@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+import Decimal from 'decimal.js'
 import {
   DebtMonthlyParams,
   DebtParamsFirst,
@@ -16,9 +16,9 @@ export const getAnnuityMonthPay = (
 ): number => {
   // 防止金融计算，中间结果溢出，使用大数计算
   // 等额本息辅助计算公式
-  const BigA = new BigNumber(A)
-  const BigN = new BigNumber(n)
-  const BigR = new BigNumber(R)
+  const BigA = new Decimal(A)
+  const BigN = new Decimal(n)
+  const BigR = new Decimal(R)
 
   const C = BigR.plus(1).pow(BigN)
 
@@ -26,7 +26,7 @@ export const getAnnuityMonthPay = (
   const T = C.dividedBy(C.minus(1))
 
   // 每期还款总额
-  const Q = BigA.times(BigR).times(T) 
+  const Q = BigA.times(BigR).times(T)
 
   const QNumber = +Q.toString()
   return QNumber

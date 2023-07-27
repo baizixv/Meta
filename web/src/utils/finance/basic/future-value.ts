@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+import Decimal from 'decimal.js'
 import { FinanceBasicParams } from '@/typings/common/finance'
 import {
   convertBigNumberObjToNumber,
@@ -7,11 +7,8 @@ import {
 } from '@/utils/common/big-number'
 
 // 获取终值系数
-export const getFVIF = ({
-  rate: r = 0,
-  timeCount: t = 0,
-}: FinanceBasicParams): BigNumber => {
-  const [rBig, tBig] = convertToBigNumber([r, t])
+export const getFVIF = ({ rate = 0, timeCount = 0 }: FinanceBasicParams): Decimal => {
+  const [rBig, tBig] = convertToBigNumber([rate, timeCount])
 
   // FVIF =  (1 + r) ** t
   const FVIF = rBig.plus(1).pow(tBig)
@@ -23,9 +20,8 @@ export const getFVIF = ({
 export const getFVIFTerms = ({
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber[] => {
-
-  let FVIFTerms: BigNumber[] = []
+}: FinanceBasicParams): Decimal[] => {
+  let FVIFTerms: Decimal[] = []
   for (let i = 1; i <= convertToNumber(timeCount); i++) {
     const FVIF = getFVIF({
       rate,
@@ -39,17 +35,17 @@ export const getFVIFTerms = ({
 
 // 获取终值
 export const getFV = ({
-  PV: A = 0,
+  PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber => {
-  const [ABig] = convertToBigNumber([A])
+}: FinanceBasicParams): Decimal => {
+  const [ABig] = convertToBigNumber([PV])
   const FVIF = getFVIF({
     rate,
     timeCount,
   })
 
-  const FV = ABig.multipliedBy(FVIF)
+  const FV = ABig.times(FVIF)
 
   return FV
 }
@@ -59,13 +55,13 @@ export const getFVTerms = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber[] => {
+}: FinanceBasicParams): Decimal[] => {
   const [ABig] = convertToBigNumber([PV])
 
-  // 获取终值数组
+  // 获取终值系数数组
   const FVIFTerms = getFVIFTerms({ rate, timeCount })
 
-  const FVTerms = FVIFTerms.map(item => ABig.multipliedBy(item))
+  const FVTerms = FVIFTerms.map(item => ABig.times(item))
 
   return FVTerms
 }
@@ -75,7 +71,7 @@ export const getFVSimple = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber => {
+}: FinanceBasicParams): Decimal => {
   const [ABig] = convertToBigNumber([PV])
   const interestSimple = getInterestSimple({ PV, rate, timeCount })
 
@@ -89,13 +85,13 @@ export const getFVSimpleTerms = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber[] => {
+}: FinanceBasicParams): Decimal[] => {
   const [ABig] = convertToBigNumber([PV])
   const interestSimpleTerm = getInterestSimpleTerm({ PV, rate, timeCount })
 
-  let FVSimpleTerms: BigNumber[] = []
+  let FVSimpleTerms: Decimal[] = []
   for (let i = 1; i <= convertToNumber(timeCount); i++) {
-    const FVIFTerm = ABig.plus(interestSimpleTerm.multipliedBy(i))
+    const FVIFTerm = ABig.plus(interestSimpleTerm.times(i))
     FVSimpleTerms.push(FVIFTerm)
   }
   return FVSimpleTerms
@@ -106,9 +102,9 @@ export const getInterestSimpleTerm = ({
   PV: A = 0,
   rate: r = 0,
   timeCount: t = 0,
-}: FinanceBasicParams): BigNumber => {
+}: FinanceBasicParams): Decimal => {
   const [ABig, rBig] = convertToBigNumber([A, r])
-  const interestSimpleTerm = ABig.multipliedBy(rBig)
+  const interestSimpleTerm = ABig.times(rBig)
   return interestSimpleTerm
 }
 
@@ -117,7 +113,7 @@ export const getInterestSimple = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber => {
+}: FinanceBasicParams): Decimal => {
   const tBig = convertToBigNumber(timeCount)
 
   // 每期的单利
@@ -127,7 +123,7 @@ export const getInterestSimple = ({
     timeCount,
   })
 
-  const interestSimple = interestSimpleTerm.multipliedBy(tBig)
+  const interestSimple = interestSimpleTerm.times(tBig)
 
   return interestSimple
 }
@@ -137,15 +133,15 @@ export const getInterestTermCompound = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber[] => {
+}: FinanceBasicParams): Decimal[] => {
   const [ABig, rBig] = convertToBigNumber([PV, rate])
-  let interestCompoundTerms = [] as BigNumber[]
+  let interestCompoundTerms = [] as Decimal[]
 
   // 迭代累加
   let interestCompound = convertToBigNumber(0)
   for (let i = 1; i <= convertToNumber(timeCount); i++) {
     for (let j = 2; j <= i; j++) {
-      interestCompound = rBig.pow(j).multipliedBy(ABig).plus(interestCompound)
+      interestCompound = rBig.pow(j).times(ABig).plus(interestCompound)
     }
     interestCompoundTerms.push(interestCompound)
   }
@@ -156,7 +152,7 @@ export const getInterestTermCompound = ({
 export const getInterestCompound = (
   { PV = 0, rate = 0, timeCount = 0 }: FinanceBasicParams,
   modelAdd = false // true-累加法,false-减差法，
-): BigNumber => {
+): Decimal => {
   const [ABig] = convertToBigNumber([PV])
   // 两种方法，总和减差和迭代累加
   if (modelAdd) {
@@ -190,7 +186,7 @@ export const getInterestTerms = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber[] => {
+}: FinanceBasicParams): Decimal[] => {
   // 每期单利利润
   const interestSimpleTerm = getInterestSimpleTerm({
     PV,
@@ -217,7 +213,7 @@ export const getInterest = ({
   PV = 0,
   rate = 0,
   timeCount = 0,
-}: FinanceBasicParams): BigNumber => {
+}: FinanceBasicParams): Decimal => {
   const interestSimple = getInterestSimple({ PV, rate, timeCount })
   const interestCompound = getInterestCompound({
     PV,
