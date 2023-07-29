@@ -2,9 +2,9 @@ import React from 'react'
 import { Form } from 'antd'
 import { formStyle, formItemStyle, titleStyle, inputStyle } from './style'
 import { initialRateFormValues } from '@/configs/router.config/tools-package/finance.config'
-import { FormItemGroupSet } from './group.set'
 import { FormItemGroupData } from './group.data'
 import { FormSubmit } from '@/components/form/form-submit'
+import { FormItemGroupSet } from './group.set'
 
 const TimeValueForm: React.FC<{
   formInstance: any

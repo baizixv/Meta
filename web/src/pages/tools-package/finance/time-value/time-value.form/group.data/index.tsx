@@ -15,14 +15,7 @@ export const FormItemGroupData = ({
         name="cashFlowStr"
         style={formItemStyle}
         rules={[{ required: true, message: '' }]}
-      >
-        <Input.TextArea
-          placeholder="-1000,250"
-          autoSize
-          style={inputStyle}
-          allowClear
-        />
-      </Form.Item>
+      ></Form.Item>
     </>
   )
 }
