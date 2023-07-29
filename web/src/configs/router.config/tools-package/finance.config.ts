@@ -11,7 +11,7 @@ export const financeListConfigs: ToolCardConfig[] = [
   {
     key: 'debt-bill',
     name: '借贷计算',
-    description: '提供借贷计算，生成账单。或者根据还款推算利率.',
+    description: '提供借贷计算，生成账单。或者根据还款推算利率',
     path: '/tools/money-price',
   },
   {
@@ -19,6 +19,12 @@ export const financeListConfigs: ToolCardConfig[] = [
     name: '通用理财工具',
     description: '提供理财简单的计算工具.如APR和EPR转换',
     path: '/tools/commont-tools',
+  },
+  {
+    key: 'time-value',
+    name: '终值现值测算',
+    description: '终值，现值，利率，期数，知三求一',
+    path: '/tools/time-value',
   },
 ]
 

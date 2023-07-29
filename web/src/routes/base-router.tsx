@@ -10,6 +10,7 @@ import ToolsPackage, { ToolsPackageHomePage } from '@/pages/tools-package'
 import MoneyPrice from '@/pages/tools-package/finance/money-price'
 import RateFinance from '@/pages/tools-package/finance/rate'
 import CommontoolsFinance from '@/pages/tools-package/finance/common-tools'
+import TimeValue from '@/pages/tools-package/finance/time-value'
 
 const routesConfigs = [
   {
@@ -32,6 +33,7 @@ const routesConfigs = [
       { path: 'money-price', element: <MoneyPrice /> },
       { path: 'rate', element: <RateFinance /> },
       { path: 'commont-tools', element: <CommontoolsFinance /> },
+      { path: 'time-value', element: <TimeValue /> },
     ],
   },
 ]

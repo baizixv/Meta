@@ -1,0 +1,12 @@
+.meta-blockquote {
+    height: 40px;
+    line-height: 40px;
+    background-color: white;
+}
+.meta-blockquote-rate {
+    width: 100%;
+}
+.meta-blockquote-rate-flows {
+    width: 100%;
+    height: auto;
+}
