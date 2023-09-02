@@ -10,12 +10,12 @@ export const FormItemGroupData = ({
     <>
       <Typography.Title level={5} style={titleStyle}>
         计算参数：
-      </Typography.Title>
-      <Form.Item
+      </Typography.Title>   
+      {/* <Form.Item
         name="cashFlowStr"
         style={formItemStyle}
         rules={[{ required: true, message: '' }]}
-      ></Form.Item>
+      ></Form.Item> */}
     </>
   )
 }
