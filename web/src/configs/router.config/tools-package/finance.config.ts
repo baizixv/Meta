@@ -1,4 +1,4 @@
-import { PaymentTypeEnum } from '@/typings/configs/common'
+import { APRTypeEnum, PaymentTypeEnum } from '@/typings/configs/common'
 import { ToolCardConfig } from '@/typings/pages/webtools'
 
 export const financeListConfigs: ToolCardConfig[] = [
@@ -10,13 +10,25 @@ export const financeListConfigs: ToolCardConfig[] = [
   },
   {
     key: 'debt-bill',
-    name: '借贷月供计算',
-    description: '提供借贷月供计算，生成月供账单。或者根据月供推算年化利率.',
+    name: '借贷计算',
+    description: '提供借贷计算，生成账单。或者根据还款推算利率',
     path: '/tools/money-price',
+  },
+  {
+    key: 'commont-tools',
+    name: '通用理财工具',
+    description: '提供理财简单的计算工具.如APR和EPR转换',
+    path: '/tools/commont-tools',
+  },
+  {
+    key: 'time-value',
+    name: '终值现值测算',
+    description: '终值，现值，利率，期数，知三求一',
+    path: '/tools/time-value',
   },
 ]
 
-export const paymentTypeDesc: Record<PaymentTypeEnum, string> = {
+export const paymentTypeDesc: Record<string, string> = {
   [PaymentTypeEnum.Annuity]: `等额本息：月供 = 贷款本金 × [年化利率 ÷ 12 × (1 + 年化利率 ÷ 12) ^ 还款月数] ÷ { [ (1 + 年化利率÷ 12) ^ 还款月数] - 1}`,
   [PaymentTypeEnum.Linear]: `等额本金：月供 = 贷款本金 ÷ 还款月数 x (1 + 年化利率 ÷ 12 x
     剩余还款期数)`,
@@ -25,16 +37,19 @@ export const paymentTypeDesc: Record<PaymentTypeEnum, string> = {
 export const initialMoneyPriceFormValues = {
   debtMoney: 10000,
   debtTerm: 12,
-  debtRate: 0.24,
+  debtRate: 24,
   debtCount: 11347.15,
   debtCountMonthly: 945.6,
   debtAccuracy: 2,
   debtPaymentType: PaymentTypeEnum.Annuity,
   computeModel: 'debt-list',
+  debtCycleUnit: APRTypeEnum.Month,
+  payCycleUnit: APRTypeEnum.Month,
 }
 
 export const initialRateFormValues = {
-  cashFlowStr: '-1000,250,250,250,250,250',
+  cashFlowStr: '-1000,250',
+  helpCashFlowStr: '1,5',
   rateType: 'term',
   rateAccuracy: 2,
 }

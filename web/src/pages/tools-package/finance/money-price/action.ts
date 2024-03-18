@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Form } from 'antd'
 import {
   getLinearRate,
@@ -11,7 +11,6 @@ import {
   DebtParamsFirst,
   DebtResult,
 } from '@/typings/pages/tools-package/finance/money-price'
-import { initialMoneyPriceFormValues } from '@/configs/router.config/tools-package/finance.config'
 import { calculateIRR } from '@/utils/finance/IRR'
 
 export const useAction = () => {
@@ -24,48 +23,42 @@ export const useAction = () => {
   const debtAccuracy = Form.useWatch('debtAccuracy', form)
 
   const [debtResult, setDebtResult] = useState<DebtResult>({
-    debtMonthArray: [],
+    debtTermArray: [],
     totalInterest: 0,
     debtMoney: 0,
     debtRate: 0,
   })
 
-  const onFinishRaw = (values: any) => {
+  const onFinishRaw = (formValues: any) => {
     let result: DebtResult = {} as DebtResult
-    let { debtRate: rate, computeModel } = values
-    switch (values.debtPaymentType) {
+    let { debtRate: rate, debtPaymentType } = formValues
+
+    switch (debtPaymentType) {
       case PaymentTypeEnum.Annuity: // 等额本息
         if (computeModel === 'rate') {
-          rate = getAnnuityRate({ ...values })
+          rate = getAnnuityRate(formValues)
         }
         result = getMonthlyPayment({
-          ...values,
+          ...formValues,
           debtRate: rate,
         })
         break
       case PaymentTypeEnum.Linear: // 等额本金
       default:
         if (computeModel === 'rate') {
-          rate = getLinearRate(values)
+          rate = getLinearRate(formValues)
         }
         result = getMonthlyPayment({
-          ...values,
+          ...formValues,
           debtRate: rate,
         })
         break
     }
 
-    const debtIrrRate = getIrrRate(result)
-
-    setDebtResult({ ...result, debtIrrRate })
+    setDebtResult({ ...formValues, ...result })
   }
 
   const onFinish = useCallback(onFinishRaw, [])
-
-  // 初始进入页面就更新一次，以便显示出数值
-  useEffect(() => {
-    onFinish(initialMoneyPriceFormValues)
-  }, [onFinish])
 
   return {
     form,
@@ -85,7 +78,7 @@ const getMonthlyPayment = ({
   debtPaymentType,
 }: DebtParamsFirst &
   Record<'debtPaymentType', PaymentTypeEnum>): DebtResult => {
-  let debtMonthArray =
+  let debtTermArray =
     debtPaymentType === PaymentTypeEnum.Linear
       ? getLinearMonthPayArray({
           debtMoney,
@@ -98,22 +91,22 @@ const getMonthlyPayment = ({
           debtTerm,
         })
 
-  const lastMonthItem = debtMonthArray[debtMonthArray.length - 1]
+  const lastMonthItem = debtTermArray[debtTermArray.length - 1]
   const { countPayInterest: totalInterest } = lastMonthItem
 
   return {
     debtMoney, // 借款本金
     debtRate, // 年利率
     totalInterest, // 利息总额
-    debtMonthArray, // 月供账单
+    debtTermArray, // 月供账单
   }
 }
 
 // 获取IRR
 const getIrrRate = (result: DebtResult): number => {
-  const { debtMoney, debtMonthArray } = result
+  const { debtMoney, debtTermArray } = result
   const cashFlows = [-debtMoney].concat(
-    debtMonthArray.map(item => item.monthlyPay)
+    debtTermArray.map(item => item.monthlyPay)
   )
   const irrRate = calculateIRR(cashFlows)
 

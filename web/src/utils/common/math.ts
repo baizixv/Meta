@@ -19,6 +19,8 @@ export const binarySearch = (
       low = mid + precision
     }
     // n++
+    // 观察执行时间
+    // console.log(n)
   }
   return (low + high) / 2
 }

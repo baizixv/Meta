@@ -14,7 +14,7 @@ export const getLinearMonthPay = (
   R: number, // 每期利率
   L: number // 剩余期数
 ): number => {
-  // 每月本金
+  // 每期本金
   const B = A / n
   // 每月利息
   const I = A * (L / n) * R
@@ -42,7 +42,7 @@ export const getLinearRate = ({
         debtCountGuess += getLinearMonthPay(
           debtMoney,
           debtTerm,
-          guess / debtTerm,
+          guess,
           restMonths
         )
       }
@@ -73,7 +73,7 @@ export const getLinearMonthPayArray = ({
   for (let i = 0; i < debtTerm; i++) {
     const restMonths = debtTerm - i
     const monthlyPayInterest =
-      getLinearMonthPay(debtMoney, debtTerm, debtRate / debtTerm, restMonths) -
+      getLinearMonthPay(debtMoney, debtTerm, debtRate, restMonths) -
       monthlyPrincipal
     totalPrincipal += monthlyPrincipal
     totalInterest += monthlyPayInterest
@@ -97,12 +97,11 @@ export const getLinearMonthPayArray = ({
 
     resultArray.push(item)
   }
-  const debtMonthArray: DebtMonthlyParams[] = resultArray.map(ele => {
+  const debtTermArray: DebtMonthlyParams[] = resultArray.map(ele => {
     return {
       ...ele,
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
-
-  return debtMonthArray
+  return debtTermArray
 }

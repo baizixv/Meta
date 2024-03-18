@@ -1,8 +1,10 @@
 let isNeedDevModelQuick = false
 
 try {
-  // 处理配置模块文件可能不存在的情况，不影响正常业务逻辑，会取默认配置
-  const fileModule = require('../../config.local.ts')
+  // 处理配置模块文件可能不存在的情况，不影响正常业务逻辑，文件不存在会取默认配置
+  const fileModule1 = require('../../config.ts')
+  const fileModule2 = require('../../config.local.ts')
+  const fileModule = { ...fileModule1, ...fileModule2 }
   isNeedDevModelQuick = fileModule.isNeedDevModelQuick || false
 } catch (error) {
   console.log(error)

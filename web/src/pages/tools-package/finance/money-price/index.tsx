@@ -18,14 +18,9 @@ const MoneyPrice: React.FC = () => {
     debtResult,
     onFinish,
   } = useAction()
-  const { debtMoney, debtRate, debtIrrRate, debtMonthArray, totalInterest } =
-    debtResult
+ 
   return (
     <Row style={rowWrapStyle}>
-      <BlockquoteComp
-        className="meta-blockquote-money-price"
-        blockquoteDesc={paymentTypeDesc[debtPaymentType]}
-      />
       {/* 收集数据 */}
       <Divider orientation="center" orientationMargin={0}>
         <MoneyCollectOutlined /> - 输入参数
@@ -36,18 +31,15 @@ const MoneyPrice: React.FC = () => {
         formInstance={form}
         onFinish={onFinish}
       />
+      <BlockquoteComp
+        className="meta-blockquote-money-price"
+        blockquoteDesc={paymentTypeDesc[debtPaymentType]}
+      />
       {/* 显示结果 */}
       <Divider orientation="center" orientationMargin={0}>
         <ProjectOutlined /> - 计算结果
       </Divider>
-      <DebtTable
-        debtMoney={debtMoney}
-        debtRate={debtRate}
-        debtIrrRate={debtIrrRate}
-        totalInterest={totalInterest}
-        debtAccuracy={debtAccuracy ?? 2}
-        datas={debtMonthArray}
-      />
+      <DebtTable debtResult={debtResult} debtAccuracy={debtAccuracy ?? 2} />
     </Row>
   )
 }

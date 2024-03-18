@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+import Decimal from 'decimal.js'
 import {
   DebtMonthlyParams,
   DebtParamsFirst,
@@ -16,9 +16,9 @@ export const getAnnuityMonthPay = (
 ): number => {
   // 防止金融计算，中间结果溢出，使用大数计算
   // 等额本息辅助计算公式
-  const BigA = new BigNumber(A)
-  const BigN = new BigNumber(n)
-  const BigR = new BigNumber(R)
+  const BigA = new Decimal(A)
+  const BigN = new Decimal(n)
+  const BigR = new Decimal(R)
 
   const C = BigR.plus(1).pow(BigN)
 
@@ -26,7 +26,7 @@ export const getAnnuityMonthPay = (
   const T = C.dividedBy(C.minus(1))
 
   // 每期还款总额
-  const Q = BigA.times(BigR).times(T) 
+  const Q = BigA.times(BigR).times(T)
 
   const QNumber = +Q.toString()
   return QNumber
@@ -45,11 +45,7 @@ export const getAnnuityRate = ({
       precision: 1e-6,
     },
     (guess: number) => {
-      const monthlyPayGuess = getAnnuityMonthPay(
-        debtMoney,
-        debtTerm,
-        guess / debtTerm
-      )
+      const monthlyPayGuess = getAnnuityMonthPay(debtMoney, debtTerm, guess)
       const monthlyPayReal = debtCount / debtTerm
       // 近似利率下，猜测的月供高于实际，本金计算剩余，说明近似比实际大了,调低高位
       // 近似利率下，猜测的月供小于实际，本金计算负值，说明近似比实际小了，调高低位
@@ -69,7 +65,7 @@ export const getAnnuityMonthPayArray = ({
   debtTerm,
 }: DebtParamsFirst): DebtMonthlyParams[] => {
   // 每期利率
-  const R = debtRate / debtTerm
+  const R = debtRate
   // 每期偿还总额
   const monthMoney = getAnnuityMonthPay(debtMoney, debtTerm, R)
 
@@ -87,7 +83,6 @@ export const getAnnuityMonthPayArray = ({
     const currPrincipal = monthMoney - currInterest
     // 更新剩余本金和
     totalRest -= currPrincipal
-
     totalPrincipal += currPrincipal
     totalInterest += currInterest
 
@@ -111,11 +106,11 @@ export const getAnnuityMonthPayArray = ({
     resultArray.push(item)
   }
 
-  const debtMonthArray: DebtMonthlyParams[] = resultArray.map(ele => {
+  const debtTermArray: DebtMonthlyParams[] = resultArray.map(ele => {
     return {
       ...ele,
       restPayInterest: totalInterest - ele.countPayInterest,
     }
   })
-  return debtMonthArray
+  return debtTermArray
 }
