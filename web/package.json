@@ -2,7 +2,7 @@
   "name": "web",
   "version": "0.1.4",
   "private": true,
-  "homepage": "https://baizixv.github.io/Meta/",
+  "homepage": "https://baizixv.github.io",
   "dependencies": {
     "@babel/runtime": "^7.21.5",
     "@testing-library/jest-dom": "^5.16.5",
