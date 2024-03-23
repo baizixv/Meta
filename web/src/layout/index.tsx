@@ -1,6 +1,7 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import { useWebTitle } from '@/utils/hooks/common'
 import Header from './header'
-import Footer from './footer'
 import './style.css'
 
 const Layout = (props: any) => {
@@ -17,5 +18,13 @@ const Layout = (props: any) => {
     </div>
   )
 }
+const App = () => {
+  useWebTitle()
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  )
+}
 
-export default Layout
+export default App

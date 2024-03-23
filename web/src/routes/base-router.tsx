@@ -1,16 +1,16 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
-import App from '../pages'
+import App from '@/layout'
 import Home from '@/pages/home'
 import Devtools from '@/pages/devtools'
 import Webtools, { WebToolsHomePage } from '@/pages/webtools'
 import JSONFormat from '@/pages/webtools/json-format'
 import QRCodeCard from '@/pages/webtools/qr-code'
 import ToolsPackage, { ToolsPackageHomePage } from '@/pages/tools-package'
-import MoneyPrice from '@/pages/tools-package/finance/money-price'
-import RateFinance from '@/pages/tools-package/finance/rate'
-import CommontoolsFinance from '@/pages/tools-package/finance/common-tools'
-import TimeValue from '@/pages/tools-package/finance/time-value'
+import MoneyPrice from '@/features/finance/money-price'
+import RateFinance from '@/features/finance/rate'
+import CommontoolsFinance from '@/features/finance/common-tools'
+import TimeValue from '@/features/finance/time-value'
 
 const routesConfigs = [
   {

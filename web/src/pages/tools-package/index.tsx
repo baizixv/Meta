@@ -2,9 +2,9 @@ import React from 'react'
 import Breadcrumb from '@/components/breadcrumb'
 import { Outlet } from 'react-router-dom'
 import { pathNameMap } from '@/configs/router.config/common.config'
-import FinanceListPage from './finance'
-import RegexpListPage from './regexp'
-import MathToolsListPage from './math-tools'
+import FinanceListPage from '../../features/finance'
+import RegexpListPage from '../../features/regexp'
+import MathToolsListPage from '../../features/math-tools'
 import './style.css'
 
 // 模块整体架构
