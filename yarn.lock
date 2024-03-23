@@ -13473,7 +13473,6 @@ web-vitals@^2.1.4:
     "@testing-library/react" "^13.4.0"
     "@testing-library/user-event" "^13.5.0"
     antd "^5.5.2"
-    caniuse-lite "^1.0.30001599"
     crypto-js "^4.1.1"
     decimal.js "^10.4.3"
     highlight.js "^11.8.0"
