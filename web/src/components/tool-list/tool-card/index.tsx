@@ -7,11 +7,11 @@ import useAction from './action'
 const { Title, Text, Paragraph } = Typography
 
 const ToolCard: React.FC<ToolCardProps> = props => {
-  const { name, description, iconSrc, path, disable } = props
-  const { href, onClick } = useAction(path, disable)
+  const { name, description, iconSrc, path, enable } = props
+  const { href, onClick } = useAction(path, enable)
   return (
     <Card
-      title={<ToolNameAvatar name={name} iconSrc={iconSrc} disable={disable} />}
+      title={<ToolNameAvatar name={name} iconSrc={iconSrc} enable={enable} />}
       extra={'进入'}
       bordered={false}
       style={contentStyle}
@@ -44,9 +44,9 @@ const ToolCard: React.FC<ToolCardProps> = props => {
 const ToolNameAvatar = (props: {
   name: string
   iconSrc?: string
-  disable?: boolean
+  enable?: boolean
 }) => {
-  const { name, iconSrc, disable } = props
+  const { name, iconSrc, enable } = props
   return (
     <Space>
       {!!iconSrc && (
@@ -58,8 +58,8 @@ const ToolNameAvatar = (props: {
       )}
       <Paragraph>
         <Title level={5}>{name}</Title>
-        <Text type="success" style={{ color: disable ? 'red' : 'cadetblue' }}>
-          {disable ? '服务不可用' : '服务正常'}
+        <Text type="success" style={{ color: enable ? 'cadetblue' : 'red' }}>
+          {enable ? '服务正常' : '服务不可用'}
         </Text>
       </Paragraph>
     </Space>

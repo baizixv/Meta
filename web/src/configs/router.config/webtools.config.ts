@@ -8,6 +8,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     path: '/webtools/qrcode',
     description: '在线生成二维码，支持各种配置',
     needShowHome: true,
+    enable: true,
   },
   {
     key: 'json-format',
@@ -16,6 +17,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     path: '/webtools/json_format',
     description: 'JSON解析和格式化',
     needShowHome: true,
+    enable: true,
   },
   {
     key: 'bilibili',
@@ -23,7 +25,7 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     iconSrc: 'icon_bilibili.jpg',
     path: '/webtools/bilibili',
     description: '解析哔哩哔哩视频链接，获取下载地址',
-    disable: true,
+    // enable: true,
   },
   {
     key: 'douyin',
@@ -31,6 +33,6 @@ export const webtoolsListConfigs: ToolCardConfig[] = [
     iconSrc: 'icon_douyin.jpeg',
     path: '/webtools/douyin',
     description: '解析抖音视频链接，获取去水印的下载地址',
-    disable: true,
+    // enable: true,
   },
 ]

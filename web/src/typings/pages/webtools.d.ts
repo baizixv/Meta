@@ -6,6 +6,7 @@ export interface ToolCardConfig {
   iconSrc?: string
   disable?: boolean
   needShowHome?: boolean
+  enable?: boolean
 }
 
 export interface ToolCardProps extends ToolCardConfig {}
