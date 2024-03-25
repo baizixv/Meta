@@ -19,7 +19,7 @@ const DebtForm: React.FC<{
   computeModel: string
   debtAccuracy: number
   onFinish: (values: any) => void
-}> = ({ formInstance, onFinish, computeModel, debtAccuracy }) => {
+}> = ({ formInstance, computeModel, debtAccuracy, onFinish }) => {
   const {
     isEdit,
     onValuesChange,
@@ -58,7 +58,7 @@ const DebtForm: React.FC<{
           onClickAfter,
         }}
       />
-      <Button type="primary" htmlType="submit" style={submitButtonStyle}>
+      <Button style={submitButtonStyle} type="primary" htmlType="submit">
         开始计算
       </Button>
     </Form>

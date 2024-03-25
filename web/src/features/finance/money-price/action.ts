@@ -34,6 +34,15 @@ export const useAction = () => {
     let { debtRate: rate, debtPaymentType } = formValues
 
     switch (debtPaymentType) {
+      case PaymentTypeEnum.InterestOnly: // 先息后本
+        if (computeModel === 'rate') {
+          rate = getAnnuityRate(formValues)
+        }
+        result = getMonthlyPayment({
+          ...formValues,
+          debtRate: rate,
+        })
+        break
       case PaymentTypeEnum.Annuity: // 等额本息
         if (computeModel === 'rate') {
           rate = getAnnuityRate(formValues)

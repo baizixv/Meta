@@ -62,6 +62,11 @@ export const useAction = (formInstance: any, onFinish: Function) => {
 
   const onSubmit = (values: any) => {
     const formValues = formatValues(values, debtRatio)
+    console.log(
+      '%c Line:65 🍊 formValues',
+      'font-size:18px;color:#6ec1c2;background:#33a5ff',
+      formValues
+    )
     onFinish(formValues)
   }
 
